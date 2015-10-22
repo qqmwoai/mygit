@@ -1,0 +1,186 @@
+{template 'common/header'}
+<ul class="nav nav-tabs">
+	<li><a href="{php echo $this->createWebUrl('pro', array('op'=>'display'));}">项目列表</a></li>
+	<li {if empty($id)}class="active"{/if}><a href="{php echo $this->createWebUrl('pro', array('op'=>'edit'));}">添加项目</a></li>
+	{if !empty($id)}
+	<li class="active"><a href="{php echo $this->createWebUrl('pro', array('op'=>'edit', 'id'=>$id));}">编辑项目</a></li>
+	{/if}
+</ul>
+<div class="main">
+	<form action="" method="post" class="form-horizontal form" id="form">
+		<div class="panel panel-default">
+			<div class="panel-heading">编辑项目</div>
+			<div class="panel-body">
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 col-lg-2 control-label">项目名称</label>
+					<div class="col-xs-12 col-sm-8">
+						<input type="text" name="pro[name]" class="form-control" value="{$pro['name']}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">标题</label>
+					<div class="col-sm-9 col-xs-12">
+						<input type="text" name="pro[title]" class="form-control" value="{$pro['title']}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 col-lg-2 control-label">首页图片</label>
+					<div class="col-xs-12 col-sm-8">
+						{php echo tpl_form_field_image('pro[thumb]', $pro['thumb']);}
+						<span class="help-block">（建议：图片宽度640像素，高度440像素，RGB，72分辨率）</span>
+					</div>
+				</div>
+				<div class="form-group">
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label">子封面</label>
+                        <div class="col-sm-9">
+                           {php echo tpl_form_field_image('pro[thumb1]', $pro['thumb1']);}
+                           <span class="help-block">（建议：图片宽度640像素，高度300像素，RGB，72分辨率）</span>
+                        </div>
+                    </div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">活动详情</label>
+					<div class="col-sm-9 col-xs-12">
+						<textarea name="pro[detail]" class="form-control" cols="70" rows="5">{$pro['detail']}</textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 col-lg-2 control-label">默认</label>
+					<div class="col-xs-12 col-sm-8">
+						<label class="radio radio-inline">
+							<input type="radio" name="pro[status]" value="1" {if intval($pro['status']) == 1}checked="checked"{/if}> 默认
+						</label>
+						<label class="radio radio-inline">
+							<input type="radio" name="pro[status]" value="0" {if intval($pro['status']) == 0 }checked="checked"{/if}> 非默认
+						</label>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">开启时间</label>
+					<div class="col-sm-9 col-xs-12">
+							{php echo tpl_form_field_daterange('datelimit', array('starttime'=>date('Y-m-d H:i',$pro['starttime']),'endtime'=>date('Y-m-d H:i',$pro['endtime'])),true)}
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">版权</label>
+					<div class="col-sm-9 col-xs-12">
+						<input type="text" name="pro[copyright]" class="form-control" value="{$pro['copyright']}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">预约主题</label>
+					<div class="col-sm-9 col-xs-12">
+						<input type="text" name="pro[yuyue_name]" class="form-control" value="{$pro['yuyue_name']}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">预约礼品</label>
+					<div class="col-sm-9 col-xs-12">
+						<input type="text" name="pro[yuyue_li]" class="form-control" value="{$pro['yuyue_li']}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">预付礼品</label>
+					<div class="col-sm-9 col-xs-12">
+						<input type="text" name="pro[yufu_li]" class="form-control" value="{$pro['yufu_li']}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">预约价格</label>
+					<div class="col-sm-9 col-xs-12">
+						<div class="input-group form-group">
+							<input type="text" name="pro[yuyue_price]" class="form-control" value="{$pro['yuyue_price']}" />
+							<span class="input-group-addon">元</span>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">预约详情</label>
+					<div class="col-sm-9 col-xs-12">
+						<textarea name="pro[yuyue_detail]" class="form-control richtext" cols="70">{$pro['yuyue_detail']}</textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">广告图片</label>
+					<div class="col-sm-9 col-xs-12">
+						{php echo tpl_form_field_image('pro[adv_thumb]', $pro['adv_thumb']);}
+						<span class="help-block">（建议：图片宽度640像素，高度300像素，RGB，72分辨率）</span>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">优惠券面额</label>
+					<div class="col-sm-9 col-xs-12">
+						<div class="input-group form-group">
+							<input type="text" name="pro[youhui_price]" class="form-control" value="{$pro['youhui_price']}" />
+							<span class="input-group-addon">元</span>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">优惠券名称</label>
+					<div class="col-sm-9 col-xs-12">
+						<input type="text" name="pro[youhui_name]" class="form-control" value="{$pro['youhui_name']}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">优惠券下载量</label>
+					<div class="col-sm-9 col-xs-12">
+						<div class="input-group form-group">
+							<input type="text" name="pro[youhui_num]" class="form-control" value="{$pro['youhui_num']}" />
+							<span class="input-group-addon">次</span>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">优惠券简介</label>
+					<div class="col-sm-9 col-xs-12">
+						<textarea name="pro[youhui_detail]" class="form-control" cols="150" rows="5">{$pro['youhui_detail']}</textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-xs-12 col-sm-9 col-md-10 col-lg-10 col-sm-offset-3 col-md-offset-2 col-lg-offset-2">
+						<input type="hidden" name="id" value="{$pro['id']}" />
+						<input name="submit" type="submit" value="提交" class="btn btn-primary" />
+						<input type="hidden" name="token" value="{$_W['token']}" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+<script>
+require(['jquery', 'util'], function($, util){
+	$(function(){
+		$('#form').submit(function(){
+			if($('input[name="pro[name]"]').val() == ''){
+				util.message('请填写商品名称.');
+				return false;
+			}
+			if($('input[name="pro[starttime]"]').val() == ''){
+				util.message('请选择上架时间.');
+				return false;
+			}
+			if($('input[name="pro[endtime]"]').val() == ''){
+				util.message('请选择上架时间.');
+				return false;
+			}
+			if($('input[name="pro[thumb]"]').val() == ''){
+				util.message('请上传拍品图片.');
+				return false;
+			}
+			if($('input[name="pro[detail]"]').val() == ''){
+				util.message('请填写项目简介.');
+				return false;
+			}
+			return true;
+		});
+	});
+});
+require(['jquery', 'util'], function($, u){
+	$(function(){
+		u.editor($('.richtext')[0]);
+	});
+});
+</script>
+{template 'common/footer'}

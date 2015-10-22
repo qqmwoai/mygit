@@ -1,0 +1,79 @@
+{template 'common/header'}
+{template 'nav'}
+<div class="main">
+	<form action="" method="post" class="form-horizontal form" id="form">
+		<div class="panel panel-default">
+			<div class="panel-heading">编辑新娘</div>
+			<div class="panel-body">
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 col-lg-2 control-label">新郎名</label>
+					<div class="col-xs-12 col-sm-8">
+						<input type="text" name="bride[MR_name]" class="form-control" value="{$bride['MR_name']}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 col-lg-2 control-label">新娘名</label>
+					<div class="col-xs-12 col-sm-8">
+						<input type="text" name="bride[MS_name]" class="form-control" value="{$bride['MS_name']}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 col-lg-2 control-label">首页图片</label>
+					<div class="col-xs-12 col-sm-8">
+						{php echo tpl_form_field_image('bride[thumb]', $bride['thumb']);}
+						<span class="help-block">（建议：图片宽度640像素，高度500像素，RGB，72分辨率）</span>
+					</div>
+				</div>
+				<div class="form-group">
+                      <label class="col-xs-12 col-sm-3 col-md-2 control-label">图集</label>
+                      <div class="col-sm-9">
+                          {php echo tpl_form_field_multi_image('img',$piclist);}
+                          <span class="help-block">（建议：图片宽度640像素，高度不限制，RGB，72分辨率）</span>
+                      </div>
+                </div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">想说的话</label>
+					<div class="col-sm-9 col-xs-12">
+						<textarea name="bride[detail]" class="form-control richtext" cols="70">{$bride['detail']}</textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-xs-12 col-sm-9 col-md-10 col-lg-10 col-sm-offset-3 col-md-offset-2 col-lg-offset-2">
+						<input type="hidden" name="id" value="{$bride['id']}" />
+						<input type="hidden" name="bride[pro_id]" value="{$_SESSION['pro_id']}" />
+						<input name="submit" type="submit" value="提交" class="btn btn-primary" />
+						<input type="hidden" name="token" value="{$_W['token']}" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+<script>
+require(['jquery', 'util'], function($, util){
+	$(function(){
+		$('#form').submit(function(){
+			if($('input[name="bride[MR_name]"]').val() == ''){
+				util.message('请填写新郎名称.');
+				return false;
+			}
+			if($('input[name="bride[MS_name]"]').val() == ''){
+				util.message('请填写新娘名称.');
+				return false;
+			}
+			
+			if($('input[name="bride[thumb]"]').val() == ''){
+				util.message('请上传拍品图片.');
+				return false;
+			}
+			if($('input[name="bride[detail]"]').val() == ''){
+				util.message('请填写简介.');
+				return false;
+			}
+			return true;
+		});
+	});
+});
+</script>
+{template 'common/footer'}

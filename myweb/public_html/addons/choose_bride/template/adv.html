@@ -1,0 +1,60 @@
+{template 'common/header'}
+<!--<ul class="nav nav-tabs">
+	<li class="active"><a href="{php echo $this->createWebUrl('adv', array('op'=>'display'));}">广告列表</a>
+	</li>
+	<li><a href="{php echo $this->createWebUrl('adv', array('op'=>'edit'));}">添加广告</a>
+	</li>
+</ul>-->
+{template 'nav'}
+<div class="panel panel-default">
+	<div class="panel-heading">广告列表</div>
+	<div class="panel-body">
+		<div class="table-responsive panel-body">
+			<table class="table table-hover" style="min-width: 300px;">
+				<thead class="navbar-inner">
+					<tr>
+						<th class="col-sm-1">上架项目ID</th>
+						<th class="col-sm-2">广告名</th>
+						<th class="col-sm-2">首页图</th>
+						<th class="col-sm-1">广告详情</th>
+						<th class="col-sm-1">套餐详情</th>
+						<th class="col-sm-2">广告价格</th>
+						<th class="col-sm-1">编辑</th>
+						<th class="col-sm-1 text-right">删除</th>
+					</tr>
+				</thead>
+				<tbody>
+					{loop $advs  $adv}
+					<tr>
+						<td>{$adv['id']}</td>
+						<td>{$adv['name']}</td>
+						<td>
+							<image src="{php echo tomedia($adv['thumb']);}" style="max-width: 48px; max-height: 48px; border: 1px dotted gray">
+						</td>
+						<td>{$adv['detail']}</td>
+						<td>{$adv['taocan']}</td>
+						<td>{$adv['price']}</td>
+						<td><a href="{php echo $this->createWebUrl('adv', array('op'=>'edit', 'id'=>$adv['id']));}" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+						</td>
+						<td class="text-right">
+							<a href="{php echo $this->createWebUrl('adv',array('op'=>'delete','id'=>$adv['id']));}" onclick="return confirm('此操作不可恢复，确认删除？');return false;" class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="删除"><i class="fa fa-times"></i>
+							</a>
+						</td>
+					</tr>
+					{/loop}
+					{if empty($advs)}		
+					<tr>
+						<td colspan="8">
+							尚未添加广告
+						</td>
+					</tr>
+					{/if}
+				</tbody>
+			</table>
+			{$pager}
+		</div>
+	</div>
+</div>
+</div>
+
+{template 'common/footer'}

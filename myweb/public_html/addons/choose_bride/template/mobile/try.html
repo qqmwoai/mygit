@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-cn" manifest="cache.appcache">
+	<head>
+		<meta charset="utf-8">
+		<title>{$pro['yuyue_name']}</title>
+		<meta name="description" content="">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="telephone=no" name="format-detection">
+		<meta name="viewport">
+		<link rel="stylesheet" href="../addons/choose_bride/template/css/theme_51.css" type="text/css">
+		<link rel="stylesheet" href="../addons/choose_bride/template/css/theme_color_lm.css" type="text/css">
+		<link href="../addons/choose_bride/template/css/slider.css" rel="stylesheet">
+		<link href="../addons/choose_bride/template/css/slider.default.css" rel="stylesheet">
+		<script src="../addons/choose_bride/template/js/jquery.js"></script>
+		<script src="../addons/choose_bride/template/js/main.js"></script>
+		<script src="../addons/choose_bride/template/js/app.v2.js"></script>
+		<script>
+			adaptUILayout.adapt(320)
+		</script>
+	</head>
+	<body>
+		<article>
+
+			<div id="slider">
+				<figure class="s1">
+					<img src="{$_W['attachurl']}{$pro['thumb1']}" alt="">
+				</figure>
+			</div>
+
+			<section class="n1">
+				<div class="jiage">
+					<div class="jiage"><span><img src="../addons/choose_bride/template/image/rmb.png" class="i" width="13">{$pro['yuyue_price']}</span>《{$pro['yuyue_name']}》</div>
+				</div>
+
+				<div class="jianjie" style="padding-top:0">
+					<p>
+						<p>在线预付更便捷，更优惠！</p>
+					</p>
+					<div class="line-dashed"></div>
+					<h2 class="h2" style="font-size:16px;font-weight:100">微信专享</h2>
+
+					<table style="font-size:14px;">
+						<tr class="yuyue">
+							<td>
+								<img src="../addons/choose_bride/template/image/c-1.png" width="14" class="i">
+							</td>
+							<td>{$pro['yuyue_li']}</td>
+							<td><a href="{php echo $this->createMobileUrl('confirm');}">预约</a>
+							</td>
+						</tr>
+						<!-- 预订价或全款 -->
+						<tr class="xiadan">
+							<td>
+								<img src="../addons/choose_bride/template/image/c-2.png" width="14" class="i">
+							</td>
+							<td>{$pro['yufu_li']}</td>
+							<td><a href="{php echo $this->createMobileUrl('confirm',array('type'=>'yufu'));}">预付</a>
+							</td>
+						</tr>
+						<!-- 更多预订价 -->
+					</table>
+					<!-- <div class="line-dashed"></div> -->
+					<div class="caozuo" style="margin-top: 10px;">
+						<a href="javascript:void(0)" onclick="favorite('13', 0, 'nblomo')">
+							<img src="../addons/choose_bride/template/image/fav-btn.png" width="11" class="i">收藏</a>
+						<a href="" class="share">
+							<img src="../addons/choose_bride/template/image/share-btn.png" width="14" class="i">分享</a>
+					</div>
+				</div>
+				<h2 class="h2"><img src="../addons/choose_bride/template/image/h-i-1.png" width="10">套系详情</h2>
+				<div class="xiangxi">
+					<blockquote>
+						<p>
+							{$pro['yuyue_detail']}
+						</p>
+					</blockquote>
+				</div>
+				<h2 class="h2"><img src="../addons/choose_bride/template/image/h-i-1.png" width="10">Love is colorful</h2>
+			<div style="padding:10px 0 0 0;text-align:center">
+				<a href="#">
+					<img src="{$_W['attachurl']}{$pro['adv_thumb']}" width="284" height="100">
+				</a>
+			</div>
+				<div style="padding:8px;text-align:center;color:#AAAAAA;font-size:14px;"><a href='#'>{$pro['copyright']}</a></div>
+			</section>
+		</article>
+		<div id="mcover">
+			<img src="../addons/choose_bride/template/image/guide.png">
+		</div>
+		<script src="../addons/choose_bride/template/js/zepto.min.js"></script>
+		<script src="../addons/choose_bride/template/js/touch.js"></script>
+		<script src="../addons/choose_bride/template/js/matchMedia.js"></script>
+		<script src="../addons/choose_bride/template/js/event.ortchange.js"></script>
+		<script src="../addons/choose_bride/template/js/parseTpl.js"></script>
+		<script src="../addons/choose_bride/template/js/gmu.js"></script>
+		<script src="../addons/choose_bride/template/js/event.js"></script>
+		<script src="../addons/choose_bride/template/js/widget.js"></script>
+		<script src="../addons/choose_bride/template/js/slider.js"></script>
+		<script src="../addons/choose_bride/template/js/dots.js"></script>
+		<script src="../addons/choose_bride/template/js/$touch.js"></script>
+		<script src="../addons/choose_bride/template/js/$autoplay.js"></script>
+		<script>
+			Zepto('#slider').slider({
+				loop: true
+			})
+		</script>
+	</body>
+</html>

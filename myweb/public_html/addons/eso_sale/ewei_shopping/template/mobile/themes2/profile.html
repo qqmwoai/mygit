@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, maximum-scale=1.0">
+<title>个人中心</title>
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<link href="../addons/ewei_shopping/images2/comm.css?{TIMESTAMP}" rel="stylesheet" type="text/css">
+<link href="../addons/ewei_shopping/images2/member.css?{TIMESTAMP}" rel="stylesheet" type="text/css">
+<link type="text/css" rel="stylesheet" href="../addons/ewei_shopping/images2/style.css?{TIMESTAMP}">
+<link href="../app/resource/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body style="zoom: 1;">
+    <div class="head">
+        <a href="javascript:history.back();" class="bn pull-left"><i class="fa fa-angle-left"></i></a>
+        <span class="title">个人中心</span>
+    </div>
+    <div class="wrapper" style="background: #f2f2f2;">
+        <div class="m_myInfo" style="background: #FFFFFF;">
+            <dl>
+                <dt class="gray6" style="background-color: #FFFFFF;">
+                    <img src="<?php  if(!empty($profile['avatar'])) { ?><?php  echo $profile['avatar'];?><?php  } else { ?>../addons/ewei_shopping/images/avatar.jpg<?php  } ?>">
+                    <p><?php  if($profile['nickname']) { ?><?php  echo $profile['nickname'];?><?php  } else { ?>请设置您的昵称<?php  } ?><em class="gray9"></em><cite class="gray9">
+                    <span class="z-class-icon01"><s></s><?php  if(!empty($_W['fans']['card'])) { ?><span style="color:#ff0000">商户<?php  if($_W['fans']['card'] > 1) { ?>Lv.<?php  echo $_W['fans']['card'];?><?php  } ?></span><?php  } else { ?>普通用户<?php  } ?></span></cite></p>
+                </dt>
+                <dd>
+                    <b>可用积分<em class="orange">{$profile['credit1']}</em></b>
+                    <b>可用余额<em class="orange"><i>￥</i>{$profile['credit2']}</em></b>
+                    <a href="{php echo $this->createMobileUrl('address',array('from'=>'confirm'))}" class="orangeBtn">添加地址</a>
+                </dd>
+            </dl>
+        </div>
+        <div class="sub_nav marginB" style="margin-top: 10px; background: #FFFFFF;">
+            <a href="{php echo $this->createMobileUrl('myorder')}"><s class="m_s1"></s>我的订单<i></i></a>
+            <a href="{php echo $this->createMobileUrl('address',array('from'=>'confirm'))}"><s class="m_s5"></s>收货地址<i></i></a>
+            <a href="{php echo $this->createMobileUrl('contactus')}"><s class="m_s6"></s>品牌介绍<i></i></a>
+        </div>
+    </div>
+<div class="footer" style="bottom: 0px;">
+    <ul>
+        <li class="f_home"><a href="{php echo $this->createMobileUrl('list')}" title="商城首页"><i></i>商城首页</a></li>
+        <li class="f_whole"><a href="{php echo $this->createMobileUrl('list2')}" title="所有商品"><i></i>所有商品</a></li>
+        <li class="f_car"><a href="{php echo $this->createMobileUrl('mycart')}" title="购物车"><i>{if !empty($carttotal)}<b>{$carttotal}</b>{/if}</i>购物车</a></li>
+        <li class="f_personal"><a href="{php echo $this->createMobileUrl('profile')}" class="hover" title="个人中心"><i></i>个人中心</a></li>
+    </ul>
+</div>
+</body>
+</html>

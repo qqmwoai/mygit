@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)http://wx.yidianyimy.com/index.php?g=bcj&m=Fuwu -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>美容</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="keywords" content="百彩嘉">
+<meta name="description" content="百彩嘉">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="../addons/beauty/template/css/com.css" type="text/css">
+<link rel="stylesheet" href="../addons/beauty/template/css/m.css" type="text/css">
+<link rel="stylesheet" href="../addons/beauty/template/css/m_size.css">
+<link rel="stylesheet" href="../addons/beauty/template/css/font-awesome-4.3.0/css/font-awesome.min.css">
+	<!-- 本页中css样式 -->
+<link rel="stylesheet" href="../addons/beauty/template/css/xm.css" type="text/css">
+	<style>
+		#nav i,.ui-toolbar-button,.ui-toolbar-title,.sch .btn,.hd_btn a,.haoshi .btn,.arr,.ui-icon,.ds_icon,.o_cp .btn,.cp .btn,
+		.fav_i,#fav_c,.zan_i,.adress_i,.ui-state-active .ui-icon-radio,.ok_ico,.d_btn,.ok2 i,.use_i i,.edit_i i,.del_i i,.em_sea i,
+		.tel,.indent i,.ui-state-active .ui-icon-checkbox{background:url(../addons/beauty/template/image/icon.png) 0 0 no-repeat;-webkit-background-size:90px 648px;background-size:90px 648px;}
+	.tabf .ui-state-active a{color: #F46464}
+	.ui-tabs-nav .ui-state-active{border-bottom:3px solid #F46464}
+	</style>
+</head>
+<!--<body> <div id="toolbar" class="ui-toolbar" isfixed="true" style="top: 0px; position: fixed;">
+<div class="ui-toolbar-wrap"><div class="ui-toolbar-left"><a href="http://wx.yidianyimy.com/index.php?g=bcj&m=Meirongshi&a=meirongshi" style="display:block" class="ui-toolbar-button"></a></div><h2 class="ui-toolbar-title">百彩嘉</h2><div class="ui-toolbar-right"><div class="sch ui-toolbar-button">
+			<form action="http://wx.yidianyimy.com/index.php?g=bcj&m=Search&a=search" method="post" onsubmit="return check()">
+				<input type="text" class="i_text" placeholder="" name="word" id="name">
+				<input type="submit" value="" class="btn">
+			<input type="hidden" name="__hash__" value="0c072cee6e324f96b3a8c7ca8cf8dee2_7ee4602a86fe1c267cd3b8fb55785fa8">
+			</form>		
+		</div></div></div></div>-->
+
+	<section class="lvbd" style="margin-top:0px">
+    	<div id="j">
+		<div id="slider" class="ui-slider" style="width: 100%; overflow: hidden; position: relative; -webkit-user-select: none; -webkit-touch-callout:none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+
+		<div class="ui-slider-group" style="overflow: hidden; position: relative; white-space:nowrap;-webkit-transform: translateZ(0);">
+			{loop $advs $adv}
+			<div class="ui-slider-item" data-index="0" style="background-color: #e3e3e3; text-align: center; position: relative; float:left; overflow: hidden; -webkit-box-sizing:border-box;">
+				<a href="http://wx.yidianyimy.com/index.php?g=bcj&m=Hezuo&a=qy_list">
+					<img src="{php echo tomedia($adv['thumb'])}"></a>				
+			</div>
+			{/loop}
+			<!--<div class="ui-slider-item" data-index="1" style=" left: -1349px; -webkit-transition-duration: 400ms; transition-duration: 400ms; -webkit-transform: translate(1349px, 0px) translateZ(0px);">
+				<a href="http://wx.yidianyimy.com/index.php?g=bcj&m=Hezuo&a=tg">
+					<img src="../addons/beauty/template/image/fl.jpg"></a>				
+			</div>-->
+		</div><p class="ui-slider-dots"><b class="ui-state-active"></b><b class=""></b></p></div>
+        </div>
+        <div id="tabs1" class="cpnav ui-tabs">
+            <ul class="tabf ul_h ui-tabs-nav">
+                <li class="ui-state-active" style="-webkit-tap-highlight-color: rgba(255, 255, 255, 0);"><a href="javascript:;"><p id="face">面护系列</p></a></li>
+                <li style="-webkit-tap-highlight-color: rgba(255, 255, 255, 0);"><a href="javascript:;"><p id="body">身体项目</p></a></li>
+                <li style="-webkit-tap-highlight-color: rgba(255, 255, 255, 0);"><a href="javascript:;"><p id="yangshen">眼护系列</p></a></li>
+                <li style="-webkit-tap-highlight-color: rgba(255, 255, 255, 0);"><a href="javascript:;"><p id="zuhe">千年瑶浴系列</p></a></li>
+            </ul>
+         
+             <!--//面部-->
+            <div id="conten1" class="ui-refresh ui-tabs-panel ui-state-active">     
+            <ul id="ulid1" class="data-list ul_h xm">
+            	{loop $type_face $goods}
+            	
+              <li class="cp">
+                    <a href="{php echo $this->createMobileUrl('service_detail', array('id'=>$goods['id']));}">
+                    
+                          <img src="../addons/beauty/template/image/  557e368edfa8f.jpg.jpg">
+                            <div class="imgbox"> 
+                            	<img data-url="#" src="{php echo tomedia($goods['gthumb']);}">
+                            </div>
+                            <div class="i_opa"><i></i><h4>{$goods['gname']}</h4></div>
+                            <div class="pre">
+                                    <strong class="red">￥{$goods['price']}</strong>
+                            </div>                  
+                        
+                    </a>
+                </li>
+        		{/loop}
+            </ul>       
+            </div>
+            <!--//面部-->
+            <!--//身体-->
+            <div id="conten2" class="ui-refresh2 ui-refresh ui-tabs-panel" style="display: none;">
+                <ul id="ulid2" class="data-list2 ul_h xm">
+                {loop $type_body $goods}
+              <li class="cp">
+                    <a href="{php echo $this->createMobileUrl('service_detail', array('id'=>$goods['id']));}" class="xml">
+                    
+                          <img src="../addons/beauty/template/image/  557e368edfa8f.jpg.jpg">
+                            <div class="imgbox"> 
+                            	<img data-url="#" src="{php echo tomedia($goods['gthumb']);}">
+                            </div>
+                            <div class="i_opa"><i></i><h4>{$goods['gname']}</h4></div>
+                            <div class="pre">
+                                    <strong class="red">￥{$goods['price']}</strong>
+                            </div>                  
+                        
+                    </a>
+                </li>
+        		{/loop}
+                </ul>   
+            </div>
+            <!--//身体-->
+            <!--//养生-->
+            <div id="conten3" class="ui-refresh3 ui-refresh ui-tabs-panel" style="display: none;">
+                <ul id="ulid3" class="data-list3 ul_h xm">
+                {loop $type_yangshen $goods}
+              <li class="cp">
+                    <a href="{php echo $this->createMobileUrl('service_detail', array('id'=>$goods['id']));}" class="xml">
+                    
+                          <img src="../addons/beauty/template/image/  557e368edfa8f.jpg.jpg">
+                            <div class="imgbox"> 
+                            	<img data-url="#" src="{php echo tomedia($goods['gthumb']);}">
+                            </div>
+                            <div class="i_opa"><i></i><h4>{$goods['gname']}</h4></div>
+                            <div class="pre">
+                                    <strong class="red">￥{$goods['price']}</strong>
+                            </div>                  
+                        
+                    </a>
+                </li>
+        		{/loop}
+                </ul>   
+            </div>
+             <!--//养生-->
+             <!--//超值组合-->
+            <div id="conten4" class="ui-refresh4 ui-refresh ui-tabs-panel" style="display: none;">
+                <ul id="ulid4" class="data-list4 ul_h xm">
+                {loop $type_zuhe $goods}
+              <li class="cp">
+                    <a href="{php echo $this->createMobileUrl('service_detail', array('id'=>$goods['id']));}" class="xml">
+                    
+                          <img src="../addons/beauty/template/image/  557e368edfa8f.jpg.jpg">
+                            <div class="imgbox"> 
+                            	<img data-url="#" src="{php echo tomedia($goods['gthumb']);}">
+                            </div>
+                            <div class="i_opa"><i></i><h4>{$goods['gname']}</h4></div>
+                            <div class="pre">
+                                    <strong class="red">￥{$goods['price']}</strong>
+                            </div>                  
+                        
+                    </a>
+                </li>
+        		{/loop}
+                </ul>   
+            </div>
+            <!--//超值组合-->
+       </div></div>
+	</section>
+    <!--公用footer  -->
+	<p class="ft2"> 
+			{php echo $this->module['config']['copyright'];}
+	</p>
+	<div id="gotop" class="ui-gotop" isfixed="true" style="bottom: 60px; right: 10px; position: fixed; display: none;"><div></div></div>
+	<footer id="nav" class="white clearfix">
+		<a href="{php echo $this->createMobileUrl('index');}" class="cur"><i></i>美容项目</a>
+		<a href="{php echo $this->createMobileUrl('address');}"><i></i>美容店铺</a>
+		<a href="{php echo $this->createMobileUrl('beautician');}"><i></i>美容师</a>
+		<a href="{php echo $this->createMobileUrl('person');}"><i></i>个人中心</a>
+	</footer>
+	<script type="text/javascript" src="../addons/beauty/template/js/zepto.min.js"></script>
+	<script type="text/javascript" src="../addons/beauty/template/js/bcj.min.js"></script>
+    <!--1start:回到顶部demo展示所用css，不用关心 begin-->
+
+    <!--  公用footer-->
+
+    <!-- 本页中js样式 -->
+	<script type="text/javascript" src="../addons/beauty/template/js/xiangmu.min.js"></script>
+
+<script>
+    window.scrollTo(0, 1);//收起地址栏
+     $('#tabs1').tabs({
+        transition:''
+    });
+</script>
+<!-- start图片滚动 slider.js改动，slider.css改动 -->	
+	<script>
+		//创建slider组件
+		$('#slider').slider( {imgZoom: true });
+	</script>
+	
+	<script>
+	 //顶标签切换
+			 $("#face").bind("click", function(){
+			 	$("#conten1").show();
+			 	$("#conten2").hide();
+			 	$("#conten3").hide();
+			 	$("#conten4").hide();
+				
+			 });
+			 $("#body").bind("click", function(){
+				$("#conten2").show();
+				$("#conten1").hide();
+			 	$("#conten3").hide();
+			 	$("#conten4").hide();
+			 });
+			 $("#yangshen").bind("click", function(){
+			 	$("#conten3").show();
+			 	$("#conten2").hide();
+			 	$("#conten1").hide();
+			 	$("#conten4").hide();
+			 });
+			  $("#zuhe").bind("click", function(){
+				$("#conten4").show();
+				$("#conten2").hide();
+			 	$("#conten3").hide();
+			 	$("#conten1").hide();
+			 });
+	</script>
+
+<div class="gmu-media-detect" id="gmu-media-detect0"></div><div style="display:none"></div></body></html>

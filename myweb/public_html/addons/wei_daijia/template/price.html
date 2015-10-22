@@ -1,0 +1,146 @@
+{template 'common/header'}
+
+<ul class="nav nav-tabs">
+
+	<li {if $type == 0}class="active"{/if}><a href="{php echo $this->createWebUrl('price', array('op'=>'display','type'=>0));}">代驾价格列表</a>
+
+	</li>
+
+	<li {if $type == 1}class="active"{/if}><a href="{php echo $this->createWebUrl('price', array('op'=>'display','type'=>1));}">代步价格列表</a>
+
+	</li>
+
+	<li {if $type == 2}class="active"{/if}><a href="{php echo $this->createWebUrl('price', array('op'=>'display','type'=>2));}">代劳价格列表</a>
+
+	</li>
+
+	<li><a href="{php echo $this->createWebUrl('price', array('op'=>'edit'));}">添加代驾、代步价格</a>
+
+	</li>
+
+	<li><a href="{php echo $this->createWebUrl('price', array('op'=>'edit','dailao'=>'dailao'));}">添加代劳价格</a>
+
+	</li>
+
+</ul>
+
+<div class="panel panel-default">
+
+	<div class="panel-heading">价格列表</div>
+
+	<div class="panel-body">
+
+		<div class="table-responsive panel-body">
+
+			<table class="table table-hover" style="min-width: 300px;">
+
+				<thead class="navbar-inner">
+
+					<tr>
+
+						<th class="col-sm-1">价格ID</th>
+
+						<th class="col-sm-1">起步价</th>
+
+						<th class="col-sm-3">几公里内收起步价</th>
+
+						<th class="col-sm-3">几公里为阶梯加价</th>
+
+						<th class="col-sm-3">每阶梯多少钱</th>
+
+						<th class="col-sm-2">客服电话</th>
+
+						<th class="col-sm-2">价格类型</th>
+
+						<th class="col-sm-1">状态</th>
+
+						<th class="col-sm-1">编辑</th>
+
+						<th class="col-sm-1 text-right">删除</th>
+
+					</tr>
+
+				</thead>
+
+				<tbody>
+
+					{loop $prices $price}
+
+					<tr>
+
+						<td>{$price['id']}</td>
+
+						<td>{$price['start_price']}</td>
+
+						<td>{$price['start_km']}</td>
+
+						<td>{$price['km_level']}</td>
+
+						<td>{$price['km_price']}</td>
+
+						<td>{$price['mobile']}</td>
+
+						{if $price['type'] == 0}
+
+						<td>代驾</td>
+
+						{/if}
+
+						{if $price['type'] == 1}
+
+						<td>代步</td>
+
+						{/if}
+
+						
+
+						<td>{if $price['status']==0}<span class="label label-danger"></span>{else}<span class="label label-success">默认</span>{/if}</td>
+
+						<td><a href="{php echo $this->createWebUrl('price', array('op'=>'edit','id'=>$price['id']));}" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+
+						</td>
+
+						<td class="text-right">
+
+							<a href="{php echo $this->createWebUrl('price',array('op'=>'delete','id'=>$price['id']));}" onclick="return confirm('此操作不可恢复，确认删除？');return false;" class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="删除"><i class="fa fa-times"></i>
+
+							</a>
+
+						</td>
+
+					</tr>
+
+					{/loop}
+
+					{if empty($prices)}		
+
+					<tr>
+
+						<td colspan="8">
+
+							尚未添加价格
+
+						</td>
+
+					</tr>
+
+					{/if}
+
+				</tbody>
+
+			</table>
+
+			{$pager}
+
+		</div>
+
+	</div>
+
+</div>
+
+</div>
+
+
+
+{template 'common/footer'}
+

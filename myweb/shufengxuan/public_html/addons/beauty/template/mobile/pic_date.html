@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+			<title>美容</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="keywords" content="xxx">
+		<meta name="description" content="xxx">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<link type="image/x-icon" rel="Icon" href="gg.ico">
+		<link type="image/x-icon" rel="Shortcut Icon" href="gg.ico">
+		<link type="image/x-icon" rel="Bookmark" href="gg.ico">
+		<link rel="stylesheet" href="../addons/beauty/template/css/com.css" type="text/css">
+		<link rel="stylesheet" href="../addons/beauty/template/css/m.css" type="text/css">
+		<link rel="stylesheet" href="../addons/beauty/template/css/m_size.css">
+		<script type="text/javascript" src="../addons/beauty/template/js/zepto.min.js"></script>
+		<script type="text/javascript" src="../addons/beauty/template/js/bcj.min.js"></script>
+		<style>
+		#nav i,.ui-toolbar-button,.ui-toolbar-title,.sch .btn,.hd_btn a,.haoshi .btn,.arr,.ui-icon,.ds_icon,.o_cp .btn,.cp .btn,
+		.fav_i,#fav_c,.zan_i,.adress_i,.ui-state-active .ui-icon-radio,.ok_ico,.d_btn,.ok2 i,.use_i i,.edit_i i,.del_i i,.em_sea i,
+		.tel,.indent i,.ui-state-active .ui-icon-checkbox{background:url(../addons/beauty/template/image/icon.png) 0 0 no-repeat;-webkit-background-size:90px 648px;background-size:90px 648px;}
+
+	</style>
+		<style>
+			.gmu-media-detect{-webkit-transition: width 0.001ms; width: 0; position: absolute; clip: rect(1px, 1px, 1px, 1px);}
+			@media screen and (width: 757px) { #gmu-media-detect0 { width: 1px; } }
+		</style>
+	</head>
+
+	<body class="er">
+		<!-- 本页中css样式 -->
+		<link rel="stylesheet" href="../addons/beauty/template/css/pay2.css" type="text/css">
+		<div class="c_hd white">
+			<span><a class="d_btn" href="javascript:history.go(-1)">预约时间选择</a></span>
+		</div>
+		<form name='form' method="post">
+		<section class="reg lvbd" style="margin-top:60px">
+		
+			<div id="TTPopups" style="display:none">&nbsp;欢迎使用</div>
+			<div id="nav2_wrap">
+				<div id="nav2" class="ui-navigator" style="overflow: hidden;">
+					<div class="ui-scroller" style="-webkit-transition: -webkit-transform 0ms; transition: -webkit-transform 0ms; -webkit-transform-origin: 0px 0px; -webkit-transform: translate(0px, 0px) translateZ(0px);">
+						<ul class="ui-navigator-list" style="-webkit-tap-highlight-color: rgba(255, 255, 255, 0);">
+							<!--ui-state-active-->
+							{loop $weekday $key $day}
+							<li><a><p id="rq">{$datefive[$key]}</p><p>{$day}</p></a></li>
+							{/loop}
+						</ul><span  style="left: 0px; width: 78px;content: '';display: block;height: 2px;"></span></div>
+
+				</div>
+				
+			</div>
+
+			
+
+				<div class="t_con">
+
+					<div class="bd" style="display:block">
+						<ul class="ul_h">
+
+							<li class="cur" id="09">09:00
+								 
+							</li>
+							<li class="cur" id="10">10:00
+								 
+							</li>
+							<li class="cur" id="11">11:00
+								 
+							</li>
+							<li class="cur" id="12">12:00
+								 
+							</li>
+							<li class="cur" id="13">13:00
+								 
+							</li>
+							<li class="cur" id="14">14:00
+								 
+							</li>
+							<li class="cur" id="15">15:00
+								 
+							</li>
+							<li class="cur" id="16">16:00
+								 
+							</li>
+							<li class="cur" id="17">17:00
+								 
+							</li>
+							<li class="cur" id="18">18:00
+								 
+							</li>
+							<li class="cur" id="19">19:00
+								 
+							</li>
+							<li class="cur" id="20">20:00
+								 
+							</li>
+							<li class="cur" id="21">21:00
+								 
+							</li>
+							<li class="cur" id="22">22:00
+								 
+							</li>
+						</ul>
+					</div>
+					<div class="bd">
+						<ul class="ul_h">
+
+							<li class="cur" id="09">09:00
+								 
+							</li>
+							<li class="cur" id="10">10:00
+								 
+							</li>
+							<li class="cur" id="11">11:00
+								 
+							</li>
+							<li class="cur" id="12">12:00
+								 
+							</li>
+							<li class="cur" id="13">13:00
+								 
+							</li>
+							<li class="cur" id="14">14:00
+								 
+							</li>
+							<li class="cur" id="15">15:00
+								 
+							</li>
+							<li class="cur" id="16">16:00
+								 
+							</li>
+							<li class="cur" id="17">17:00
+								 
+							</li>
+							<li class="cur" id="18">18:00
+								 
+							</li>
+							<li class="cur" id="19">19:00
+								 
+							</li>
+							<li class="cur" id="20">20:00
+								 
+							</li>
+							<li class="cur" id="21">21:00
+								 
+							</li>
+							<li class="cur" id="22">22:00
+								 
+							</li>
+						</ul>
+					</div>
+
+				</div>
+				<input type="hidden" name="riqi" id="riqi">
+				<input type="hidden" name="hh" id="hh">
+				<input type="hidden" name="xingqi" id="xingqi">
+				<input type="hidden" name="time" id="dpin">
+				<input type="hidden" name="mrs_id" value="28">
+				<input type="hidden" name="dianpu_id" value="5">
+				<input type="hidden" name="fu_id" value="933">
+				<p class="tool">
+					<input type="submit" value="下一步" name="submit" class="btn" id="btn">
+						 <input type="hidden" name="token" value="{$_W['token']}" />
+				</p>
+			
+		</section>
+		</form>
+		<input type="hidden" name="__hash__" value="f13328cbfc093810a4537e9edad29ae0_2180ef3cf58c5c44bb42085548666f89">
+		<footer id="nav" class="white clearfix">
+		<a href="{php echo $this->createMobileUrl('index');}" class="cur"><i></i>美容项目</a>
+		<a href="{php echo $this->createMobileUrl('address');}"><i></i>美容店铺</a>
+		<a href="{php echo $this->createMobileUrl('beautician');}"><i></i>美容师</a>
+		<a href="{php echo $this->createMobileUrl('person');}"><i></i>个人中心</a>
+	</footer>
+		<p class="ft2">
+			{php echo $this->module['config']['copyright'];}
+		</p>
+
+		<div id="gotop" class="ui-gotop" isfixed="true" style="bottom: 60px; right: 10px; position: fixed;">
+			<div></div>
+		</div>
+
+		<!--1start:回到顶部demo展示所用css，不用关心 begin-->
+		<script>
+			//创建组件
+			$('#gotop').gotop();
+		</script>
+		<div style="position:fixed;top:10px;"></div>
+		<!--1start:本页中-->
+		<script type="text/javascript" src="../addons/beauty/template/js/time_m.min.js"></script>
+		<script>
+			$(function(){
+						$('#nav2').find('li a').click(function(){
+							var i = $(this).text();	
+							$(this).addClass('ui-state-active').siblings().removeClass('ui-state-active');
+							$('.ul_h').find('li').click(function(){
+								var j = $(this).text();								
+								var dp = i+j;	
+								$(this).css('background','#e25f31');
+								$(this).siblings('li').css('background','#abcd36');
+								$(this).find('p').css('background','#e25f31');
+								$(this).siblings('li').find('p').css('background','#abcd36');
+								$('#dpin').val(dp);
+								$('#riqi').val(i);
+								$('#hh').val(j);
+								var bb = $('#dpin').attr('value');
+							});							
+						});
+//						$('.bd').find('li').click(function(){
+//							var a = $(this).parents('.bd').index();
+//							var atext = $(this).text();
+//							var btext = $('#nav2').find('li').eq(a).text();
+//							$(this).css('background','#f75081');
+//							$(this).siblings('li').css('background','#f07e9f');
+//							$(this).find('p').css('background','#f75081');
+//							$(this).siblings('li').find('p').css('background','#f07e9f');
+//							$('#dpin').val(btext+atext);;
+//						});
+					});
+		</script>
+		<script type="text/javascript">
+		$('#nav2 ul li').click(function() {
+						$(this).addClass('ui-state-active').siblings().removeClass('ui-state-active');
+						var $tab_li = $('#nav2 ul li');
+						var i = $tab_li.index(this);
+						$('div.t_con .bd').eq(i).show().siblings().hide();
+				});
+//			$('#nav').navigator();
+//			
+//			    (function () {
+//			        var bar = $('#nav2 span.bar'),
+//			            left = $('#nav2 ul').offset().left;
+//			        $('#nav2').navigator({
+//			            select: function( e, index, li ){
+//			                bar.css({
+//			                    left: li.offsetLeft - left,
+//			                    width: li.childNodes[0].offsetWidth
+//			                });
+//			            },
+//			            ready: function() {
+//			                bar.appendTo($('#nav2').find('.ui-scroller'));
+//			            }
+//			        });
+//			
+//			        $('#arrow').on('click', function(){
+//			            $('#nav2').iScroll( 'scrollTo', 100, 0, 400, true );
+//			        });
+//					
+//			    })();
+		</script>
+		<script>
+			</body>
+			</html>
+		</script>
+		<div class="gmu-media-detect" id="gmu-media-detect0"></div>
+	</body>
+	<iframe id="__WeixinJSBridgeIframe_SetResult" style="display: none;"></iframe>
+	<iframe id="__WeixinJSBridgeIframe" style="display: none;"></iframe>
+
+</html>

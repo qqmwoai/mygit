@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<title>美容</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="keywords" content="美容">
+		<meta name="description" content="美容">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<link type="image/x-icon" rel="Icon" href="http://wx.yidianyimy.com/gg.ico">
+		<link type="image/x-icon" rel="Shortcut Icon" href="http://wx.yidianyimy.com/gg.ico">
+		<link type="image/x-icon" rel="Bookmark" href="http://wx.yidianyimy.com/gg.ico">
+		<link rel="stylesheet" href="../addons/beauty/template/css/com.css" type="text/css">
+		<link rel="stylesheet" href="../addons/beauty/template/css/m.css" type="text/css">
+		<link rel="stylesheet" href="../addons/beauty/template/css/m_size.css">
+		<script type="text/javascript" src="../addons/beauty/template/js/zepto.min.js"></script>
+		<script type="text/javascript" src="../addons/beauty/template/js/bcj.min.js"></script>
+		<script type="text/javascript" src="../addons/beauty/template/js/button.js"></script>
+		<!-- 本页中js样式 -->
+		<script type="text/javascript" src="../addons/beauty/template/js/xiangmu.min.js"></script>
+		<style type="text/css" adt="123"></style>
+		<style>
+		#nav i,.ui-toolbar-button,.ui-toolbar-title,.sch .btn,.hd_btn a,.haoshi .btn,.arr,.ui-icon,.ds_icon,.o_cp .btn,.cp .btn,
+		.fav_i,#fav_c,.zan_i,.adress_i,.ui-state-active .ui-icon-radio,.ok_ico,.d_btn,.ok2 i,.use_i i,.edit_i i,.del_i i,.em_sea i,
+		.tel,.indent i,.ui-state-active .ui-icon-checkbox{background:url(../addons/beauty/template/image/icon.png) 0 0 no-repeat;-webkit-background-size:90px 648px;background-size:90px 648px;}
+
+	</style>
+	</head>
+
+	<body class="er" style="-webkit-tap-highlight-color: rgba(255, 255, 255, 0);">
+
+		<!-- 本页中css样式 -->
+		<link rel="stylesheet" href="../addons/beauty/template/css/mr_detail.css" type="text/css">
+		<div class="c_hd white">
+			<a href="javascript:;" onclick="history.go(-1)" class="d_btn">美容师－</a>
+			<span style="margin-left:-10px;font-size:18px">{$mrs['name']}</span>
+		</div>
+
+		<section class="cpp lvbd" style="margin-top:46px;">
+			<div class="mr_er">
+				<a href="#" class="ren">
+					<img src="{php echo tomedia($mrs['thumb']);}">
+				</a>
+				<div class="info">
+					<!--<a class="fav_i" id="cang" object="1" item_id="16">收藏</a>-->
+					<a href="" class="fav_c" style="display:none" id="quxiao" object="1" item_id="16"></a>
+					<em class="green">{$mrs['name']}</em>
+					<div class="yinfo">
+						接单：{$mrs['service_num']} <span style="display:none">|</span>
+						<a class="zan_i" style="display:none">1018</a>
+					</div>
+					<div class="pli">
+						<a href="#">
+							<span>好评({$mrs['comment']})</span>
+							<span>|</span>
+							<span>中评(0)</span>
+							<span>|</span>
+							<span>差评(0)</span>
+						</a>
+					</div>
+
+				</div>
+				<p class="con">尊敬的顾客您好！我是美容师{$mrs['name']}，从事美容行业3年多，擅长皮肤及身体亚健康处理、全身经络疏通、理疗养生等项目。本人工作热情，性格开朗，手法娴熟，每个顾客都是我的朋友，很高兴能够为您服务！您的权利是向我索要健康和美丽！我的权利是释放您的健康和美丽！您的满意是对我最大的支持！期待您的光临！
+
+				</p>
+			</div>
+			<div id="tabs1" class="cpnav ui-tabs">
+            <ul class="tabf ul_h ui-tabs-nav">
+                <li class="ui-state-active" style="-webkit-tap-highlight-color: rgba(255, 255, 255, 0);"><a href="javascript:;"><p id="face">面护系列</p></a></li>
+                <li style="-webkit-tap-highlight-color: rgba(255, 255, 255, 0);"><a href="javascript:;"><p id="body">身体项目</p></a></li>
+                <li style="-webkit-tap-highlight-color: rgba(255, 255, 255, 0);"><a href="javascript:;"><p id="yangshen">眼护系列</p></a></li>
+                <li style="-webkit-tap-highlight-color: rgba(255, 255, 255, 0);"><a href="javascript:;"><p id="zuhe">千年瑶浴系列</p></a></li>
+            </ul>
+         
+             <!--//面部-->
+            <div id="conten1" class="ui-refresh ui-tabs-panel ui-state-active">     
+            <ul id="ulid1" class="data-list ul_h xm">
+            	{loop $type_face $goods}
+              <li class="cp">
+                    <a href="{php echo $this->createMobileUrl('service_detail', array('id'=>$goods['id'],'mrsid'=>$mrs_id));}">
+                    
+                           
+                            <div class="imgbox"> 
+                            	<img data-url="#" src="{php echo tomedia($goods['gthumb']);}">
+                            </div>
+                            <div class="i_opa"><i></i><h4>{$goods['gname']}</h4></div>
+                            <div class="pre">
+                                    <strong class="red">￥{$goods['price']}</strong>
+                            </div>                  
+                        
+                    </a>
+                </li>
+        		{/loop}
+            </ul>       
+            </div>
+            <!--//面部-->
+            <!--//身体-->
+            <div id="conten2" class="ui-refresh2 ui-refresh ui-tabs-panel" style="display: none;">
+                <ul id="ulid2" class="data-list2 ul_h xm">
+                {loop $type_body $goods}
+              <li class="cp">
+                    <a href="#" class="xml">
+                    
+                         
+                            <div class="imgbox"> 
+                            	<img data-url="#" src="{php echo tomedia($goods['gthumb']);}">
+                            </div>
+                            <div class="i_opa"><i></i><h4>{$goods['gname']}</h4></div>
+                            <div class="pre">
+                                    <strong class="red">￥{$goods['price']}</strong>
+                            </div>                  
+                        
+                    </a>
+                </li>
+        		{/loop}
+                </ul>   
+            </div>
+            <!--//身体-->
+            <!--//养生-->
+            <div id="conten3" class="ui-refresh3 ui-refresh ui-tabs-panel" style="display: none;">
+                <ul id="ulid3" class="data-list3 ul_h xm">
+                {loop $type_yangshen $goods}
+              <li class="cp">
+                    <a href="#" class="xml">
+                    
+                           
+                            <div class="imgbox"> 
+                            	<img data-url="#" src="{php echo tomedia($goods['gthumb']);}">
+                            </div>
+                            <div class="i_opa"><i></i><h4>{$goods['gname']}</h4></div>
+                            <div class="pre">
+                                    <strong class="red">￥{$goods['price']}</strong>
+                            </div>                  
+                        
+                    </a>
+                </li>
+        		{/loop}
+                </ul>   
+            </div>
+             <!--//养生-->
+             <!--//超值组合-->
+            <div id="conten4" class="ui-refresh4 ui-refresh ui-tabs-panel" style="display: none;">
+                <ul id="ulid4" class="data-list4 ul_h xm">
+                {loop $type_zuhe $goods}
+              <li class="cp">
+                    <a href="#" class="xml">
+                    
+                           
+                            <div class="imgbox"> 
+                            	<img data-url="#" src="{php echo tomedia($goods['gthumb']);}">
+                            </div>
+                            <div class="i_opa"><i></i><h4>{$goods['gname']}</h4></div>
+                            <div class="pre">
+                                    <strong class="red">￥{$goods['price']}</strong>
+                            </div>                  
+                    </a>
+                </li>
+        		{/loop}
+                </ul>   
+            </div>
+            <!--//超值组合-->
+       </div>
+
+
+		</section>
+		<p class="ft2">
+			{php echo $this->module['config']['copyright'];}
+		</p>
+
+		<div id="gotop" class="ui-gotop" isfixed="true" style="bottom: 60px; right: 10px; position: fixed; display: none;">
+			<div></div>
+		</div>
+		<script>
+			window.scrollTo(0, 1);//收起地址栏
+			         $('#tabs1').tabs({
+			            transition:''
+			        });
+		</script>
+		<script>
+	 //顶标签切换
+			 $("#face").bind("click", function(){
+			 	$("#conten1").show();
+			 	$("#conten2").hide();
+			 	$("#conten3").hide();
+			 	$("#conten4").hide();
+				
+			 });
+			 $("#body").bind("click", function(){
+				$("#conten2").show();
+				$("#conten1").hide();
+			 	$("#conten3").hide();
+			 	$("#conten4").hide();
+			 });
+			 $("#yangshen").bind("click", function(){
+			 	$("#conten3").show();
+			 	$("#conten2").hide();
+			 	$("#conten1").hide();
+			 	$("#conten4").hide();
+			 });
+			  $("#zuhe").bind("click", function(){
+				$("#conten4").show();
+				$("#conten2").hide();
+			 	$("#conten3").hide();
+			 	$("#conten1").hide();
+			 });
+	</script>
+		<!-- start图片滚动 slider.js改动，slider.css改动 -->
+		<script>
+			//创建slider组件
+			$('#slider').slider( {imgZoom: true });
+		</script>
+
+		<div class="gmu-media-detect" id="gmu-media-detect0"></div>
+	</body>
+	<style type="text/css" id="28462864096"></style>
+
+</html>

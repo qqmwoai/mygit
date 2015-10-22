@@ -1,0 +1,50 @@
+.pl li,.ren img{-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+.cp_dtu{background:#fff}
+.lvbd{text-align:left;background:#f3f3f3}
+.pre,.name,.name_c,.haoshi,.hd,.pl,.mr_er{background:#fff;border-bottom:1px solid #bcbcbc}
+.cp_dtu img{max-width:400px;margin:0 auto}
+.pre,.name{position:relative;height:40px;line-height:40px;padding-left:10px;text-align:left;}
+.pre .green{font-size: 20px;margin-right: 5px;font-weight: normal;left:10px;}
+.pre .ab_r,.name .ab_r{font-size:14px;right:10px;color:#999}
+
+.name{font-size:18px}
+.pre .graya{font-size:14px}
+
+.fav_i,.zan_i{margin-top:6px;background-position:-64px -126px;text-indent:-9999px;width:25px;height:28px;line-height:28px;display:inline-block;float:right;}.fav_i:hover,.fav_i:active{background-position:-67px -158px;}
+.fav_c{background-position:-64px -126px;display:block;float:right;width:25px;height:28px;margin-top: 6px;}
+.fav_c{background:url(../../img/xing.png) no-repeat; margin: 7px -7px 0 0px; background-size:22px;display:block;float:right;width:31px;height:31px;}
+.zan_i{background-position:-68px -61px;width:auto;padding:0 5px 0 22px;text-indent:0;border-right:1px solid #ccc;margin-right:10px}.zan_i:hover,.zan_i:active{background-position:-68px -94px;}
+.name_c{color:#666;padding:15px 10px 10px;line-height:20px;border:none}
+.name_c a{padding-left:5px}
+.haoshi{padding:0 10px 15px;}
+.haoshi .btn{background-color:#f07e9f;background-position:-58px -190px;padding-left:45px}
+
+.hd{height:40px;border-top:1px solid #ddd;margin-top:20px;line-height:40px;position:relative;font-size:16px;padding-left:10px}
+.hd .ab_r{color:#999;font-size:13px;right:10px}
+.hd_btn{height:80px;padding:0}
+.hd_btn a{display:block;padding-left:39px;background-position:-58px -245px}
+.hd_btn a:nth-child(1){border-bottom:1px solid #cecece;background-position:-58px -212px}
+
+.pl li{width:auto;margin:0 10px;padding:10px 0 10px 69px;border-bottom:1px dotted #ccc}
+.pl em,.mr_er em{font-style:normal;font-size:18px}
+.pl .date{color:#999;font-size:14px;position:relative}
+.pl .btn{line-height:20px;height:20px;color:#fff;padding:0 15px;top:15px;font-size:14px}
+.pl .cp_btn{background-color:#BCBCBC}
+.pl .hp_btn{background-color:#f07e9f}
+.pl_bd{padding:20px}
+.pl .more{padding:0;text-align:center;line-height:50px}
+.ren{position:absolute;top:16px;left:0;padding:0;width:50px;height:50px;display:block;background-color:#f07e9f;border-radius: 50px;-moz-border-radius: 50px;}
+.ren img{width:46px;height:46px;margin:2px 0 0 2px;border-radius: 25px;-moz-border-radius: 25px;}
+
+.mr_er{border-top:1px solid #ddd;position:relative;margin:40px 0 30px;padding:0 10px}
+.mr_er .ren img{width:84px;height:84px;min-height:84px;border-radius:45px;-moz-border-radius:45px;margin:3px 0 0 3px;}
+.mr_er .ren{top:-30px;left:10px;width:90px;height:90px;border-radius:45px;-moz-border-radius:45px;display:block;overflow:hidden;}
+.mr_er .zan_i{float:none;border-right:none;}
+.info{padding-left:100px}
+.yinfo{padding-bottom:5px;color:#999}
+.pli{height:30px;border-top:1px solid #eee;border-bottom:1px solid #eee;color:#999;font-size:13px;line-height:30px}
+.mr_er .con{padding:10px}
+
+#ftbar{width:100%;z-index:9999;bottom:-2px;left:0;right:0;position:fixed;background:#f07e9f;height:50px;overflow:hidden;
+-webkit-box-shadow:0 -1px 3px rgba(0, 0, 0, 0.3);-moz-box-shadow:0 -1px 3px rgba(0, 0, 0, 0.3);box-shadow:0 -1px 3px rgba(0, 0, 0, 0.3);}
+#ftbar a{display:block;line-height:50px;font-size:20px;height:50px}

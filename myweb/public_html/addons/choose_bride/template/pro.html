@@ -1,0 +1,61 @@
+{template 'common/header'}
+<ul class="nav nav-tabs">
+	<li class="active"><a href="{php echo $this->createWebUrl('pro', array('op'=>'display'));}">项目列表</a>
+	</li>
+	<li><a href="{php echo $this->createWebUrl('pro', array('op'=>'edit'));}">添加项目</a>
+	</li>
+</ul>
+<div class="panel panel-default">
+	<div class="panel-heading">项目列表</div>
+	<div class="panel-body">
+		<div class="table-responsive panel-body">
+			<table class="table table-hover" style="min-width: 300px;">
+				<thead class="navbar-inner">
+					<tr>
+						<th class="col-sm-1">项目ID</th>
+						<th class="col-sm-2">名称</th>
+						<th class="col-sm-1">首页图片</th>
+						<th class="col-sm-2">详情</th>
+						<th class="col-sm-1">默认项目</th>
+						<th class="col-sm-2">开启时间</th>
+						<th class="col-sm-2">结束时间</th>
+						<th class="col-sm-2">版权</th>
+						<th class="col-sm-2 text-right">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					{loop $pros $prosid $pro}
+					<tr>
+						<td>{$pro['id']}</td>
+						<td>{$pro['name']}</td>
+						<td>
+							<image src="{php echo tomedia($pro['thumb']);}" style="max-width: 48px; max-height: 48px; border: 1px dotted gray">
+						</td>
+						<td>{$pro['detail']}</td>
+						<td>{if $pro['status']==0}<span class="label label-danger">非默认</span>{else}<span class="label label-success">默认</span>{/if}</td>
+						<td>{php echo date('Y-m-d H:i', $pro['starttime'])}</td>
+						<td>{php echo date('Y-m-d H:i', $pro['endtime'])}</td>
+						<td>{$pro['copyright']}</td>
+						<td class="text-right">
+							<a href="{php echo $this->createWebUrl('pro', array('op'=>'edit', 'id'=>$pro['id']));}" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+							<a href="{php echo $this->createWebUrl('pro',array('op'=>'delete','id'=>$pro['id']));}" onclick="return confirm('此操作不可恢复，确认删除？');return false;" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="删除"><i class="fa fa-times"></i></a>
+							<a href="{php echo $this->createWebUrl('bride', array('pro_id' => $pro['id']))}" class="btn btn-default" title="管理活动" data-toggle="tooltip" data-placement="top" style="color:#D9534F;"><i class="fa fa-cog fa-spin"></i></a>
+						</td>
+					</tr>
+					{/loop}
+					{if empty($pros)}		
+					<tr>
+						<td colspan="8">
+							尚未添加商品
+						</td>
+					</tr>
+					{/if}
+				</tbody>
+			</table>
+			{$pager}
+		</div>
+	</div>
+</div>
+</div>
+
+{template 'common/footer'}

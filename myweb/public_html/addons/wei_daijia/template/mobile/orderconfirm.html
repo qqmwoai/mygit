@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<link href="../addons/wei_daijia/template/css/index.css" type="text/css" rel="stylesheet">
+		<link href="../addons/wei_daijia/template/css/style.css" type="text/css" rel="stylesheet">
+		<link href="../addons/wei_daijia/template/css/style_366c9ef.css" type="text/css" rel="stylesheet">
+		<link href="../addons/wei_daijia/template/css/font-awesome-4.3.0/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="edaijia" content="3.0.5">
+		<title>确认订单</title>
+		<style>
+	.divcss5{font-family:"微软雅黑";font-size: 23px;} 
+	input[type=radio]{border:1px solid #fcc;}
+</style>
+	</head>
+
+	<body>
+		<form class="location-lump" name='form' method="post">
+			
+			{if $submit == 'dailao'}
+			<fieldset class="" style="background-image: url(../addons/wei_daijia/template/images/icon_2.png);">
+				<input type="tel" id="mobile" name="mobile" value="" placeholder="请输入手机号吧" maxlength="11" min="11" max="11" autocomplete="off" nkeyup="this.value=this.value.replace(/\D/gi,&quot;&quot;)" onblur="value=value.replace(/\D/gi,&quot;&quot;);if(value.length&lt;11){alert(&quot;电话号码位数不够！&quot;);}">
+			</fieldset>
+			您选择的代劳为：
+			
+			<div class="divcss5">{$str}</div>
+			
+			<textarea placeholder="写入你代劳的详情吧" name="remark"></textarea>
+            
+            {else}
+            <fieldset class="" style="background-image: url(../addons/wei_daijia/template/images/icon_3.png);">
+				<input type="text" name="ad1" id="add1" value="{$data['add1']}" readonly="readonly" maxlength="20" class="ui-autocomplete-input">
+			</fieldset>
+			<fieldset class="" style="background-image: url(../addons/wei_daijia/template/images/icon_3.png);">
+				<input type="text" name="ad2" id="add2" value="{$data['add2']}" readonly="readonly" maxlength="20" class="ui-autocomplete-input">
+			</fieldset>
+			<fieldset class="">
+				<input type="text" name="ad2" id="add2" value="距离：{$data['km']}公里" readonly="readonly" class="ui-autocomplete-input">
+			</fieldset>
+			<fieldset class="">
+				<input type="text" name="ad2" id="add2" value="费用：{$price}元" readonly="readonly" class="ui-autocomplete-input">
+			</fieldset>
+			{/if}
+			
+			<button type="submit" name="submit" value="yes" id='submit' class="btn" style="margin-bottom:20px;">确认支付</button>
+			<input type="hidden" name="token" value="{$_W['token']}" />
+			<input type="hidden" name="type" value="{$submit}" />
+			<input type="hidden" name="price" value="{$price}" />
+		</form>
+		<!--<div>
+		<img src="http://restapi.amap.com/v3/staticmap?location={$url_destination_ip}&zoom=10&size=650*400&scale=1&markers=mid,,A:{$url_destination_ip}&lable={$data['add2']},1,1,,,,&key=7d95f0c307d9bcc6c5c1817e1c087d71">
+		</div>-->
+	</body>
+<footer class="footer">
+    <nav>
+       <ul>
+        <li style="width: 20%;"><a class="nav-controller" href="{php echo $this->createMobileUrl('index');}"><i class="fa fa-home"></i>代驾</a></li>
+        <li style="width: 20%;"><a class="nav-controller" href="{php echo $this->createMobileUrl('daibu');}"><i class="fa fa-home"></i>代步</a></li>
+        <li style="width: 20%;"><a class="nav-controller" href="{php echo $this->createMobileUrl('dailao');}"><i class="fa fa-home"></i>代劳</a></li>
+        <li style="width: 20%;"><a href="{php echo $this->createMobileUrl('grant');}" class="nav-controller"><i class="fa fa-group"></i>最新活动</a></li>
+        <li style="width: 20%;"><a class="nav-controller " href="{php echo $this->createMobileUrl('person');}"><i class="fa fa-user"></i>个人中心</a></li>
+      </ul>
+  </nav>
+  </footer>
+</html>

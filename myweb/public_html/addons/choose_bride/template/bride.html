@@ -1,0 +1,53 @@
+{template 'common/header'}
+{template 'nav'}
+<div class="panel panel-default">
+	<div class="panel-heading">新人列表</div>
+	<div class="panel-body">
+		<div class="table-responsive panel-body">
+			<table class="table table-hover" style="min-width: 300px;">
+				<thead class="navbar-inner">
+					<tr>
+						<th class="col-sm-1">新人ID</th>
+						<th class="col-sm-1">新郎名</th>
+						<th class="col-sm-1">新娘名</th>
+						<th class="col-sm-1">首页图</th>
+						<th class="col-sm-3">详情</th>
+						<th class="col-sm-1">总票数</th>
+						<th class="col-sm-2 text-right">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					{loop $brides  $bride}
+					<tr>
+						<td>{$bride['id']}</td>
+						<td>{$bride['MR_name']}</td>
+						<td>{$bride['MS_name']}</td>
+						<td>
+							<image src="{php echo tomedia($bride['thumb']);}" style="max-width: 48px; max-height: 48px; border: 1px dotted gray">
+						</td>
+						<td>{$bride['detail']}</td>
+						<td>
+							{$bride['num']}票
+						</td>
+						<td class="text-right">
+							<a href="{php echo $this->createWebUrl('bride', array('op'=>'edit', 'id'=>$bride['id']));}" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a>
+							<a href="{php echo $this->createWebUrl('bride',array('op'=>'delete','id'=>$bride['id']));}" onclick="return confirm('此操作不可恢复，确认删除？');return false;" class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="删除"><i class="fa fa-times"></i>
+							</a>
+						</td>
+					</tr>
+					{/loop}
+					{if empty($brides)}		
+					<tr>
+						<td colspan="8">
+							尚未添加新人信息
+						</td>
+					</tr>
+					{/if}
+				</tbody>
+			</table>
+			{$pager}
+		</div>
+	</div>
+</div>
+</div>
+{template 'common/footer'}

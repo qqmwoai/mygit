@@ -1,0 +1,108 @@
+{template 'common/header'}
+<script type="text/javascript" src="{$_W['siteroot']}addons/hx_showcp/template/style/js/ToolTip.js"></script>
+<script type="text/javascript" src="http://cdn.bootcss.com/twitter-bootstrap/3.2.0/js/tooltip.min.js"></script>
+<div class="main">
+<ul class="nav nav-tabs">
+	<li class="active"><a href="">活动管理</a></li>
+	<!--<li {if $op=='paiming'}class="active"{/if}>
+		<a href="{php echo $this->createWebUrl('logs', array('op' =>'paiming','reply_id'=>$reply_id));}">阅读量排名</a></li>-->
+</ul>
+<div class="panel panel-info">
+	    <div class="panel-heading">筛选</div>
+	    <div class="panel-body">
+            <form action="./index.php" method="get" class="form-horizontal" role="form" id="form1">
+                <input type="hidden" name="c" value="site" />
+                <input type="hidden" name="a" value="entry" />
+                <input type="hidden" name="m" value="ju_read" />
+                <input type="hidden" name="do" value="logs" />
+                <input type="hidden" name="reply_id" value="{$reply_id}" />
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">中奖SN</label>
+                    <div class="col-sm-8 col-lg-9 col-xs-12">
+                        <input class="form-control" name="zjsn" id="" type="text" value="{$_GPC['zjsn']}" placeholder="可查询SN">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">中奖姓名</label>
+                    <div class="col-sm-8 col-lg-9 col-xs-12">
+                        <input class="form-control" name="zjname" id="" type="text" value="{$_GPC['zjname']}" placeholder="可查询姓名">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label">中奖电话</label>
+                    <div class="col-sm-8 col-lg-9 col-xs-12">
+                        <input class="form-control" name="zjtel" id="" type="text" value="{$_GPC['zjtel']}" placeholder="可查询手机号 / 姓名">
+                    </div>
+                    <div class="col-sm-3 col-lg-2" style="text-align:right;"><button class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
+                </div>
+                <div class="form-group">
+                </div>
+            </form>
+            </div>
+	</div>
+	<a href="{php echo $this->createWebUrl('logs', array('op' =>'display','reply_id'=>$reply_id,'opp'=>'allzj'));}"><button class="btn btn-info">查询所有中奖者</button></a>
+    <a href="{php echo $this->createWebUrl('logs', array('op' =>'output','reply_id'=>$reply_id));}"><button class="btn btn-info"><i class="fa fa-download"></i> 导出</button></a>
+	{if $opp == 'paimingjiang' || $opp==''}
+	<a href="{php echo $this->createWebUrl('logs', array('op' =>'display','opp' =>'paimingsheng','reply_id'=>$reply_id));}"><button class="btn btn-info"><i class="fa fa-download"></i> 阅读量排名△</button></a>
+	{/if}
+	{if $opp == 'paimingsheng'}
+	<a href="{php echo $this->createWebUrl('logs', array('op' =>'display','opp' =>'paimingjiang','reply_id'=>$reply_id));}"><button class="btn btn-info"><i class="fa fa-download"></i> 阅读量排名▽</button></a>
+	 {/if}
+	<div style="padding:15px;">
+		<form action="" method="post">
+		<table class="table table-hover">
+			<thead class="navbar-inner">
+				<tr>
+					<th align="center" style="width:20px;text-align:center;">ID</th>
+					<th align="center" style="width:40px;text-align:center;">SN</th>				
+                    <th align="center" style="width:40px;text-align:center;">姓名</th>
+					<th align="center" style="width:50px;text-align:center;">手机号</th>
+					<th align="center" style="width:30px;text-align:center;">阅读数</th>
+					<th align="center" style="width:40px;text-align:center;">参加时间</th>
+					<th align="center" style="width:40px;text-align:center;">状态</th>
+					<th align="center" style="width:40px;text-align:center;">奖品名称</th>
+					<th style="width:20px;text-align:center;">兑奖</th>
+				</tr>
+			</thead>
+			<tbody>
+				{loop $list $row}
+				{php $profile = mc_fetch($row['openid']);}
+					<tr>		
+						<td align="center" style="text-align:center;">{$row['id']}</td>
+						<td align="center" style="text-align:center;">{if $row['status'] == 1}暂无{else}{$row['sn']}{/if}</td>
+                        <td align="center" style="text-align:center;">{if empty($profile['realname'])}暂无{else}{$profile['realname']}{/if}</td>
+						<td align="center" style="font-size:12px; color:#666; text-align:center;">{$profile['mobile']}</td>
+						<td align="center" style="font-size:12px; color:#666; text-align:center;">{$row['hits']}</td>
+						<td align="center" style="font-size:12px; color:#666; text-align:center;">{php echo date('Y/m/d H:i:s',$row['createtime'])}</td>
+						<td align="center" style="font-size:12px; color:#666; text-align:center;">
+							{if $row['status'] == 3}<span class="label label-success">已兑奖</span>{/if}
+							{if $row['status'] == 2}<span class="label label-info">已中奖</span>{/if}
+							{if $row['status'] == 1}<span class="label label-default">正常</span>{/if}
+						</td>
+						<td align="center" style="font-size:12px; color:#666; text-align:center;">{if $row['status'] == 1}暂无{else}{$prizes[$row['prizeid']]['prizename']}{/if}</td>
+						<td style="text-align:center;">
+							{if $row['status'] == 2}
+							<a href="{php echo $this->createWebUrl('logs',array('op'=>'display','opp'=>'setstatus','reply_id'=>$reply_id,'log_id'=>$row['id']))}"><button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="bottom" title="兑奖"><i class="fa fa-file"></i></button></a>
+							{else}
+							无
+							{/if}
+						</td>
+					</tr>
+				{/loop}
+			</tbody>
+		</table>
+	</form>
+		{$pager}
+	</div>
+</div>
+<script type="text/javascript">
+function drop_confirm(msg, url){
+    if(confirm(msg)){
+        window.location = url;
+    }
+}
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+{template 'common/footer'}

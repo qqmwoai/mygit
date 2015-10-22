@@ -1,0 +1,129 @@
+<!--<!DOCTYPE html>
+<html lang="zh-cn"  manifest="cache.appcache">
+<head>
+	<meta charset="utf-8">
+	<title>预约</title>
+	<meta name="description" content="">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="telephone=no" name="format-detection">
+	<meta name="viewport">
+	<link rel="stylesheet" href="../addons/choose_bride/template/css/theme_51.css" type="text/css">
+		<link rel="stylesheet" href="../addons/choose_bride/template/css/theme_color_lm.css" type="text/css">
+		<link href="../addons/choose_bride/template/css/slider.css" rel="stylesheet">
+		<link href="../addons/choose_bride/template/css/slider.default.css" rel="stylesheet">
+		<script src="../addons/choose_bride/template/js/jquery.js"></script>
+		<script src="../addons/choose_bride/template/js/main.js"></script>
+		<script src="../addons/choose_bride/template/js/app.v2.js"></script>
+	<script src="../addons/choose_bride/template/js/zepto.min.js"></script>
+	<script>
+		adaptUILayout.adapt(320)
+	</script> 
+</head>-->
+<!DOCTYPE html>
+<html lang="zh-cn" manifest="cache.appcache">
+	<head>
+		<meta charset="utf-8">
+		<title>{$pro['yuyue_name']}</title>
+		<meta http-equiv="refresh" content="20">
+		<meta name="viewport">
+		<link rel="stylesheet" href="../addons/choose_bride/template/css/theme_51.css" type="text/css">
+		<link rel="stylesheet" href="../addons/choose_bride/template/css/theme_color_lm.css" type="text/css">
+		<link href="../addons/choose_bride/template/css/slider.css" rel="stylesheet">
+		<link href="../addons/choose_bride/template/css/slider.default.css" rel="stylesheet">
+		<script src="../addons/choose_bride/template/js/jquery.js"></script>
+		<script src="../addons/choose_bride/template/js/main.js"></script>
+		<script src="../addons/choose_bride/template/js/app.v2.js"></script>
+		<script>
+			adaptUILayout.adapt(320)
+		</script>
+		<script>
+		function xx(){
+			window.location.href='#';
+		}
+		onload=xx();
+	</script>
+	</head>
+<body>
+	<article>
+		<div id="slider">
+			<figure class="s1">
+				<img src="{$_W['attachurl']}{$pro['thumb1']}" alt="">
+				<span><span>Package<br>{$pro['yuyue_name']}</span></span>
+			</figure>
+		</div>
+		<section class="p1 n1 p2">
+			<div class="taocan">
+				<div class="jiage"><span><img src="../addons/choose_bride/template/image/rmb.png" class="i" width="13">{$pro['yuyue_price']}</span>《{$pro['yuyue_name']}》</div>
+				<div class="line-dashed"></div>
+			</div>
+			<form method="post"  id="form">
+				<input type="hidden" class="form-control" value="13" name="goods_id"/>
+				<div style="color:#c29b61">请留下您的电话，我们会第一时间联系您哦！</div>
+				<ul>
+					<li><label><img src="../addons/choose_bride/template/image/i-user@2x.png" width="8" class="i">您的称呼：</label><input type="text" placeholder="请输入您的姓名" name="name" value="" id="form_name"></li>
+					<li style="padding-left:80px">
+					</li>
+					<li style="padding-top:0"><label><img src="../addons/choose_bride/template/image/i-mobile@2x.png" width="11" class="i">联系手机：</label><input type="text" placeholder="手机号码" name="mobile" value="" id="form_mobile"></li>
+				</ul>
+              {if $type == 'yufu'}			 
+                <button type="submit" name="submit" value="yes" id= 'submit'  onclick="maa();"><img src="../addons/choose_bride/template/image/check-circle.png" width="16">立即预付</button>
+              <input type="hidden" name="type" value="yufu" />
+              {else}
+               <button type="submit" name="submit" value="yes" id= 'submit'  onclick="maa();"><img src="../addons/choose_bride/template/image/check-circle.png" width="16">立即预约</button>
+               {/if}          
+                           <input type="hidden" name="token" value="{$_W['token']}" />
+                           <input type="hidden" name="pro_id" value="{$pro['id']}" />
+			</form>
+			<div style="padding:8px;text-align:center;color:#AAAAAA;font-size:14px;"><span style="font-size:12px;"><a href='#'>{$pro['copyright']}</a></div>		
+		</section>
+	</article>
+		<script src="../addons/choose_bride/template/js/zepto.min.js"></script>
+		<script src="../addons/choose_bride/template/js/touch.js"></script>
+		<script src="../addons/choose_bride/template/js/matchMedia.js"></script>
+		<script src="../addons/choose_bride/template/js/event.ortchange.js"></script>
+		<script src="../addons/choose_bride/template/js/parseTpl.js"></script>
+		<script src="../addons/choose_bride/template/js/gmu.js"></script>
+		<script src="../addons/choose_bride/template/js/event.js"></script>
+		<script src="../addons/choose_bride/template/js/widget.js"></script>
+		<script src="../addons/choose_bride/template/js/slider.js"></script>
+		<script src="../addons/choose_bride/template/js/dots.js"></script>
+		<script src="../addons/choose_bride/template/js/$touch.js"></script>
+		<script src="../addons/choose_bride/template/js/$autoplay.js"></script>
+<script>
+	Zepto('#slider').slider({loop:true})
+</script>
+<link href="../addons/choose_bride/template/css/datetimepicker.css" rel="stylesheet">
+<script src="../addons/choose_bride/template/js/app.v2.js"></script>
+<script src="../addons/choose_bride/template/js/datetimepicker.js"></script>
+<script>
+$(document).ready(function(){
+	$('.date').click(function(){
+		$('#date').datepicker({
+			format: 'yyyy-mm-dd'
+		}).on('changeDate', function(ev){
+			$('.date').val($('#date').datepicker('getDate'))
+			$('.datepicker-days').hide()
+		})
+		$('.datepicker-days').show()
+	})
+
+})
+</script>
+<script>
+function maa() {
+	if ($('#form_name').val() == "") {
+		YT.alert.Wechat('姓名不能为空');
+		return false;
+	}
+	if ($('#form_mobile').val() == "") {
+		YT.alert.Wechat('手机不能为空');
+		return false;
+	}
+	if (!$("#form_mobile").val().match(/^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(14[0-9]{1})|(17[0-9]{1}))+\d{8})$/)) {
+		YT.alert.Wechat('手机号码格式不正确');
+		return false;
+	}
+}
+</script>
+</body>
+</html>

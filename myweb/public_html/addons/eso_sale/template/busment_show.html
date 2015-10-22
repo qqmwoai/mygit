@@ -1,0 +1,52 @@
+{template 'common/header'}
+
+<ul class="nav nav-tabs">
+	<li class="active"><a href="{php echo $this->createWebUrl('busment', array('op'=>'display'));}">商户列表</a></li>
+	<li><a href="{php echo $this->createWebUrl('busment', array('op'=>'add'));}">添加商户</a></li>
+</ul>
+	<div class="panel panel-default">
+		<div class="panel-heading">商户列表</div>
+		<div class="panel-body">
+			<div class="table-responsive panel-body">
+				<table class="table table-hover" style="min-width: 300px;">
+					<thead class="navbar-inner">
+						<tr>
+							<th class="col-sm-1">商户ID</th>
+							<th class="col-sm-2">商户名称</th>
+							<th class="col-sm-1">保证金</th>
+							<th class="col-sm-1">保证金状态</th>
+							<th class="col-sm-2">添加时间</th>
+							<th class="col-sm-1">编辑商户</th>
+							<th class="col-sm-1 text-right">状态</th>
+						</tr>
+					</thead>
+					<tbody>
+						{loop $goodses $goodsid $goods}
+						<tr>
+							<td>{$goods['uid']}</td>
+							<td>{$goods['title']}</td>
+							<td>{$goods['bond']}元</td>
+							<td>{if ($goods['status']==0)}<span class="label label-default">未交</span>{else}<span class="label label-danger">已交</span>{/if}</td>
+							<td>{php echo date('Y-m-d H:i', $goods['createtime']);}</td>
+							<td><a href="{php echo $this->createWebUrl('busment', array('op'=>'add', 'uid'=>$goods['uid']));}" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="" data-original-title="编辑"><i class="fa fa-pencil"></i></a></td>
+							<td class="text-right">
+								<a href="{php echo $this->createWebUrl('busment',array('op'=>'delete','uid'=>$goods['uid']));}" onclick="return confirm('此操作不可恢复，确认删除？');return false;" class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="删除"><i class="fa fa-times"></i></a>
+							</td>
+						</tr>
+						{/loop}
+						{if empty($goodses)}
+						<tr>
+							<td colspan="8">
+								尚未添加商户
+							</td>
+						</tr>
+						{/if}
+					</tbody>
+				</table>
+				{$pager}
+			</div>
+		</div>
+	</div>
+</div>
+
+{template 'common/footer'}

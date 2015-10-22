@@ -1,0 +1,117 @@
+.ui-slider {
+	width: 100%; overflow: hidden; position: relative; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-user-select: none; -webkit-touch-callout: none;
+}
+.ui-slider-group {
+	overflow: hidden; white-space: nowrap; position: relative; -webkit-transform: translateZ(0);
+}
+.ui-slider-item {
+	text-align: center; overflow: hidden; float: left; position: relative; background-color: rgb(227, 227, 227); -webkit-box-sizing: border-box;
+}
+.ui-slider-item > p {
+	background: rgba(0, 0, 0, 0.5); padding: 6px 0px; width: 100%; text-align: left; bottom: 0px; color: rgb(255, 255, 255); text-indent: 10px; overflow: hidden; white-space: nowrap; position: absolute; -ms-word-break: break-all; -ms-text-overflow: ellipsis; pointer-events: none;
+}
+.ui-slider-dots {
+	padding: 0px 6px; width: 100%; text-align: center; right: 0px; bottom: 6px; position: absolute;
+}
+.ui-slider-dots > b {
+	background: rgba(144, 144, 144, 0.8); margin: 0px 4px; border-radius: 3px; width: 6px; height: 6px; display: inline-block;
+}
+.ui-slider-dots .ui-state-active {
+	background: rgb(255, 255, 255);
+}
+#tabs1 {
+	position: relative;
+}
+.ui-tabs-nav {
+	width: 100%; height: 36px; z-index: 99; background-color: rgb(248, 248, 248);
+}
+.ui-tabs-nav li {
+	width: 25%; height: 36px; text-align: center; line-height: 36px; border-right-color: rgb(221, 221, 221); border-bottom-color: rgb(221, 221, 221); border-right-width: 1px; border-bottom-width: 1px; border-right-style: solid; border-bottom-style: solid; float: left; display: block; background-image: none;
+}
+.ui-tabs-nav .ui-state-active {
+	border-bottom-color: rgb(240, 126, 159); border-bottom-width: 3px; border-bottom-style: solid;
+}
+.ui-state-active {
+	background-color: rgb(255, 255, 255);
+}
+#tabs1 {
+	background-color: rgb(255, 255, 255);
+}
+.tabf .ui-state-active a {
+	color: rgb(240, 126, 159);
+}
+.ui-refresh {
+	background: rgb(255, 255, 255);
+}
+.ui-refresh-down {
+	line-height: 50px;
+}
+.ui-tabs-content .ui-tabs-panel {
+	display: none;
+}
+.ui-tabs-content .ui-state-active.ui-tabs-panel {
+	display: block; z-index: 1;
+}
+.ui-viewport-transitioning .out.ui-tabs-panel {
+	display: block; z-index: 1;
+}
+.ui-tabs-content .ui-state-active.ui-tabs-panel {
+	z-index: 2;
+}
+.ren {
+	background: rgb(240, 126, 159); padding: 0px; border-radius: 60px; left: -83px; top: 17px; width: 60px; height: 60px; text-indent: -99999px; overflow: hidden; display: block; position: absolute; -moz-border-radius: 60px;
+}
+.ren img {
+	margin: 2px 0px 0px 2px; border-radius: 60px; width: 56px; height: 56px; -moz-border-radius: 60px;
+}
+.mrli {
+	border-bottom-color: rgb(238, 238, 238); border-bottom-width: 2px; border-bottom-style: solid;
+}
+.mrli li {
+	padding: 10px 0px 10px 15px; text-align: left; overflow: visible; margin-left: 90px; border-bottom-color: rgb(238, 238, 238); border-left-color: rgb(238, 238, 238); border-bottom-width: 1px; border-left-width: 2px; border-bottom-style: solid; border-left-style: solid;
+}
+.mrli li:last-child {
+	border-bottom-color: currentColor; border-bottom-width: medium; border-bottom-style: none;
+}
+.pre {
+	border-radius: 15px; height: 30px; text-align: left; line-height: 30px; padding-left: 3px; font-size: 18px;
+}
+.mrp .btn {
+	padding: 0px 5px; border-radius: 3px; height: 18px; line-height: 18px; font-size: 14px; margin-right: 5px; margin-bottom: 5px; float: left; -moz-border-radius: 3px;
+}
+.mrp p {
+	line-height: 30px; position: relative;
+}
+.mrp p .n {
+	width: 90px; overflow: hidden; font-size: 18px; display: block; white-space: nowrap; -ms-text-overflow: ellipsis;
+}
+.mrp .con {
+	color: rgb(153, 153, 153); line-height: 20px; float: left;
+}
+.mrp p .ab_r {
+	background: rgb(255, 255, 255); right: 10px; font-size: 13px;
+}
+span.orange.ab_r {
+	top: 0px; right: 70px; position: absolute;
+}
+.zan_i {
+	background-position: -58px -94px; padding: 0px 5px 0px 32px; height: 28px; right: 10px; bottom: -5px; color: rgb(170, 207, 52); line-height: 28px; text-indent: 0px; font-size: 13px; font-weight: normal; display: block; position: absolute; background-color: rgb(255, 255, 255);
+}
+.adress_i {
+	background-position: -36px -59px; left: -12px; top: 42px; width: 24px; height: 30px; display: block; position: absolute; background-color: rgb(255, 255, 255);
+}
+.pai {
+	background: rgb(248, 253, 229); padding: 7px 20px; height: 30px;
+}
+.pai a {
+	border: 1px solid rgb(187, 193, 70); border-image: none; width: 33.3%; height: 30px; line-height: 30px; margin-left: -1px; float: left; display: block;
+}
+.pai a:first-child {
+	border-radius: 15px 0px 0px 15px; -moz-border-radius: 15px 0 0 15px;
+}
+.pai a:last-child {
+	border-radius: 0px 15px 15px 0px; -moz-border-radius: 0 15px 15px 0;
+}
+.pai .cur {
+	background: rgb(170, 206, 53); color: rgb(255, 255, 255);
+}

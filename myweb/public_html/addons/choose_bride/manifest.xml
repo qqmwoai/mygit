@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.we7.cc" versionCode="0.6">
+	<application setting="true">
+		<name><![CDATA[新娘评选]]></name>
+		<identifie><![CDATA[choose_bride]]></identifie>
+		<version><![CDATA[1.0]]></version>
+		<type><![CDATA[other]]></type>
+		<ability><![CDATA[选最美新娘]]></ability>
+		<description><![CDATA[新娘评选]]></description>
+		<author><![CDATA[ourteam]]></author>
+		<url><![CDATA[http://bbs.we7.cc/]]></url>
+	</application>
+	<platform>
+		<subscribes>
+			<message type="text" />
+		</subscribes>
+		<handles>
+			<message type="text" />
+		</handles>
+		<rule embed="false" />
+		<card embed="true" />
+	</platform>
+	<bindings>
+		<cover>
+			<entry title="首页入口" do="index" state="" direct="false" />
+		</cover>
+		<menu>
+			<entry title="项目管理" do="pro" state="" direct="false" />
+		</menu>
+	</bindings>
+	<install><![CDATA[]]></install>
+	<uninstall><![CDATA[]]></uninstall>
+	<upgrade><![CDATA[]]></upgrade>
+</manifest>

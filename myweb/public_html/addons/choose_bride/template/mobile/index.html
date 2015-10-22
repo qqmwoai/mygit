@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-cn" manifest="cache.appcache">
+	<head>
+		<meta charset="utf-8">
+		<title>{$pro['name']}</title>
+		<meta name="description" content="{$pro['name']}">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="telephone=no" name="format-detection">
+		<link rel="stylesheet" href="../addons/choose_bride/template/css/theme_customers.css">
+		<script src="../addons/choose_bride/template/js/viewport.js"></script>
+		<script src="../addons/choose_bride/template/js/viewport.js"></script>
+	</head>
+
+	<body>
+		<article>
+			<section class="c-1">
+				<figure>
+					<img src="{$_W['attachurl']}{$pro['thumb']}">
+				</figure>
+				<div class="c-details">
+					<header>{$pro['name']}</header>
+					<blockquote>{$pro['title']} </blockquote>
+					<footer><a href="javascript:void(0)" class="more">活动详情<i></i></a>
+					</footer>
+					<div class="c-details-main">
+						<p>{$pro['detail']}</p>
+					</div>
+				</div>
+				<div class="c-wrap">
+					<div class="c-1-top">
+						<header>排名</header>
+						<table>
+							<?php
+							 $i = 1;
+							?>
+							{loop $persons $key $p}
+							<tr>
+								<td>
+									<a href="{php echo $this->createMobileUrl('detail',array('id'=>$p['id'],'pro_id'=>$p['pro_id']));}">
+										<figure style="background-image:url('{$_W['attachurl']}{$p['thumb']}')"><span>{$i}</span>
+										</figure>
+										<div>
+											MR.{$p['MR_name']} and MS.{$p['MS_name']} <span><i></i> 已收到 <b>{$p['num']}</b> 好友祝福</span>
+										</div>
+									</a>
+									<a href="{php echo $this->createMobileUrl('try');}">特价试拍</a> <a href="{php echo $this->createMobileUrl('coupon',array('id'=>$p['pro_id']));}">领取礼券</a> </td>
+							</tr>
+							<?php $i = $i+1;?>
+							
+							{/loop}
+						</table>
+						<div style="padding:8px;text-align:center;color:#AAAAAA;font-size:14px;"><a href='#'>{$p['copyright']}</a></div>
+			</section>
+		</article>
+		<script src="../addons/choose_bride/template/js/zepto.min.js"></script>
+		<script>
+			$(function(){
+				$('.more').click(function(){
+					$('.c-details-main').toggleClass('on')
+				})
+			
+			
+			})
+		</script>
+	</body>
+</html>

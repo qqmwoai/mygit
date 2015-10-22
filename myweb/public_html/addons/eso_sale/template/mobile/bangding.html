@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+<title>分销员绑定</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../addons/eso_sale/style/css/style.css?r={php echo time()}"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
+<meta name="mobileOptimized" content="width" />
+<meta name="handheldFriendly" content="true" />
+<meta http-equiv="Cache-Control" content="max-age=0" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+</head>
+<body>
+	
+<section class="main animated fadeInDown">
+	<div class="main-box">
+		<h1 class="fxyreg"></h1>
+		<!-- <p class="rb-row"><input type="text" id="realname" placeholder="姓名" class="input" value="{$profile['realname']}"/></p> -->
+		<p class="rb-row"><input type="tel" id="mobile" placeholder="手机" class="input" value=""/></p>
+		<p class="rb-row"><input type="password" id="password" placeholder="密码" class="input" value=""/></p>
+		<div class="rb-row registerRuleBox border-box">
+			<!--<p class="rb-row registerRuleCheck"><input type="checkbox" checked id="agree"/>&nbsp;我同意以上注册协议</p>
+			<div class="recommend-tips">
+				<h6>提示</h6>
+				<p>请输入正确的姓名以及电话，否则可能无法结佣。</p>
+			</div>-->
+			{if !empty($profile)}
+				<p class="rb-submit"><input type="button" value="确定" class="btn" id="J_submitReg"/></p>
+			{else}
+				<p class="rb-submit"><input type="button" value="确定" class="btn" id="J_submitReg"/></p>
+			{/if}
+			<!--<hr>
+			<h1>注册条款</h1>
+			<div class="rule-text">
+				{$rule['terms']}
+			</div>-->
+		</div>
+</section>
+<footer class="foot"><a>&copy; {$_W['account']['name']}</a></footer>
+
+<script src="http://libs.baidu.com/jquery/1.7.1/jquery.min.js"></script>
+<script src="../addons/eso_sale/style/js/com.js"></script>
+<script>
+//注册粉丝信息
+$("#J_submitReg").live("click", function () {
+	var reg = /^1[3458]\d{9}$/;
+	//if($("#agree").attr('checked')=='checked'){
+		
+	//}else{
+		//TopBox.alert("请同意注册协议!");
+		//return;
+	//}
+	var mobile = $("#mobile").val();
+	var password = $("#password").val();
+
+	/*if (realname == "") {
+		TopBox.alert("姓名不能为空!");
+		return;
+	} else*/ if (!reg.test(mobile)) {
+		TopBox.alert("手机格式不正确!");
+		return;
+	}else if (password == "") {
+		TopBox.alert("密码不能为空!");
+		return;
+	}else if (password.length < 6) {
+		TopBox.alert("密码至少为6位!");
+		return;
+	}else {
+		$.ajax({
+			type: "POST",
+			url: "{php echo $this->mturl('register',array('op'=>'bangding'))}",
+			data: {mobile:mobile,password:password},
+			dataType: "text",
+			
+			success: function (d) {
+				d = d.replace(/\s+/g,""); 
+				if (d == "1") {
+					TopBox.alert("绑定成功.", function () { window.location.href = '{php echo $this->mturl('fansindex')}'; });
+				} else if (d == "2") {
+					TopBox.alert("修改资料成功.", function () { window.location.href = '{php echo $this->mturl('fansindex')}'; });
+				} else if (d == "0") {
+					TopBox.alert("手机号码不存在.");
+				} else if (d == "-2") {
+					TopBox.alert("密码不正确.");
+				} else if (d == "-3") {
+					TopBox.alert("已存在该手机号码.");
+				} else {
+					TopBox.alert("信息填写不正确.");
+				}
+			},
+			error: function (xml, text, thrown) {
+				TopBox.alert("出错啦!");
+			}
+		});
+
+	}
+});
+
+</script>
+<script src="../addons/eso_sale/style/js/wx.js"></script>
+<script type="text/javascript">
+
+WeixinApi.ready(function(Api) {
+        Api.showOptionMenu();
+        var wxData = {
+            "appId": "{$_W['account']['key']}",
+            "imgUrl" : '{$_W['siteroot']}/source/modules/eso_sale/style/images/icon.jpg',
+            "link" : '{php echo $_W['siteroot']."app/".$this->mturl('fansindex',array('id'=>$id))}',
+            "desc" : '看你能捞多少佣金',
+            "title" : '全民销客-{$_W['account']['name']}'
+        };
+        // 分享的回调
+        var wxCallbacks = {
+            // 分享被用户自动取消
+            cancel : function(resp) {
+                TopBox.alert("分享后获得积分,还有可能得到佣金哦!不要错过发大财的机会!");
+            },
+            // 分享失败了
+            fail : function(resp) {
+                TopBox.alert("分享失败，可能是网络问题，一会儿再试试？");
+            },
+            // 分享成功
+            confirm : function(resp) {
+				TopBox.alert("分享成功,等着收佣金吧!");
+            },
+        };
+        Api.shareToFriend(wxData,wxCallbacks);
+        Api.shareToTimeline(wxData,wxCallbacks);
+        Api.shareToWeibo(wxData,wxCallbacks);
+        Api.generalShare(wxData,wxCallbacks);
+    });
+
+</script>
+</body>
+</html>

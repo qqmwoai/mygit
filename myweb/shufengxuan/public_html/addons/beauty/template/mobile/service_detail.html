@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)http://wx.yidianyimy.com/index.php?g=bcj&m=Fuwu&a=fuwu_detail&xm=2946 -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+	<style type="text/css" id="30296404493">
+		<script></script>
+	</style>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<title>美容</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="keywords" content="美容">
+		<meta name="description" content="美容">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<link type="image/x-icon" rel="Icon" href="http://wx.yidianyimy.com/gg1.ico">
+		<link type="image/x-icon" rel="Shortcut Icon" href="http://wx.yidianyimy.com/gg1.ico">
+		<link type="image/x-icon" rel="Bookmark" href="http://wx.yidianyimy.com/gg1.ico">
+		<link rel="stylesheet" href="../addons/beauty/template/css/com.css" type="text/css">
+		<link rel="stylesheet" href="../addons/beauty/template/css/m.css" type="text/css">
+		<link rel="stylesheet" href="../addons/beauty/template/css/m_size.css">
+		<link rel="stylesheet" href="../addons/beauty/template/css/xm_detail.css" type="text/css">
+		<script src="../addons/beauty/template/js/hm.js"></script>
+		<style>
+		#nav i,.ui-toolbar-button,.ui-toolbar-title,.sch .btn,.hd_btn a,.haoshi .bn,.arr,.ui-icon,.ds_icon,.o_cp .btn,.cp .btn,
+		.fav_i,#fav_c,.zan_i,.adress_i,.ui-state-active .ui-icon-radio,.ok_ico,.d_btn,.ok2 i,.use_i i,.edit_i i,.del_i i,.em_sea i,
+		.tel,.indent i,.ui-state-active .ui-icon-checkbox{background:url(../addons/beauty/template/image/icon.png) 0 0 no-repeat;-webkit-background-size:90px 648px;background-size:90px 648px;}
+
+	</style>
+		
+	</head>
+
+	<body>
+		
+		<section class="cpp lvbd" style="margin-top:0px">
+			<div class="cp_dtu">
+				<img data-url="#" src="{php echo tomedia($goods['thumb']);}">
+				
+			</div>
+			<div class="name" style="line-height:50px; height:50px">
+				<a class="green">{$goods['gname']}</a>
+				<div class="ab_r">累计服务<span class="black">{$goods['service_num']}</span>次</div>
+			</div>
+			<div class="pre">
+				<span class="green">￥{$goods['price']}</span>
+				</div>
+			</div>
+			<div class="name_c">
+				{$goods['gdesc']}
+				<a class="green"></a>
+			</div>
+			<p class="haoshi"><span class="btn">服务耗时：{$goods['service_times']}分钟</span></p>
+			<div style="display:none" class="hd hd_btn"><a>预约时间</a><a>服务地址</a> </div>
+			<div class="hd clearfix" style="margin-top:10px">
+				<a>服务评论</a>
+				<div class="ab_r">
+					<a>好评({$goods['comment']})</a>
+					<span>|</span>
+					<a>中评(0)</a>
+					<span>|</span>
+					<a>差评(0)</a>
+				</div>
+
+			</div>
+
+			<div class="pl">
+				<ul class="ul_v">
+					{if empty($comments)}
+					暂无评论
+					{/if}
+					{loop $comments $comment}
+					<li>
+						<a href="" class="ren">
+							<img src="{php echo tomedia($comment['thumb']);}">
+						</a>
+						<br>
+						<em class="green">{$comment['nickname']}</em>
+						<p>{$comment['content']}</p>
+						<p class="date">&nbsp;<span class="ab_r"> {php echo date('Y-m-d H:i:s', $comment['createtime']);}</span></p>
+						<a class="btn ab_r  hp_btn">好评</a>
+					</li>
+						{/loop}
+				</ul>
+			</div>
+
+			<div class="mr_er" style="margin-bottom:0px">
+
+				<a href="#" class="ren">
+					<img src="{php echo tomedia($beautician['thumb']);}">
+				</a>
+				<div class="info">
+					<a href="#"> <em class="green">{$beautician['name']}</em> </a>
+					<div class="yinfo">
+						接单: {$beautician['service_num']}
+					</div>
+					<div class="pli">
+						<a>好评({$beautician['comment_num']})</a>
+						<span>|</span>
+						<a>中评(0)</a>
+						<span>|</span>
+						<a>差评(0)</a>
+					</div>
+				</div>
+				<p class="con">
+					{$beautician['desc']}
+				</p>
+
+			</div>
+
+		</section>
+		<p class="ft2" style="margin-bottom:50px">
+			{php echo $this->module['config']['copyright'];}
+		</p>
+		<footer id="ftbar" class="white clearfix">
+			<a href="{php echo $this->createMobileUrl('pic_address',array('goodsid'=>$goodsid,'mrsid'=>$mrsid));}" class="btn">立即预约</a>
+		</footer>
+		<div id="gotop" class="ui-gotop" isfixed="true" style="bottom: 60px; right: 10px; position: fixed;">
+			<div></div>
+		</div>
+
+		<script type="text/javascript" src="../addons/beauty/template/js/zepto.min.js"></script>
+		<script type="text/javascript" src="../addons/beauty/template/js/bcj.min.js"></script>
+	
+		<div style="position:fixed;top:10px;"></div>
+
+		<div class="gmu-media-detect" id="gmu-media-detect0"></div>
+		<div style="display:none"></div>
+	</body>
+
+</html>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.we7.cc" versionCode="0.6">
+	<application setting="true">
+		<name><![CDATA[分销商城]]></name>
+		<identifie><![CDATA[eso_sale]]></identifie>
+		<version><![CDATA[1.27]]></version>
+		<type><![CDATA[business]]></type>
+		<ability><![CDATA[分销系统，全民分佣啦！]]></ability>
+		<description><![CDATA[分销系统，全民分佣啦！]]></description>
+		<author><![CDATA[封遗]]></author>
+		<url><![CDATA[http://www.we7.cc]]></url>
+	</application>
+	<platform>
+		<subscribes>
+		</subscribes>
+		<handles>
+			<message type="text" />
+		</handles>
+		<rule embed="true" />
+	</platform>
+	<bindings>
+	    <menu>
+			<!-- <entry title="积分兑换管理" do="credit" state="" direct="false" />
+      <entry title="积分商品设置" do="award" state="" direct="false" /> -->
+      <entry title="商家管理" do="busment" state="" direct="false" />
+			<entry title="商品分类" do="category" state="" direct="false" />
+			<entry title="商品管理" do="goods" state="" direct="false" />
+			<entry title="CRM会员管理" do="charge" state="" direct="false" />
+			<entry title="订单管理" do="order" state="" direct="false" />
+            <entry title="打印机管理" do="print" state="" direct="false" />
+      <entry title="代理管理" do="fansmanager" state="" direct="false" />
+      <entry title="佣金审核" do="commission" state="" direct="false" />
+			<entry title="物流配送设置" do="dispatch" state="" direct="false" />
+      <entry title="基础设置" do="rules" state="" direct="false" />
+			<entry title="首页广告设置" do="adv" state="" direct="false" />
+		</menu>
+		<cover>
+		  <!-- <entry title="积分兑换入口设置" do="award" state="" /> -->
+      <entry title="排行榜入口设置" do="phb" state="" />
+      <entry title="代理入口" do="fansindex" state="" />
+			<entry title="购物入口设置" do="list" state="" />
+
+		</cover>
+	</bindings>
+	<install><![CDATA[
+
+	]]></install>
+	<uninstall><![CDATA[
+	]]></uninstall>
+	<upgrade><![CDATA[]]></upgrade>
+</manifest>

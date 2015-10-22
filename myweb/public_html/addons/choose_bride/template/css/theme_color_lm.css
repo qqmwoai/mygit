@@ -1,0 +1,141 @@
+.s1 > span, .s4 > span{
+	background-color:rgba(0, 160, 152, 0.3);
+	}
+.s1 figcaption:before{
+	border-color:transparent transparent #00a098;
+	}
+.s1 figcaption{
+	background-color:#00a098;
+	}
+.s2{
+	border-bottom:2px solid #32b0a5;
+	}
+.n1 .jiage{
+	color:#b5b801
+	}
+.n1 .caozuo a, .kz-c .caozuo a{
+	background-color:#6dcbcd;
+	}
+.n1 .caozuo a:nth-child(2), .kz-c .caozuo a:nth-child(2){
+	background-color:#c29b61;
+	}
+.n1 .jianjie td a{
+	background:#00a199;
+	}
+.n1 .jianjie .xiadan a{
+    background:#b5b801;
+	}
+.n1 .yuyue{
+	color:#00a199
+	}
+.n1 .xiadan{
+    color:#b5b801;
+	}
+input[type="radio"]:checked + label i{
+	background-image:url(../img/lema/check-circle-51.png)
+	}
+.p1 form button{
+	background-image:url(../img/lema/zhifu-btn.png)
+	}
+.s4 figcaption{
+	background-color:#00a199;
+	}
+.p2 form button,.hy .p1 button,.success .btn{
+	background:#6dcbcd
+	}
+.slider-footer:before{
+	border-color:transparent transparent #00a098;
+	}
+.slider-footer{
+	background-color:#00a098;
+	}
+.ui-slider-dots > b{
+	background:#00a199
+	}
+.kz figcaption{
+	color:#fff;
+	background-color:#00a199
+	}
+.kz figure:nth-child(1n) time{
+	background-color:#b5b801;
+	box-shadow:0 0 0 3px rgba(181, 184, 1, 0.5);
+	}
+.kz figure:nth-child(1n) time:after{
+	border-left-color: #b5b801;
+	}
+.kz figure:nth-child(2n) time{
+	background-color:#6dcbcd;
+	box-shadow:0 0 0 3px rgba(109, 203, 205, 0.5);
+	}
+.kz figure:nth-child(2n) time:after{
+	border-left-color: #6dcbcd;
+	}
+.kz figure:nth-child(3n) time{
+	background-color:#8a8e8b;
+	box-shadow:0 0 0 3px rgba(138, 142, 139, 0.5);
+	}
+.kz figure:nth-child(3n) time:after{
+	border-left-color: #8a8e8b;
+	}
+.kz-c .info .blessings{
+	color:#fff;
+	background-color:#00a199;
+	}
+.kz-c .blessings:after{
+	border-color: transparent #00a199 transparent transparent;
+	}
+.kz-c .info time span{
+	color:#77eed0
+	}
+.kz-c .share{
+	background:#6dcbcd
+	}
+.hy .main a span{
+	background-color:#f09620
+	}
+.success h1{
+	color:#00a098
+	}
+
+.schedule > div:nth-child(1) > time{
+	background-color:#b5b801;
+	box-shadow:0 0 0 3px rgba(181, 184, 1, 0.5);
+	}
+.schedule > div:nth-child(2) > time{
+	background-color:#6dcbcd;
+	box-shadow:0 0 0 3px rgba(109, 203, 205, 0.5);
+	}
+.schedule > div:nth-child(3) > time{
+	background-color:#8a8e8b;
+	box-shadow:0 0 0 3px rgba(138, 142, 139, 0.5);
+	}
+.schedule > div:nth-child(4) > time{
+	background-color:#86b801;
+	box-shadow:0 0 0 3px rgba(134,184,1,.5);
+	}
+.schedule > div:nth-child(5) > time{
+	background-color:#7c9cbd;
+	box-shadow:0 0 0 3px rgba(124,156,189,.5);
+	}
+.schedule > div:nth-child(6) > time{
+	background-color:#95a38a;
+	box-shadow:0 0 0 3px rgba(149,163,138,.5);
+	}
+.schedule > div:nth-child(1) > time:after{
+	border-left-color: #b5b801;
+	}
+.schedule > div:nth-child(2) > time:after{
+	border-left-color: #6dcbcd;
+	}
+.schedule > div:nth-child(3) > time:after{
+	border-left-color: #8a8e8b;
+	}
+.schedule > div:nth-child(4) > time:after{
+	border-left-color:#86b801
+	}
+.schedule > div:nth-child(5) time:after{
+	border-left-color:#7c9cbd
+	}
+.schedule > div:nth-child(6) time:after{
+	border-left-color:#95a38a
+	}

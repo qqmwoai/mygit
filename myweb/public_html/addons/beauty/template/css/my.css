@@ -1,0 +1,28 @@
+.myinfo{padding-top:110px;height:120px;position:relative;background-color:#EEE5E8}
+.ren img{margin:3px 0 0 3px;height:74px;width:74px;border-radius:40px;-moz-border-radius:40px;}
+.ren{position:absolute;top:15px;left:50%;background-color:#fff;height:80px;width:80px;display:block;margin-left:-40px;border-radius:40px;-moz-border-radius:40px;}
+.myinfo p,.myinfo .btn{-moz-border-radius: 5px; border-radius: 5px;}
+.myinfo p{position:relative;height:28px;line-height:28px;text-align:left;padding-left:10px;background:#F0EFF5;margin:0 8% 10px;font-size:14px;color:#666;}
+.myinfo .btn{min-width:60px;background:#EC6533;font-weight:normal;color:#FFF;text-align:center;font-size:13px}
+
+.info_tool{background:#9599A2;padding:5px 10px;font-size:18px}
+.info_tool a,.info_tool a:visited{color:#FFF;}
+.info_tool li{width:33.3%;border-right:1px solid #CCC}
+.info_tool li:last-child{border:none}
+.info_tool p{font-size:13px}
+.indent,.renwu{margin:10px 0;border-top:1px solid #ddd;border-bottom:1px solid #ddd;background:#fff;}
+.indent h3,.renwu h3{line-height:40px;font-size:18px;text-align:left;padding-left:10px;border-bottom:1px solid #eee}
+.indent li{padding-top:40px;border-right:1px solid #eee;padding-bottom:6px;text-align:center;font-size:13px;color:#999;width:25%}
+.indent i{background-position:0 -412px;position:absolute;top:5px;left:50%;margin-left:-15px;display:block;width:30px;height:30px;}
+.indent li:nth-child(2) i{background-position:-30px -412px;}
+.indent li:nth-child(3) i{background-position:-60px -412px;}
+.indent li:nth-child(4) i{background-position:0 -442px;}
+.indent em{display:block;width:16px;height:16px;-moz-border-radius: 8px; border-radius: 8px;background-color:#f60;color:#FFF;font-style:normal;text-align:center;position:absolute;top:5px;left:50%;margin-left:15px;font-size:12px;line-height:16px}
+.renwu li{width:33.3%;border-left:1px solid #ddd;margin-left:-1px;border-bottom:1px solid #ddd;line-height:40px}
+.renwu li a{display:block;text-decoration:underline;}
+.tel_phone{background:#fff;width:210px;margin:0 auto;border:1px solid #ccc;border-radius:5px;overflow:hidden;}
+#phone_ico{width:18px;height:18px;display:block;background:url(../../images/phone.png) no-repeat;float:left;margin-right:10px;}
+.tel_phone a{padding: 9px 10px 5px;display: inline-block}
+.dollar{width:100%; background: #fff; margin-bottom: 10px;}
+.dollar img {width: 0%;height: auto; float: left; padding: 10px 0; margin-left: 4%;}
+.dollar a{ background: url(../../img/arrows.png) right center no-repeat; background-size: 15px; display: block; text-align:left; text-indent: 10px; margin-left: 5%; padding:15px 0;width: 90%;}

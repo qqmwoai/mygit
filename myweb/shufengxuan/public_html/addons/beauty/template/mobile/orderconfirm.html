@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<title>美容</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="keywords" content="美容">
+		<meta name="description" content="美容">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<link type="image/x-icon" rel="Icon" href="gg.ico">
+		<link type="image/x-icon" rel="Shortcut Icon" href="gg.ico">
+		<link type="image/x-icon" rel="Bookmark" href="gg.ico">
+		<link rel="stylesheet" href="../addons/beauty/template/css/com.css" type="text/css">
+		<link rel="stylesheet" href="../addons/beauty/template/css/m.css" type="text/css">
+		<link rel="stylesheet" href="../addons/beauty/template/css/m_size.css">
+			<!-- 本页中css样式 -->
+		<link rel="stylesheet" href="../addons/beauty/template/css/pay4.css" type="text/css">
+		<script type="text/javascript" src="../addons/beauty/template/js/jquery.js"></script>
+		<script src="../addons/beauty/template/js/jquery.ui.draggable.js" type="text/javascript"></script>
+		<script src="../addons/beauty/template/js/jquery.alerts.js" type="text/javascript"></script>
+		<link href="../addons/beauty/template/css/jquery.alerts.css" rel="stylesheet" type="text/css" media="screen">
+			<style>
+		#nav i,.ui-toolbar-button,.ui-toolbar-title,.sch .btn,.hd_btn a,.haoshi .btn,.arr,.ui-icon,.ds_icon,.o_cp .btn,.cp .btn,
+		.fav_i,#fav_c,.zan_i,.adress_i,.ui-state-active .ui-icon-radio,.ok_ico,.d_bt,.ok2 i,.use_i i,.edit_i i,.del_i i,.em_sea i,
+		.tel,.indent i,.ui-state-active .ui-icon-checkbox{background:url(../addons/beauty/template/image/icon.png) 0 0 no-repeat;-webkit-background-size:90px 648px;background-size:90px 648px;}
+
+	</style>
+	</head>
+
+	<body class="er">
+		<form name='form' method="post">
+			<div class="c_hd white">
+				<a class="d_btn" href="javascript:history.go(-1)">订单详情确认</a> 总计:<span class="jiage">{$goods['price']}</span>元
+			</div>
+			<section class="indent lvbd">
+				<div class="in_list bor">
+					<h3>预约时间</h3>
+					<a href="javascript:history.go(-1)">
+						<p class="p30">{php echo date('Y-m-d H:i',$date);}<i class="arr"></i></p>
+					</a>
+				</div>
+				<div class="in_list bor">
+					<h3>联系人姓名</h3>
+					<p class="p30">
+						<input type="text" id="name" tabindex="2" class="i_text" placeholder="请输入姓名" value="" name="name">
+					</p>
+				</div>
+				<div class="in_list bor">
+					<h3>联系人电话</h3>
+					<p class="p30">
+						<input type="text" id="mobile" tabindex="2" class="i_text" placeholder="请输入电话" value="" name="mobile"  nkeyup="this.value=this.value.replace(/\D/gi,&quot;&quot;)" onblur="value=value.replace(/\D/gi,&quot;&quot;);if(value.length&lt;11){alert(&quot;电话号码位数不够！&quot;);this.focus();}">
+					</p>
+				</div>
+				<div class="in_list bor">
+					<h3>服务地址</h3>
+					<input type="hidden" name="dianpu_id" value="49">
+					<a href="javascript:history.go(-2)">
+						<p><span>{$address['name']}</span> &nbsp; &nbsp; </p>
+						<p class="p30 adress_i">{$address['detail']}<i class="arr"></i></p>
+					</a>
+				</div>
+				<div class="in_list bor pn10">
+					<h3>项目信息</h3>
+					<input type="hidden" name="mrs_id" value="16">
+					<a class="cps" href="#">
+						<p>{$goods['gname']}<span class="ab_r jiage">¥{$goods['price']}</span></p>
+						<p class="graya" style="display:none">{$goods[gdesc]}
+						</p>
+					</a>
+					</select>
+
+					</span>
+					</p>
+				</div>
+				<div class="tool" heji="108">合计：<span class="jiage">{$goods['price']}</span>元
+					<input type="submit" name="submit" id="submit" class="btn ab_r btn1" value="确认">
+				</div>
+			</section>
+			<input type="hidden" name="token" value="{$_W['token']}" />
+		
+		<p class="ft2">
+			{php echo $this->module['config']['copyright'];}
+		</p>
+	</form>
+	</body>
+	<iframe id="__WeixinJSBridgeIframe_SetResult" style="display: none;"></iframe>
+	<iframe id="__WeixinJSBridgeIframe" style="display: none;"></iframe>
+	<script>
+		$('#submit').bind("click",function(){
+			var name = $('#name').val();
+			var mobile = $('#mobile').val();
+			if(!name){
+				alert('请输入姓名');
+				return false;
+			}
+			if(!mobile){
+				alert('请输入电话');
+				return false;
+			}
+		});
+	</script>
+</html>

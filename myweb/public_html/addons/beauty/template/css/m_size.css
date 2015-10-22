@@ -1,0 +1,66 @@
+@media all and (min-width:320px)
+{
+.lvbd {
+	font-size: 14px;
+}
+#nav a {
+	height: 55px; line-height: 30px; font-size: 14px;
+}
+#nav {
+	height: 55px;
+}
+.xm li {
+	width: 45.5%; margin-left: 3%; min-height: 110px;
+}
+}
+@media all and (max-width:320px)
+{
+body .djs dt {
+	padding: 0px; font-size: 14px;
+}
+.djs dt .ds_icon {
+	display: none;
+}
+.xm li {
+	width: 45.5%; margin-left: 3%; min-height: 110px;
+}
+}
+@media all and (max-width:540px)
+{
+#nav a {
+	font-size: 14px;
+}
+.xm li {
+	width: 45.5%; margin-left: 3%; min-height: 110px;
+}
+}
+@media print
+{
+.xm li {
+	width: 45.5%; margin-left: 3%;
+}
+}
+@media all and (max-width:979px) and (min-width:768px)
+{
+.xm li {
+	width: 45.5%; margin-left: 3%; min-height: 110px;
+}
+.lvbd .myinfo p {
+	margin: 0px auto 10px; max-width: 300px;
+}
+}
+@media all and (min-width:1024px)
+{
+.xm li {
+	width: 30%; margin-bottom: 20px; margin-left: 3%; min-height: 110px;
+}
+.lvbd .myinfo p {
+	margin: 0px auto 10px; max-width: 300px;
+}
+}
+@media all and (max-width:320px)
+{
+.lvbd {
+	width: 320px;
+}
+}

@@ -1,0 +1,131 @@
+{template 'common/header'}
+<ul class="nav nav-tabs">
+	<li><a href="{php echo $this->createWebUrl('price', array('op'=>'display','type'=>0));}">代驾价格列表</a>
+	</li>
+	<li><a href="{php echo $this->createWebUrl('price', array('op'=>'display','type'=>1));}">代步价格列表</a>
+	</li>
+	<li><a href="{php echo $this->createWebUrl('price', array('op'=>'display','type'=>2));}">代劳价格列表</a>
+	</li>
+	<li><a href="{php echo $this->createWebUrl('price', array('op'=>'edit'));}">添加代驾、代步价格</a>
+	</li>
+	<li class="active"><a href="{php echo $this->createWebUrl('price', array('op'=>'edit','dailao'=>'dailao'));}">添加代劳价格</a>
+</ul>
+
+<div class="main">
+	<form action="" method="post" class="form-horizontal form" id="form">
+		<input type="hidden" name="type"  value="2" />
+		<div class="panel panel-default">
+			<div class="panel-heading">编辑价格</div>
+			<div class="panel-body">
+				<div class="panel-heading">1小时内：</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-15 col-md-2 col-lg-4 control-label">重10公斤以内，20元每次:</label>
+						<div class="col-xs-2 col-sm-2">
+							<div class="input-group">
+							<input type="text" name="pricetype1" class="form-control" value="{$price['pricetype1']}" />
+								<span class="input-group-addon">元</span>
+							</div>
+					</div>
+					<label class="col-xs-12 col-sm-10 col-md-2 col-lg-4 control-label">重10-50公斤，60元每次:</label>
+						<div class="col-xs-2 col-sm-2">
+							<div class="input-group">
+							<input type="text" name="pricetype2" class="form-control" value="{$price['pricetype2']}" />
+								<span class="input-group-addon">元</span>
+							</div>
+					</div>
+					<label class="col-xs-12 col-sm-10 col-md-2 col-lg-4 control-label">重51-200公斤，200元每次:</label>
+						<div class="col-xs-2 col-sm-2">
+							<div class="input-group">
+							<input type="text" name="pricetype3" class="form-control" value="{$price['pricetype3']}" />
+								<span class="input-group-addon">元</span>
+							</div>
+					</div>
+				</div>
+				<div class="panel-heading">1-5小时：</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-15 col-md-2 col-lg-4 control-label">重10公斤以内，100元每次:</label>
+						<div class="col-xs-2 col-sm-2">
+							<div class="input-group">
+							<input type="text" name="pricetype4" class="form-control" value="{$price['pricetype4']}" />
+								<span class="input-group-addon">元</span>
+							</div>
+					</div>
+					<label class="col-xs-12 col-sm-10 col-md-2 col-lg-4 control-label">重10-50公斤，200元每次:</label>
+						<div class="col-xs-2 col-sm-2">
+							<div class="input-group">
+							<input type="text" name="pricetype5" class="form-control" value="{$price['pricetype5']}" />
+								<span class="input-group-addon">元</span>
+							</div>
+					</div>
+					<label class="col-xs-12 col-sm-10 col-md-2 col-lg-4 control-label">重51-200公斤，300元每次:</label>
+						<div class="col-xs-2 col-sm-2">
+							<div class="input-group">
+							<input type="text" name="pricetype6" class="form-control" value="{$price['pricetype6']}" />
+								<span class="input-group-addon">元</span>
+							</div>
+					</div>
+				</div>
+				<div class="panel-heading">5-10小时：</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-15 col-md-2 col-lg-4 control-label">重10公斤以内，300元每次:</label>
+						<div class="col-xs-2 col-sm-2">
+							<div class="input-group">
+							<input type="text" name="pricetype7" class="form-control" value="{$price['pricetype7']}" />
+								<span class="input-group-addon">元</span>
+							</div>
+					</div>
+					<label class="col-xs-12 col-sm-10 col-md-2 col-lg-4 control-label">重10-50公斤，500元每次:</label>
+						<div class="col-xs-2 col-sm-2">
+							<div class="input-group">
+							<input type="text" name="pricetype8" class="form-control" value="{$price['pricetype8']}" />
+								<span class="input-group-addon">元</span>
+							</div>
+					</div>
+					<label class="col-xs-12 col-sm-10 col-md-2 col-lg-4 control-label">重51-200公斤，800元每次:</label>
+						<div class="col-xs-2 col-sm-2">
+							<div class="input-group">
+							<input type="text" name="pricetype9" class="form-control" value="{$price['pricetype9']}" />
+								<span class="input-group-addon">元</span>
+							</div>
+					</div>
+				</div>
+			</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 col-lg-2 control-label">状态</label>
+					<div class="col-xs-12 col-sm-8">
+						<label class="radio radio-inline">
+							<input type="radio" name="status" value="0" {if $price['status'] == 0}checked="checked"{/if}> 非默认
+						</label>
+						<label class="radio radio-inline">
+							<input type="radio" name="status" value="1" {if $price['status'] == 1 }checked="checked"{/if}> 默认
+						</label>
+					</div>
+				</div>
+				{if !empty($id)}
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 col-lg-2 control-label">添加日期</label>
+					<div class="col-xs-12 col-sm-8">
+						<p class="form-control-static">{php echo date('Y-m-d H:i', $price['createtime']);}</p>
+					</div>
+				</div>
+				{/if}
+				<div class="form-group">
+					<div class="col-xs-12 col-sm-9 col-md-10 col-lg-10 col-sm-offset-3 col-md-offset-2 col-lg-offset-2">
+						<input type="hidden" name="id" value="{$price['id']}" />
+						<input name="submit" type="submit" value="提交" class="btn btn-primary" />
+						<input type="hidden" name="token" value="{$_W['token']}" />
+					</div>
+				</div>
+			
+		</div>
+	</form>
+</div>
+
+<script>
+require(['jquery', 'util'], function($, u){
+	$(function(){
+		u.editor($('.richtext')[0]);
+	});
+});
+</script>
+{template 'common/footer'}

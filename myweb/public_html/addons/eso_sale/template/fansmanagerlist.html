@@ -1,0 +1,74 @@
+{template 'common/header'}
+<ul class="nav nav-tabs">
+    <li><a href="{php echo $this->createWebUrl('fansmanager');}">所有代理</a></li>
+    <li class="active"><a href="#">下级代理</a></li>
+</ul>
+<div class="main">
+    <div class="stat">
+        <div class="stat-div">
+            <div class="sub-item" id="table-list">
+                <h4 class="sub-title">下级代理名单</h4>
+                <div class="sub-content">
+                    <table class="table table-hover">
+                        <thead class="navbar-inner">
+                        <tr>
+                            <th class="row-hover">真实姓名</th>
+                            <th class="row-hover">手机号码</th>
+                            <th class="row-hover">注册时间</th>
+                            <th class="row-hover">代理金</th>
+                            <th class="row-hover">代理金状态</th>
+                            <th class="row-hover">状态</th>
+                            <th class="row-hover">密码</th>
+                            <th class="row-hover">点击统计</th>
+                            <th class="row-hover">代理级别</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {loop $list $v}
+                        <tr>
+                            <td>
+                                {$v['realname']}
+                            </td>
+                            <td>
+                                {$v['mobile']}
+                            </td>
+                            <td>
+                                {php echo date('Y-m-d',$v['createtime'])}
+                            </td>
+                            <td>
+                                {$v['dailijin']}
+                            </td>
+                            <td>
+                                {if $v['jin_status']==0}
+                                <span class="label label-danger">未交</span>
+                                {else}
+                                <span class="label label-success">已交</span>
+                                {/if}
+                            </td>
+                            <td>
+                                {if $v['status']==0}
+                                <span class="label label-danger">已禁用</span>
+                                {else}
+                                <span class="label label-success">正常</span>
+                                {/if}
+                            </td>
+                            <td>
+                                {$v['pwd']}
+                            </td>
+                            <td>
+                                {$v['clickcount']}
+                            </td>
+                            <td>
+                                {$v['dailijibie']}
+                            </td>
+                        </tr>
+                        {/loop}
+                        </tbody>
+                    </table>
+                </div>
+                {$pager}
+            </div>
+        </div>
+    </div>
+</div>
+{template 'common/footer'}

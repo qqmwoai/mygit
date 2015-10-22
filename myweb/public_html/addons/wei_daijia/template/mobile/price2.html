@@ -1,0 +1,53 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<avalon ms-skip="" class="avalonHide">
+
+</avalon>
+</style>
+    <title>代驾代步服务价格</title>
+    {php echo register_jssdk();}
+ 
+		<link href="../addons/wei_daijia/template/css/style_366c9ef.css" type="text/css" rel="stylesheet">
+		<link href="../addons/wei_daijia/template/css/font-awesome-4.3.0/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+    	<script src="../addons/wei_daijia/template/js/jquery.min.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<!-- <meta name="apple-mobile-web-app-capable" content="yes">-->
+		 <title>代驾代步服务价格</title>
+</head>
+	<body>
+    <div class="container" >
+        <section class="main-view" style="color: #000101; height: 100%;  background-image: url(../addons/wei_daijia/template/images/bkg.jpg);background-repeat:no-repeat;background-size:100% 100%;">
+            <div class="my" >
+                <div class="my_head">
+                  
+                    <div class="my_head_info" style="background-image: url(../addons/wei_daijia/template/images/city.png);background-repeat:no-repeat;">
+           	
+                     		<span>代驾服务价格：</span>
+                        	<h4 id="nickname" class="my_head_name ">起步价：<font size="9">{$daijia['start_price']}</font>元
+                        <h4 id="nickname" class="my_head_name "><font size="6">{$daijia['start_km']}</font>公里后，每<font size="3">{$daijia['km_level']}</font>公里<b>{$daijia['km_price']}</b>元
+                    	<br><br><br>
+                    		<span>代步服务价格：</span>
+                        	<h4 id="nickname" class="my_head_name ">起步价：<font size="9">{$daibu['start_price']}</font>元
+                        <h4 id="nickname" class="my_head_name "><font size="6">{$daibu['start_km']}</font>公里后，每<font size="3">{$daibu['km_level']}</font>公里<b>{$daibu['km_price']}</b>元
+                    	<br><br><br>
+                        </div>
+                    
+                </div>
+            </div>
+        </section>
+    <footer class="footer">
+    <nav>
+      <ul>
+        <li style="width: 20%;"><a class="nav-controller " href="{php echo $this->createMobileUrl('index');}"><i class="fa fa-home"></i>代驾</a></li>
+        <li style="width: 20%;"><a class="nav-controller" href="{php echo $this->createMobileUrl('daibu');}"><i class="fa fa-home"></i>代步</a></li>
+        <li style="width: 20%;"><a class="nav-controller" href="{php echo $this->createMobileUrl('dailao');}"><i class="fa fa-home"></i>代劳</a></li>
+        <li style="width: 20%;"><a href="{php echo $this->createMobileUrl('grant');}" class="nav-controller"><i class="fa fa-group"></i>最新活动</a></li>
+        <li style="width: 20%;"><a class="nav-controller  active" href="{php echo $this->createMobileUrl('person');}"><i class="fa fa-user"></i>个人中心</a></li>
+      </ul>
+  </nav>
+  </footer>
+    </div>
+</body>
+</html>

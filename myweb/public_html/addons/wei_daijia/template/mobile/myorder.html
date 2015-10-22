@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+    <title>我的订单</title>
+	{php echo register_jssdk();}
+   <link href="../addons/wei_daijia/template/css/style_366c9ef.css" type="text/css" rel="stylesheet">
+		<link href="../addons/wei_daijia/template/css/font-awesome-4.3.0/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+    	<script src="../addons/wei_daijia/template/js/jquery.min.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+  <div ms-controller="root">
+  {if empty($orders)}
+  <div class="mod_nav nav">
+      <div class="mod_nav_lk" style="text-align:center">
+          <a  href="{php echo $this->createMobileUrl('index')}" >
+          <span><b>您还没有订单，现在去代驾吧</b></span>
+          </a>
+      </div>
+
+  </div>
+  {/if}
+   
+
+    
+
+    	{loop $orders $order}
+            <div class="order_hd">
+            	{php echo date('Y-m-d H:i:s', $order['createtime']);}
+            </div>
+            <div class="order_bd">
+                <div class="order_glist">
+                <ul>
+                	<li>订单编号：{$order['ordersn']}</li>
+                	<li>起点：{$order['start_address']}</li>
+                	<li>终点：{$order['end_address']}</li>
+                	<li>路程：{$order['km']}公里</li>
+                	<li>费用：{$order['price']}元</li>
+                	{if $order['status']==0}
+                	<li>状态：未支付</li>
+                	{elseif $order['status']==1}
+                	<li>状态：已支付</li>
+                	{elseif $order['status']==2}
+                	<li>状态：待完成</li>
+                	{elseif $order['status']==3}
+                	<li>状态：已完成</li>
+                	{/if}
+				</ul>
+                </div>
+
+            </div>
+
+       
+
+        {/loop}
+
+    
+
+  </div>
+
+    <div style="height:58px;visibility:hidden "></div>
+
+     <footer class="footer">
+    <nav>
+      <ul>
+        <li style="width: 33%;"><a class="nav-controller " href="{php echo $this->createMobileUrl('index');}"><i class="fa fa-home"></i>首页</a></li>
+        <li style="width: 33%;"><a href="{php echo $this->createMobileUrl('grant');}" class="nav-controller"><i class="fa fa-group"></i>最新活动</a></li>
+        <li style="width: 33%;"><a class="nav-controller active" href="{php echo $this->createMobileUrl('person');}"><i class="fa fa-user"></i>个人中心</a></li>
+      </ul>
+  </nav>
+  </footer>
+
+</body>
+<script>
+	wx.ready(function (){
+	var shareData = {
+		title: "{$share_data['share_title']}",
+		desc: "{$share_data['share_desc']}",
+		link: "{$to_url}",
+		imgUrl: "{$_W['attachurl']}{$share_data['share_image']}",
+	};
+//分享朋友
+	wx.onMenuShareAppMessage({
+	    title: shareData.title,
+	  	desc: shareData.desc,
+	  	link: shareData.link,
+	  	imgUrl:shareData.imgUrl,
+	  	trigger: function (res) {
+	  	},
+	  	success: function (res) {
+	    	window.location.href =adurl;
+	  	},
+	  	cancel: function (res) {
+	  	},
+	  	fail: function (res) {
+	    	alert(JSON.stringify(res));
+	  	}
+	});
+//朋友圈
+	wx.onMenuShareTimeline({
+	  	title: shareData.title,
+	  	link: shareData.link,
+	  	imgUrl:shareData.imgUrl,
+	  	trigger: function (res) {
+	  	},
+	  	success: function (res) {
+	    	window.location.href =adurl;
+	  	},
+	  	cancel: function (res) {
+	  	},
+	  	fail: function (res) {
+	    	alert(JSON.stringify(res));
+	  	}
+	});
+});
+</script>
+</html>
+

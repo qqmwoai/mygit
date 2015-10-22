@@ -1,0 +1,110 @@
+{template 'common/header'}
+<!--<ul class="nav nav-tabs">
+	<li><a href="{php echo $this->createWebUrl('adv', array('op'=>'display'));}">新人列表</a></li>
+	<li {if empty($id)}class="active"{/if}><a href="{php echo $this->createWebUrl('adv', array('op'=>'edit'));}">添加新人</a></li>
+	{if !empty($id)}
+	<li class="active"><a href="{php echo $this->createWebUrl('adv', array('op'=>'edit', 'id'=>$id));}">编辑新人</a></li>
+	{/if}
+</ul>-->
+{template 'nav'}
+<div class="main">
+	<form action="" method="post" class="form-horizontal form" id="form">
+		<div class="panel panel-default">
+			<div class="panel-heading">编辑广告</div>
+			<div class="panel-body">
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 col-lg-2 control-label">项目ID</label>
+					<div class="col-xs-12 col-sm-8">
+						<input type="text" name="adv[pro_id]" class="form-control" value="{$adv['pro_id']}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 col-lg-2 control-label">广告名</label>
+					<div class="col-xs-12 col-sm-8">
+						<input type="text" name="adv[name]" class="form-control" value="{$adv['name']}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 col-lg-2 control-label">首页图片</label>
+					<div class="col-xs-12 col-sm-8">
+						{php echo tpl_form_field_image('adv[thumb]', $adv['thumb']);}
+					</div>
+					<span class="help-block">图片建议为</span>
+				</div>
+				 <div class="form-group">
+                        <label class="col-xs-12 col-sm-3 col-md-2 control-label">图集</label>
+                        <div class="col-sm-9">
+
+                           {php echo tpl_form_field_multi_image('img',$piclist);}
+                            <span class="help-block">商品详情幻灯片，建议640X400</span>
+                        </div>
+                    </div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">广告详情</label>
+					<div class="col-sm-9 col-xs-12">
+						<textarea name="adv[detail]" class="form-control richtext" cols="70">{$adv['detail']}</textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">套餐详情</label>
+					<div class="col-sm-9 col-xs-12">
+						<textarea name="adv[taocan]" class="form-control richtext" cols="70">{$adv['taocan']}</textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">价格</label>
+					<div class="col-sm-9 col-xs-12">
+						<textarea name="adv[price]" class="form-control richtext" cols="70">{$adv['price']}</textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-xs-12 col-sm-9 col-md-10 col-lg-10 col-sm-offset-3 col-md-offset-2 col-lg-offset-2">
+						<input type="hidden" name="id" value="{$adv['id']}" />
+						<input name="submit" type="submit" value="提交" class="btn btn-primary" />
+						<input type="hidden" name="token" value="{$_W['token']}" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+<script>
+require(['jquery', 'util'], function($, util){
+	$(function(){
+		$('#form').submit(function(){
+			if($('input[name="adv[pro_id]"]').val() == ''){
+				util.message('请填写项目ID.');
+				return false;
+			}
+			if($('input[name="adv[name]"]').val() == ''){
+				util.message('请填写广告名称.');
+				return false;
+			}
+			if($('input[name="adv[thumb]"]').val() == ''){
+				util.message('请上传图片.');
+				return false;
+			}
+			if($('input[name="adv[detail]"]').val() == ''){
+				util.message('请填写广告简介.');
+				return false;
+			}
+			if($('input[name="adv[price]"]').val() == ''){
+				util.message('请填写广告价格.');
+				return false;
+			}
+			if($('input[name="adv[taocan]"]').val() == ''){
+				util.message('请填写套餐简介.');
+				return false;
+			}
+			return true;
+		});
+	});
+});
+require(['jquery', 'util'], function($, u){
+	$(function(){
+		u.editor($('.richtext')[0]);
+	});
+});
+</script>
+{template 'common/footer'}

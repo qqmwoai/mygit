@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.we7.cc" versionCode="0.6">
+	<application setting="true">
+		<name><![CDATA[代劳代驾]]></name>
+		<identifie><![CDATA[wei_daijia]]></identifie>
+		<version><![CDATA[1.0]]></version>
+		<type><![CDATA[other]]></type>
+		<ability><![CDATA[代驾]]></ability>
+		<description><![CDATA[代劳代驾]]></description>
+		<author><![CDATA[ourteam]]></author>
+		<url><![CDATA[http://bbs.we7.cc/]]></url>
+	</application>
+	<platform>
+		<subscribes>
+			<message type="text" />
+		</subscribes>
+		<handles>
+			<message type="text" />
+		</handles>
+		<rule embed="false" />
+		<card embed="true" />
+	</platform>
+	<bindings>
+		<cover>
+			<entry title="首页入口" do="index" state="" direct="false" />
+			<entry title="代驾" do="daijia" state="" direct="false" />
+			<entry title="代步" do="daibu" state="" direct="false" />
+			<entry title="代劳" do="dailao" state="" direct="false" />
+		</cover>
+		<menu>
+			
+			<entry title="订单管理" do="order" state="" direct="false" />
+			<entry title="活动管理" do="activity" state="" direct="false" />
+			<entry title="通知管理" do="report" state="" direct="false" />
+			<entry title="价格管理" do="price" state="" direct="false" />
+			<entry title="打印机管理" do="print" state="" direct="false" />
+		</menu>
+	</bindings>
+	<install><![CDATA[
+CREATE TABLE IF NOT EXISTS `ims_daijia_member` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(11) NOT NULL,
+  `from_user` varchar(45) NOT NULL,
+  `nickname` varchar(45) NOT NULL,
+  `avatar` varchar(225) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+CREATE TABLE IF NOT EXISTS `ims_daijia_orders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ordersn` varchar(45) NOT NULL COMMENT '订单编号',
+  `mobile` varchar(45) NOT NULL,
+  `start_address` varchar(45) NOT NULL,
+  `end_address` varchar(45) NOT NULL,
+  `km_price` varchar(11) NOT NULL,
+  `price` varchar(45) NOT NULL,
+  `pay_time` varchar(145) NOT NULL,
+  `pay_type` int(9) NOT NULL,
+  `createtime` varchar(124) NOT NULL,
+  `status` int(9) NOT NULL,
+  `uniacid` int(11) NOT NULL,
+  `openid` varchar(45) NOT NULL,
+  `remark` varchar(1024) NOT NULL COMMENT '备注',
+  `type` varchar(25) NOT NULL COMMENT 'daijia  dailao',
+  `km` int(255) NOT NULL COMMENT '路程',
+  `hours` int(45) NOT NULL COMMENT '时长',
+  `province` varchar(45) NOT NULL,
+  `city` varchar(45) NOT NULL COMMENT '城市',
+  `district` varchar(45) NOT NULL COMMENT '区域',
+  `street` varchar(45) NOT NULL COMMENT '街道',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `ims_daijia_order_print` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(11) NOT NULL,
+  `sid` int(11) NOT NULL,
+  `aid` int(11) NOT NULL,
+  `pid` int(11) NOT NULL,
+  `oid` int(11) NOT NULL,
+  `addtime` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `ims_daijia_price` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `start_price` varchar(45) NOT NULL COMMENT '起步价',
+  `km_price` varchar(45) NOT NULL COMMENT '每公里多少钱',
+  `start_km` varchar(45) NOT NULL COMMENT '几公里起步',
+  `mobile` varchar(20) NOT NULL COMMENT '客服电话',
+  `km_level` int(11) NOT NULL COMMENT '几公里一阶梯',
+  `uniacid` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  `createtime` varchar(45) NOT NULL,
+  `type` int(11) NOT NULL COMMENT '0代驾1代步2代劳',
+  `pricetype1` varchar(45) NOT NULL,
+  `pricetype2` varchar(45) NOT NULL,
+  `pricetype3` varchar(45) NOT NULL,
+  `pricetype4` varchar(45) NOT NULL,
+  `pricetype5` varchar(45) NOT NULL,
+  `pricetype6` varchar(45) NOT NULL,
+  `pricetype7` varchar(45) NOT NULL,
+  `pricetype8` varchar(45) NOT NULL,
+  `pricetype9` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+CREATE TABLE IF NOT EXISTS `ims_daijia_print` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `status` int(11) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `print_no` varchar(45) NOT NULL,
+  `key` varchar(45) NOT NULL,
+  `print_nums` varchar(45) NOT NULL,
+  `qrcode_link` varchar(45) NOT NULL,
+  `uniacid` varchar(45) NOT NULL,
+  `sid` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+
+CREATE TABLE IF NOT EXISTS `ims_daijia_print_order` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
+	]]></install>
+	<uninstall><![CDATA[]]></uninstall>
+	<upgrade><![CDATA[]]></upgrade>
+</manifest>

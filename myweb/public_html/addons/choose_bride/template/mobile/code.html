@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-cn" manifest="cache.appcache">
+<head>
+	<meta charset="utf-8">
+	<title>{$codemess['youhui_name']}</title>
+	{php echo register_jssdk();}
+	<meta name="description" content="">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="telephone=no" name="format-detection">
+	<link rel="stylesheet" href="../addons/choose_bride/template/css/theme_customers.css">
+	<script src="http://cdn.bootcss.com/zepto/1.1.6/zepto.min.js"></script>
+	<script src="../addons/choose_bride/template/js/viewport.js"></script>
+	<script src="../addons/choose_bride/template/js/main.js"></script>
+	<style>
+		#mcover{
+			background:rgba(0, 0, 0, 0.7);
+			display: none;
+			height: 100%;
+			left: 0;
+			position: fixed;
+			top: 0;
+			width: 100%;
+			z-index: 10;
+			}
+		#mcover img{
+			height: 180px;
+			position: absolute;
+			right: 18px;
+			top: 5px;
+			width: 260px;
+			}
+	</style>
+</head>
+<body>
+<article>
+	<section class="c-coupon">
+		<figure>
+			<img src="../addons/choose_bride/template/image/coupon.jpg">
+			<figcaption>{$codemess['youhui_price']}<span>元</span></figcaption>
+			{if !empty($code['code'])}<p>优惠码：{$code['code']}</p>{/if}<span id="coupon_bn">{$codemess['youhui_name']}</span>
+		</figure>
+		<div class="c-wrap c-slae">
+			<div class="c-slae-main">
+				<div class="info">
+					{$codemess['youhui_detail']}				
+				</div>
+				{if empty($code['code'])}
+				<form>
+					<input type="text" name="mobile" placeholder="请输入您的手机号码"><button id="submitbutton" type="button">提交</button>
+				</form>
+				{else}
+				<form></form>
+				{/if}
+				<div>已有<b>{$codemess['youhui_num']}</b>人下载优惠券</div>
+				<a class="share-btn" href="javascript:void(0)"><i></i>分享</a>
+			</div>
+		</div>
+	</section>
+</article>
+<div id="mcover"><img src="../addons/choose_bride/template/image/guide.png"></div>
+<script>
+	$(function(){
+		//提交
+		$('#submitbutton').click(function(){
+			var mobile = $('input[name=mobile]').val()
+			if(!/^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(14[0-9]{1})|(17[0-9]{1}))+\d{8})$/.test(mobile)){
+				YT.alert.Wechat('手机号码填写错误')
+			}else{
+				$.post('{php echo $this->createMobileUrl('coupon', array('op'=>'post','id'=>$id));}',{huodong_id:"{$codemess['id']}", 'mobile':mobile},function(d){
+					if(d.status == false) {
+						YT.alert.Wechat(d.msg)
+					} else {
+						var html = '<p>优惠码：'+d.coupon_bn+'</p>';
+						YT.alert.Wechat('领取优惠券成功，券号为:'+d.coupon_bn)
+						$('#coupon_bn').prepend(html);
+					}
+				}, 'json');
+			}
+			return false
+		})
+	})
+	$('.share-btn').click(function(){
+		$('#mcover').show()
+		return false
+	})
+	$('#mcover').click(function(){
+		$(this).hide()
+	})
+
+</script>
+<script>
+	wx.ready(function (){
+	var shareData = {
+		title: "{$codemess['youhui_name']}",
+		desc: "{$codemess['youhui_detail']}",
+		link: "",
+		imgUrl: "../addons/choose_bride/template/image/coupon.jpg",
+	};
+//分享朋友
+	wx.onMenuShareAppMessage({
+	    title: shareData.title,
+	  	desc: shareData.desc,
+	  	link: shareData.link,
+	  	imgUrl:shareData.imgUrl,
+	  	trigger: function (res) {
+	  	},
+	  	success: function (res) {
+	    	alert("分享成功！");
+	  	},
+	  	cancel: function (res) {
+	  	},
+	  	fail: function (res) {
+	    	alert(JSON.stringify(res));
+	  	}
+	});
+//朋友圈
+	wx.onMenuShareTimeline({
+	  	title: shareData.title,
+	  	link: shareData.link,
+	  	imgUrl:shareData.imgUrl,
+	  	trigger: function (res) {
+	  	},
+	  	success: function (res) {
+	    	alert("分享成功！");
+	  	},
+	  	cancel: function (res) {
+	  	},
+	  	fail: function (res) {
+	    	alert(JSON.stringify(res));
+	  	}
+	});
+});
+</script>
+</body>
+</html>

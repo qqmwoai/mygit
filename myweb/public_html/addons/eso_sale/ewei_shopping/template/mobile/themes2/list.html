@@ -1,0 +1,379 @@
+{php $bootstrap_type = 3;}
+
+{if empty($_W['isajax'])}
+
+{template 'header'}
+
+{template 'themes2/common'}
+
+<script language="javascript" src="../addons/ewei_shopping/images2/touchslider.min.js"></script>
+
+<script language="javascript" src="../addons/ewei_shopping/images2/swipe.js"></script>
+
+<style>
+
+   .td_a { height:7em; text-align: center}
+
+</style>
+
+<link type="text/css" rel="stylesheet" href="../addons/ewei_shopping/images2/style.css?{TIMESTAMP}">
+
+<div class="head">
+
+	<a href="javascript:;" onclick="$('.head .order').toggleClass('hide');" class="bn pull-left"><i class="fa fa-reorder"></i></a>
+
+	<span class="title">商城首页{if $_GPC['pcate']} - {$category[$_GPC['pcate']]['name']}{/if}{if $_GPC['ccate']} - {$children[$_GPC['pcate']][$_GPC['ccate']]['name']}{/if}</span>
+
+	<a href="{php echo $this->createMobileUrl('mycart')}" class="bn pull-right"><i class="fa fa-shopping-cart"></i>{if !empty($carttotal)}<span class="buy-num img-circle" id="carttotal">{$carttotal}</span>{/if}</a>
+
+	<ul class="unstyled order hide">
+
+		{loop $category $item}
+
+		<li>
+
+			<a href="{php echo $this->createMobileUrl('list2', array('pcate' => $item['id']))}" class="bigtype"><i class="fa fa-folder-open"></i> {$item['name']}</a>
+
+			{loop $children[$item['id']] $child}
+
+			<a href="{php echo $this->createMobileUrl('list2', array('ccate' => $child['id']))}" class="smtype"><i class="fa fa-folder"></i> {$child['name']}</a>
+
+			{/loop}
+
+		</li>
+
+		{/loop}
+
+	</ul>
+
+</div>
+
+
+
+<div id="banner_box" class="box_swipe" style='width:100%;float:left;'>
+
+	<ul>
+
+		{loop $advs $adv}
+
+		<li>
+
+			<a href="{if empty($adv['link'])}#{else}{$adv['link']}{/if}">
+
+				<img src="{php echo tomedia($adv['thumb']);}" title="{$adv['advname']}" style='width:100%;height: 14rem;'/>
+
+			</a>
+
+			<span class="title">{$adv['advname']}</span>
+
+		</li>
+
+		{/loop}
+
+	</ul>
+
+	<ol>
+
+	   {php $slideNum = 1;}
+
+	{loop $advs $adv}
+
+		<li{if $slideNum == 1} class="on"{/if}></li>
+
+		{php $slideNum++;}
+
+	{/loop}
+
+	</ol>
+
+</div>
+
+<script>
+
+	$(function() {
+
+		new Swipe($('#banner_box')[0], {
+
+			speed:500,
+
+			auto:3000,
+
+			callback: function(){
+
+				var lis = $(this.element).next("ol").children();
+
+				lis.removeClass("on").eq(this.index).addClass("on");
+
+			}
+
+		});
+
+	});
+
+</script>
+
+
+
+<div class="shopping-main">
+
+	<table style='width:100%;'>
+
+		<tr>
+
+			<td class='td_a'>
+
+				<a href="{php echo $this->createMobileUrl('list2')}">
+
+					<img src="../addons/ewei_shopping/template/mobile/images2/icon_indexn_06.png" style='width:6.2em;height:6.2em'>
+
+				</a>
+
+			</td>
+
+			<td class='td_a'>
+
+				<a href="{php echo $this->createMobileUrl('list2',array('isnew'=>1))}">
+
+					<img src="../addons/ewei_shopping/template/mobile/images2/icon_indexn_01.png" style='width:6.2em;height:6.2em'>
+
+				</a>
+
+			</td>
+
+			<td class='td_a'>
+
+				<a href="{php echo $this->createMobileUrl('list2',array('ishot'=>1))}">
+
+					<img src="../addons/ewei_shopping/template/mobile/images2/icon_indexn_05.png" style='width:6.2em;height:6.2em'>
+
+				</a>
+
+			</td>
+
+		</tr>
+
+		<tr>
+
+			<td class='td_a'>
+
+				<a href="{php echo $this->createMobileUrl('list2',array('isdiscount'=>1))}">
+
+					<img src="../addons/ewei_shopping/template/mobile/images2/icon_indexn_02.png" style='width:6.2em;height:6.2em'>
+
+				</a>
+
+			</td>
+
+			<td class='td_a'>
+
+				<a href="{php echo $this->createMobileUrl('list2',array('istime'=>1))}">
+
+					<img src="../addons/ewei_shopping/template/mobile/images2/icon_indexn_09.png" style='width:6.2em;height:6.2em'>
+
+				</a>
+
+			</td>
+
+			<td class='td_a'>
+
+				<a href="{php echo $this->createMobileUrl('contactus')}">
+
+					<img src="../addons/ewei_shopping/template/mobile/images2/icon_indexn_08.png" style='width:6.2em;height:6.2em'>
+
+				</a>
+
+			</td>
+
+		</tr>
+
+	</table>
+
+	{/if}
+
+<dt>
+	    ▍推荐商品
+</dt>
+<div class="list" id="list_rec">
+
+	<!-- <div class="list-tips" style='float:left;width:100%;font-size:14px;color:#e9342a;padding-left:10px;'>推荐商品</div> -->
+
+	{loop $rlist $item}
+
+		{template 'themes2/list_item'}
+
+	{/loop}
+
+</div>
+
+<div class="show-more"><a href="javascript:;" onclick="loadRecPage('{$rpindex}', 'list_rec')" class="img-rounded pager" id="pager_rec">浏览更多商品</a></div>
+
+	{loop $recommandcategory $c}
+
+		{if !empty($c['list'])}
+
+			{if empty($_W['isajax'])}
+
+				<div class="list" id="list_{$c['parentid']}_{$c['id']}">
+
+			{/if}
+
+			{if empty($_W['isajax'])}
+
+				<!-- <div class="list-tips" style='float:left;width:100%;font-size:14px;color:#e9342a;padding-left:10px;'></div> -->
+				<dt>
+					    ▍{$c['name']}
+				</dt>
+
+			{/if}
+
+			{loop $c['list'] $item}
+
+				{template 'themes2/list_item'}
+
+			{/loop}
+
+			{if empty($_W['isajax'])}</div>
+
+				<div class="show-more">
+
+					<a href="javascript:;" onclick="loadPage('{$pindex}', 'list_{$c['parentid']}_{$c['id']}', '{$c['parentid']}', '{$c['id']}')" class="img-rounded pager" id="pager_{$c['parentid']}_{$c['id']}">浏览更多商品</a>
+
+				</div>
+
+			{/if}
+
+		{/if}
+
+	{/loop}
+
+	{if empty($_W['isajax'])}
+
+</div>
+
+
+
+<script type="text/javascript">
+
+function loadPage(pindex, container, pcate, ccate) {
+
+	pindex = parseInt(pindex) + 1;
+
+	var pager = $('#pager_' + pcate + "_" + ccate);
+
+	pager.html('正在加载数据...');
+
+	var url = "{php echo $this->createMobileUrl('listmore')}";
+
+	$.get(url, {'page' : pindex, 'pcate':pcate, 'ccate':ccate}, function(html){
+
+		if (html.indexOf('list-item') > - 1) {
+
+			pager.html('浏览更多商品');
+
+			$('#' + container).append(html);
+
+			pager.get(0).onclick = function(){
+
+				loadPage(pindex, container, pcate, ccate);
+
+			}
+
+		} else {
+
+			pager.html('已经显示全部商品');
+
+		}
+
+	});
+
+}
+
+
+
+function loadRecPage(pindex, container) {
+
+	pindex = parseInt(pindex) + 1;
+
+	var pager = $('#pager_rec');
+
+	pager.html('正在加载数据...');
+
+	var url = "{php echo $this->createMobileUrl('listmore_rec')}";
+
+	$.get(url, {'page' : pindex}, function(html){
+
+		if (html.indexOf('list-item') > - 1) {
+
+			pager.html('浏览更多商品');
+
+			$('#' + container).append(html);
+
+			pager.get(0).onclick = function(){
+
+				loadRecPage(pindex, container);
+
+			}
+
+		} else {
+
+			pager.html('已经显示全部商品');
+
+		}
+
+	});
+
+}
+
+</script>
+
+
+
+{template 'footer'}
+
+ <style>
+
+.footerbar{position:fixed; left:0; bottom:0px; width:100%; height:50px; background:#f1f1f1; border-top:1px solid #c9c9c9; z-index:5;}
+.footerbar a{display:block; float:left; padding:5px 0; width:24.5%; height:50px; text-align:center; color: #4f4f4f; text-decoration:none;}
+.footerbar a:first-child{border-left:0;}
+.footerbar a i{font-size:20px;display:block;background:url(http://chucun.qiniudn.com/f_set.png);background-size:28px auto;margin:0 auto;margin-bottom:1px;}
+#footer { position:fixed;width:100%;left:0;bottom:0px;height:30px;line-height:30px;color:#fff;background:#333;border-top:0;}
+
+.footerbar .f_homes i{width:27px;height:25px;background-position:0 0;}
+.footerbar .f_whole i{width:23px;height:25px;background-position:0 -78px;position:relative;top:1px;}
+.footerbar .f_car i{width:28px;height:23px;background-position:0 -128px;position:relative;top:2px;margin-bottom:3px;position:relative;}
+.footerbar .f_car b{display:block;background:#f60;padding:1px;width:16px;height:16px;line-height:16px;border-radius:16px;color:#fff;position:absolute;top:-5px;right:-8px;font-family:Arial;text-align:center;font-size:10px;overflow:hidden;}
+.footerbar .f_personal i{width:20px;height:22px;background-position:0 -175px;position:relative;top:3px;margin-bottom:4px;}
+</style>
+
+<div class="footerbar">
+
+	<a href="{php echo $this->createMobileUrl('list')}" class="f_homes" style="color:#f60;"><i></i>商城首页</a>
+
+	<a href="{php echo $this->createMobileUrl('list2')}" class="f_whole"><i></i>所有商品</a>
+
+	<a href="{php echo $this->createMobileUrl('mycart')}" class="f_car"><i>{if !empty($carttotal)}<b>{$carttotal}</b>{/if}</i>购物车</a>
+
+	<a href="{php echo $this->createMobileUrl('profile')}" class="f_personal"><i></i>个人中心</a>
+
+</div> 
+
+<script>
+
+document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+
+			WeixinJSBridge.call('hideToolbar');
+
+			{if $_GPC['act']!='entry' && $_GPC['do']!="list" && $_GPC['do']!='list2' && $_GPC['do']!='detail' && $_GPC['do']!='contactus'}
+
+				WeixinJSBridge.call('hideOptionMenu');
+
+			 {else}
+
+				WeixinJSBridge.call('showOptionMenu');
+
+			{/if}
+
+});
+</script>
+
+{/if}

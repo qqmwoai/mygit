@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+			<title>美容</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="keywords" content="美容">
+		<meta name="description" content="美容">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<link type="image/x-icon" rel="Icon" href="gg1.ico">
+		<link type="image/x-icon" rel="Shortcut Icon" href="gg1.ico">
+		<link type="image/x-icon" rel="Bookmark" href="gg1.ico">
+		<link rel="stylesheet" href="../addons/beauty/template/css/com.css" type="text/css">
+		<link rel="stylesheet" href="../addons/beauty/template/css/m.css" type="text/css">
+		<link rel="stylesheet" href="../addons/beauty/template/css/m_size.css">
+			<link rel="stylesheet" href="../addons/beauty/template/css/my.css" type="text/css">
+		<script type="text/javascript" src="../addons/beauty/template/js/zepto.min.js"></script>
+		<script type="text/javascript" src="../addons/beauty/template/js/bcj.min.js"></script>
+		<script src="../addons/beauty/template/js/hm.js"></script>
+		<script type="text/javascript" src="../addons/beauty/template/js/xiangmu.min.js"></script>
+		<style>
+		#nav i,.ui-toolbar-button,.ui-toolbar-title,.sch .btn,.hd_btn a,.haoshi .btn,.arr,.ui-icon,.ds_icon,.o_cp .btn,.cp .btn,
+		.fav_i,#fav_c,.zan_i,.adress_i,.ui-state-active .ui-icon-radio,.ok_ico,.d_btn,.ok2 i,.use_i i,.edit_i i,.del_i i,.em_sea i,
+		.tel,.indent i,.ui-state-active .ui-icon-checkbox{background:url(../addons/beauty/template/image/icon.png) 0 0 no-repeat;-webkit-background-size:90px 648px;background-size:90px 648px;}
+
+		</style>
+		</head>
+	<iframe id="__WeixinJSBridgeIframe_SetResult" style="display: none;"></iframe>
+	<iframe id="__WeixinJSBridgeIframe" style="display: none;"></iframe>
+
+	<body>
+		<section class="lvbd" style="margin-top:0px">
+			<div class="myinfo">
+				<span class="ren">
+                   <img src="{php echo tomedia($profile['avatar']);}"> 
+                	 </span>
+				<p>用户名:{$profile['nickname']}<a href="{php echo $this->createMobileUrl('changemobile');}" class="ab_r btn">编辑昵称</a></p>
+				<p>手机号:{$profile['mobile']} <a href="{php echo $this->createMobileUrl('changemobile');}" class="ab_r btn">绑定手机</a></p>
+
+			</div>
+			<div class="info_tool">
+				<!--<ul class="ul_h">
+					<li>
+						<a href="./index.php?g=bcj&amp;m=Geren&amp;a=m_shoucang">0<p>美容师收藏</p></a></li>
+					<li><a href="./index.php?g=bcj&amp;m=Geren&amp;a=f_shoucang">0<p>项目收藏</p></a></li>
+					<li><a>46<p>好友分享</p></a></li>
+				</ul>-->
+			</div>
+			<div class="indent">
+				<h3>我的订单</h3>
+				<ul class="ul_h">
+
+					<li>
+						<a href="{php echo $this->createMobileUrl('person_detail', array('status'=>0));}">
+							<i><img src="../addons/beauty/template/image/123.png"></i> 待付款
+						</a>
+					</li>
+
+					<li>
+						<a href="{php echo $this->createMobileUrl('person_detail', array('status'=>1));}">
+							<i></i> 待服务
+						</a>
+					</li>
+					<li>
+						<a href="{php echo $this->createMobileUrl('person_detail', array('status'=>2));}">
+							<i></i> 待评价
+						</a>
+					</li>
+					<li>
+						<a href="{php echo $this->createMobileUrl('person_detail', array('status'=>3));}">
+							<i></i> 已完成
+						</a>
+					</li>
+				</ul>
+
+			</div>
+			<div class="tel_phone">
+				<a href="tel:4000033801"><span id="phone_ico"></span>客服电话:{php echo $this->module['config']['mobile'];}</a>
+			</div>
+
+		</section>
+
+		<p class="ft2" style="margin-bottom: 0px;">
+
+			{php echo $this->module['config']['copyright'];}
+		</p>
+		<div id="gotop" class="ui-gotop" isfixed="true" style="bottom: 60px; right: 10px; position: fixed;">
+			<div></div>
+		</div>
+		<footer id="nav" class="white clearfix">
+			<a href="{php echo $this->createMobileUrl('index');}"><i></i>美容项目</a>
+			<a href="{php echo $this->createMobileUrl('address');}"><i></i>美容店铺</a>
+			<a href="{php echo $this->createMobileUrl('beautician');}"><i></i>美容师</a>
+			<a href="{php echo $this->createMobileUrl('person');}" class="cur"><i></i>个人中心</a>
+		</footer>
+		
+		<div class="gmu-media-detect" id="gmu-media-detect0"></div>
+	</body>
+
+</html>

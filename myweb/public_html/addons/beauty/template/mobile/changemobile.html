@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+			<title>美容</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="keywords" content="美容">
+		<meta name="description" content="美容">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<link type="image/x-icon" rel="Icon" href="gg.ico">
+		<link type="image/x-icon" rel="Shortcut Icon" href="gg.ico">
+		<link type="image/x-icon" rel="Bookmark" href="gg.ico">
+		<link rel="stylesheet" href="../addons/beauty/template/css/com.css" type="text/css">
+		<link rel="stylesheet" href="../addons/beauty/template/css/m.css" type="text/css">
+		<link rel="stylesheet" href="../addons/beauty/template/css/m_size.css">
+			
+		<script type="text/javascript" src="../addons/beauty/template/js/zepto.min.js"></script>
+		<script type="text/javascript" src="../addons/beauty/template/js/bcj.min.js"></script>
+		<script type="text/javascript" src="../addons/beauty/template/js/button.js"></script>
+		<style>
+		#nav i,.ui-toolbar-button,.ui-toolbar-title,.sch .btn,.hd_btn a,.haoshi .btn,.arr,.ui-icon,.ds_icon,.o_cp .btn,.cp .btn,
+		.fav_i,#fav_c,.zan_i,.adress_i,.ui-state-active .ui-icon-radio,.ok_ico,.d_btn,.ok2 i,.use_i i,.edit_i i,.del_i i,.em_sea i,
+		.tel,.indent i,.ui-state-active .ui-icon-checkbox{background:url(../addons/beauty/template/image/icon.png) 0 0 no-repeat;-webkit-background-size:90px 648px;background-size:90px 648px;}
+		textarea{  
+    		width: 100%;
+    		height: 100px;;
+		}  
+		</style>
+		<style>
+			.gmu-media-detect{-webkit-transition: width 0.001ms; width: 0; position: absolute; clip: rect(1px, 1px, 1px, 1px);}
+			@media screen and (width: 757px) { #gmu-media-detect0 { width: 1px; } }
+		</style>
+	</head>
+
+	<body class="er" style="-webkit-tap-highlight-color: rgba(255, 255, 255, 0);">
+		<!-- 本页中css样式 -->
+		<link rel="stylesheet" href="../addons/beauty/template/css/my_fuwu.css" type="text/css">
+		<div class="c_hd white">
+			<a href="" class="d_btn">信息修改</a>
+		</div>
+		<form name='form' method="post">
+		<section class="cpp lvbd">
+			<div id="tabs1" class="cpnav ui-tabs">
+				
+				<div class="">
+					昵称：<input type="text" name="nickname" value="{$profile['nickname']}"/><br />
+			 		电话：<input type="text" name="mobile" value="{$profile['mobile']}"/>
+				</div>
+					<button type="submit" name="submit" value="yes" id= 'submit' class="btn" style="margin-bottom:20px;">确认修改</button>
+					<input type="hidden" name="token" value="{$_W['token']}" />
+				</div>
+			</div>
+
+		</section>
+		</form>
+		<footer id="nav" class="white clearfix">
+		<a href="{php echo $this->createMobileUrl('index');}" class="cur"><i></i>美容项目</a>
+		<a href="{php echo $this->createMobileUrl('address');}"><i></i>美容店铺</a>
+		<a href="{php echo $this->createMobileUrl('beautician');}"><i></i>美容师</a>
+		<a href="{php echo $this->createMobileUrl('person');}"><i></i>个人中心</a>
+	</footer>
+		<p class="ft2">
+			{php echo $this->module['config']['copyright'];}
+		</p>
+</body>
+</html>

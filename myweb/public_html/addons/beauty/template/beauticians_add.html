@@ -1,0 +1,141 @@
+{template 'common/header'}
+<script type="text/javascript" src="resource/js/lib/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="resource/js/lib/jquery-ui-1.10.3.min.js"></script>
+<ul class="nav nav-tabs">
+	<li><a href="{php echo $this->createWebUrl('beauticians', array('op'=>'display'));}">美容师列表</a></li>
+	<li {if empty($id)}class="active"{/if}><a href="{php echo $this->createWebUrl('beauticians', array('op'=>'edit'));}">添加美容师</a></li>
+	{if !empty($id)}
+	<li class="active"><a href="{php echo $this->createWebUrl('beauticians', array('op'=>'edit', 'id'=>$id));}">编辑美容师</a></li>
+	{/if}
+</ul>
+
+
+<div class="main">
+	<form action="" method="post" class="form-horizontal form" id="form">
+		<div class="panel panel-default">
+			<div class="panel-heading">编辑美容师</div>
+			<div class="panel-body">
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 col-lg-2 control-label">美容师名</label>
+					<div class="col-xs-12 col-sm-8">
+						
+						<input type="text" name="beautician[name]" class="form-control" value="{$beautician['name']}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 col-lg-2 control-label">头像</label>
+					<div class="col-xs-12 col-sm-8">
+						{php echo tpl_form_field_image('beautician[thumb]', $beautician['thumb']);}
+						<span class="help-block">（建议：图片宽度640像素，高度440像素，RGB，72分辨率）</span>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label"><span style='color:red'>*</span>默认服务地点</label>
+						<div class="col-sm-8 col-xs-12">
+							<select name="beautician[addressid]" class="form-control">
+								{loop $address $row}
+        					    <option value="{$row['id']}" {if $beautician['addressid']==$row['id']}selected="selected"{/if}>{$row['name']}</option>
+								{/loop}}
+      						  </select>
+						</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 col-lg-2 control-label">服务次数</label>
+					<div class="col-xs-12 col-sm-8">
+						<div class="input-group">
+						<input type="text" name="beautician[service_num]" class="form-control" value="{$beautician['service_num']}" />
+						<span class="input-group-addon">次</span>
+						</div>
+					</div>
+				</div>
+			
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 col-lg-2 control-label">好评次数</label>
+					<div class="col-xs-12 col-sm-8">
+						<div class="input-group">
+						<input type="text" name="beautician[comment_num]" class="form-control" value="{$beautician['comment_num']}" />
+						<span class="input-group-addon">次</span>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 control-label">美容师简介</label>
+						<div class="col-sm-9 col-xs-13">
+						<textarea name="beautician[desc]" class="form-control richtext" cols="70">{$beautician['desc']}</textarea>
+						</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 col-lg-2 control-label">状态</label>
+					<div class="col-xs-12 col-sm-8">
+						<label class="radio radio-inline">
+							<input type="radio" name="beautician[status]" value="1" {if $beautician['status'] == 1 }checked="checked"{/if}>在职
+						</label>
+						<label class="radio radio-inline">
+							<input type="radio" name="beautician[status]" value="0" {if $beautician['status'] == 0}checked="checked"{/if}> 离职
+						</label>
+						
+					</div>
+				</div>
+				{if !empty($id)}
+				<div class="form-group">
+					<label class="col-xs-12 col-sm-3 col-md-2 col-lg-2 control-label">添加日期</label>
+					<div class="col-xs-12 col-sm-8">
+						<p class="form-control-static">{php echo date('Y-m-d H:i', $$beautician['createtime']);}</p>
+					</div>
+				</div>
+				{/if}
+				<div class="form-group">
+					<div class="col-xs-12 col-sm-9 col-md-10 col-lg-10 col-sm-offset-3 col-md-offset-2 col-lg-offset-2">
+						<input type="hidden" name="id" value="{$id}" />
+						<input name="submit" type="submit" value="提交" class="btn btn-primary" />
+						<input type="hidden" name="token" value="{$_W['token']}" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+<script>
+$(function () {
+		window.optionchanged = false;
+		$('#myTab a').click(function (e) {
+			e.preventDefault();//阻止a链接的跳转行为
+			$(this).tab('show');//显示当前选中的链接及关联的content
+		})
+	});
+require(['jquery', 'util'], function($, util){
+	$(function(){
+		$('#form').submit(function(){
+//			if($('input[name="$beautician[name]"]').val() == ''){
+//				util.message('请填写美容师名称.');
+//				return false;
+//			}
+//			if($('input[name="$beautician[price]"]').val() == ''){
+//				util.message('请填写美容师价.');
+//				return false;
+//			}
+//			if($('input[name="$beautician[mprice]"]').val() == ''){
+//				util.message('请填写美容师市场价.');
+//				return false;
+//			}
+//			if($('input[name="$beautician[thumb]"]').val() == ''){
+//				util.message('请上传拍品图片.');
+//				return false;
+//			}
+//			if($('input[name="$beautician[gdesc]"]').val() == ''){
+//				util.message('请填写美容师简介.');
+//				return false;
+//			}
+			return true;
+		});
+	});
+});
+require(['jquery', 'util'], function($, u){
+	$(function(){
+		u.editor($('.richtext')[0]);
+	});
+});
+</script>
+{template 'common/footer'}

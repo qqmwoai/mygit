@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta  charset="utf-8">
+<meta  name="viewport"  content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>会员资料提交</title>
+<link  rel="stylesheet"  href="../addons/ju_read/template/style/css/css.css">
+<script   src="../addons/ju_read/template/style/zepto.min.js" type="text/javascript"></script>
+</head>
+<body  style="background:#f6f6f8;">
+<section  class="top_bar"> 
+	<a  href="javascript:history.back(-1);"   title="返回"  class="back"><i  class="b_arr"></i>返回</a>
+	<a  href="{php echo $this->createMobileUrl('main', array('id' =>$reply_id,'parentopenid'=>$_GPC['parentopenid']))}"  title="首页"  class="home">首页</a>
+	<h2  id="oneNavTitle">会员资料</h2>
+</section>
+<section  class="wrap">
+<section  class="address">
+<div  class="addr_info">
+	<form id="form1" action="javascript:;" method="post">
+	<p  class="tips">个人信息</p>
+    <ul>
+    	<li><label  class="lb">真实姓名</label><input  id="realname"  class="ipt"  value="{$people['realname']}"  type="text"  placeholder="请输入您的真实姓名"></li>
+	 	<li><label  class="lb">手机号码</label><input  id="mobile"  class="ipt"  value="{$people['mobile']}"  type="text"  placeholder="请输入正确手机号码"></li>
+	</ul>
+	</form>
+</div>
+<div  class="save_opt">
+	<p  id="oneSaveTips"  class="s_tips"  style="">为保证会员信息正确<span  class="fc3">请确认无误后再保存</span></p>
+	<a  id="oneSaveAddr"  href="javascript:submit1();"  title="提交"  class="chk_btn"  style="">提交</a>
+</div>
+<div style="margin-top: 6rem;">
+</div>
+</section>
+</section>
+</body>
+<script type="text/javascript">
+	function submit1(){	    
+    	var form_input = document.getElementById("form1");
+    	var realname = form_input['realname'].value;
+    	var mobile = form_input['mobile'].value;
+		if (!realname) {
+			alert('请输入您的真实姓名！');
+			return false;
+		}
+		if (!mobile) {
+			alert('请输入您的手机号码！');
+			return false;
+		}
+		if (!/^1[358]{1}[0-9]{9}/.test(mobile)) {
+			alert('请输入正确的手机号码！');
+			return false;
+		}
+		
+		var message=confirm('请确认您的信息');
+		if (message) {
+        	$.post('{php echo $this->createMobileUrl('ajaxsubmit',array('uid'=>$_W['member']['uid']))}',{realname:realname,mobile:mobile},function(m){
+        	alert(m);
+        	window.location.href="{php echo $this->createMobileUrl('main', array('id' =>$reply_id,'parentopenid'=>$_GPC['parentopenid']))}";
+        	},"html");
+        };
+    }
+</script>
+</html>

@@ -1,0 +1,35 @@
+.c_hd{background:#f07e9f;padding:5px 15px 5px 0;text-align:left;line-height:36px;position:fixed;top:0;width:100%;left:0;right:0;z-index:9}
+.d_btn {background-position: -60px -320px;display: block;height: 36px;padding:0 10px 0 40px;;line-height:36px;font-size:18px;float:left;}
+.lvbd{margin-top:46px}
+
+
+#tabs1{margin-top:10px;border-top:1px solid #ddd}
+.ui-tabs-nav{width:100%;z-index:99;height:36px;background-color:#f8f8f8;}
+.ui-tabs-nav li{width:20%;float: left;height:36px;text-align: center;display: block;line-height: 36px;border-right: 1px solid #ddd;border-bottom: 1px solid #ddd;background-image:none}
+.ui-tabs-nav .ui-state-active{border-bottom:3px solid #f07e9f}
+li.ui-state-active{background-color:#fff}
+.tabf .ui-state-active a{color: #f07e9f}
+.ui-refresh-down{line-height:50px}
+.ui-tabs-content .ui-tabs-panel {display: none;}
+.ui-tabs-content .ui-tabs-panel.ui-state-active, .ui-viewport-transitioning .ui-tabs-panel.out {display: block;z-index: 1;}
+.ui-tabs-content .ui-tabs-panel.ui-state-active {z-index: 2;}
+
+.fwli{position:relative;min-height:100px;margin-top:15px;background:#fff;border-top:1px solid #ddd;text-align:left;}
+.fwli .xml{position:absolute;top:10px;left:10px}
+.fwli .xml img{width:50px;height:50px}
+
+.fwli .one span,.fwli .one a {float: left;}
+.fwli .one{position:relative;padding:0 10px 0 60px;height:50px;line-height:50px;border-bottom:1px solid #ddd;}
+.fwli .two{padding:10px 0 10px 70px;position:relative;border-bottom:1px solid #ddd;}
+.fwli .p{position:relative;padding:0 10px;height:40px;line-height:40px;border-bottom:1px solid #ddd;}
+.fwli .p2{text-align:right}
+.fwli .ren{position:absolute;top:5px;left:10px;}
+.fwli .n{font-size:18px;}
+.ren img{width:40px;height:40px;border:1px solid #f07e9f}
+.adress_i{background-position: -71px -283px;padding-left:18px; width: 140px; height: 20px; line-height: 20px; margin-top: 15px; overflow: hidden; text-overflow:ellipsis; white-space: nowrap;}
+.fwli .ab_r{right:10px}
+.fwli h4{font-size:16px}
+.fwli h4 span{position:absolute;top:10px;right:0;font-size:14px;}
+.fwli .tool{text-align:right;padding:10px}
+.tool a,.tool a:hover{margin-left:10px}
+.tool .btnd{border:1px solid #ddd;background:#fff;color:#333}

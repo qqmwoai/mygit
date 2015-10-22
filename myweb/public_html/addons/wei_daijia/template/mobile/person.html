@@ -1,0 +1,109 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<avalon ms-skip="" class="avalonHide">
+<style id="avalonStyle">
+.avalonHide{ display: none!important }
+</style>
+</avalon>
+    <title>代劳代驾</title>
+    {php echo register_jssdk();}
+ 
+		<link href="../addons/wei_daijia/template/css/style_366c9ef.css" type="text/css" rel="stylesheet">
+		<link href="../addons/wei_daijia/template/css/font-awesome-4.3.0/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+    	<script src="../addons/wei_daijia/template/js/jquery.min.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<!-- <meta name="apple-mobile-web-app-capable" content="yes">-->
+		<title>代劳代驾</title>
+</head>
+<body avalonctrl="root">
+    <div class="container">
+        <section class="main-view">
+            <div class="my" style="background-image: url(../addons/wei_daijia/template/images/bg.png);">
+                <div class="my_head">
+                    <div class="my_head_pic">
+                        <img id="uinLogo" class="my_head_img" width="130" height="130" alt="" src="{$profile['avatar']}">
+                    </div>
+                    <div class="my_head_info">
+                        <h4 id="nickname" class="my_head_name ">{$profile['nickname']}</h4>
+                    </div>
+                </div>
+            </div>
+            <div> 
+                <div class="nav">
+                    <ul class="nav_list">
+                        <li class="nav_item nav_order">
+                            <a  href="{php echo $this->createMobileUrl('myorder')}">
+                                <div class="nav_item_hd">订单查询</div>
+                            </a>
+                        </li>
+                        <li class="nav_item nav_cheap" >
+                            <div class="nav_item_hd"><a href="{php echo $this->createMobileUrl('price');}"> 价格规定 </a></div>
+                        </li>
+                        <li class="nav_item nav_cart" >
+                            <div class="nav_item_hd">
+                              <a href="tel: {$p['mobile']}">客服热线:{$p['mobile']}</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+    <nav>
+      <ul>
+        <li style="width: 20%;"><a class="nav-controller " href="{php echo $this->createMobileUrl('index');}"><i class="fa fa-home"></i>代驾</a></li>
+        <li style="width: 20%;"><a class="nav-controller" href="{php echo $this->createMobileUrl('daibu');}"><i class="fa fa-home"></i>代步</a></li>
+        <li style="width: 20%;"><a class="nav-controller" href="{php echo $this->createMobileUrl('dailao');}"><i class="fa fa-home"></i>代劳</a></li>
+        <li style="width: 20%;"><a href="{php echo $this->createMobileUrl('grant');}" class="nav-controller"><i class="fa fa-group"></i>最新活动</a></li>
+        <li style="width: 20%;"><a class="nav-controller active" href="{php echo $this->createMobileUrl('person');}"><i class="fa fa-user"></i>个人中心</a></li>
+      </ul>
+  </nav>
+  </footer>
+    </div>
+</body>
+<script>
+	wx.ready(function (){
+	var shareData = {
+		title: "{$share_data['share_title']}",
+		desc: "{$share_data['share_desc']}",
+		link: "{$to_url}",
+		imgUrl: "{$_W['attachurl']}{$share_data['share_image']}",
+	};
+//分享朋友
+	wx.onMenuShareAppMessage({
+	    title: shareData.title,
+	  	desc: shareData.desc,
+	  	link: shareData.link,
+	  	imgUrl:shareData.imgUrl,
+	  	trigger: function (res) {
+	  	},
+	  	success: function (res) {
+	    	window.location.href =adurl;
+	  	},
+	  	cancel: function (res) {
+	  	},
+	  	fail: function (res) {
+	    	alert(JSON.stringify(res));
+	  	}
+	});
+//朋友圈
+	wx.onMenuShareTimeline({
+	  	title: shareData.title,
+	  	link: shareData.link,
+	  	imgUrl:shareData.imgUrl,
+	  	trigger: function (res) {
+	  	},
+	  	success: function (res) {
+	    	window.location.href =adurl;
+	  	},
+	  	cancel: function (res) {
+	  	},
+	  	fail: function (res) {
+	    	alert(JSON.stringify(res));
+	  	}
+	});
+});
+</script>
+</html>

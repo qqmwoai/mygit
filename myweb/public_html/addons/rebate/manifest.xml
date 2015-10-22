@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.we7.cc" versionCode="0.6">
+	<application setting="true">
+		<name><![CDATA[一分钱抽奖]]></name>
+		<identifie><![CDATA[rebate]]></identifie>
+		<version><![CDATA[1.0]]></version>
+		<type><![CDATA[business]]></type>
+		<ability><![CDATA[一分钱抽奖]]></ability>
+		<description><![CDATA[一分钱抽奖]]></description>
+		<author><![CDATA[ourteam]]></author>
+		<url><![CDATA[http://bbs.we7.cc/]]></url>
+	</application>
+	<platform>
+		<subscribes>
+			<message type="text" />
+		</subscribes>
+		<handles>
+			<message type="text" />
+		</handles>
+		<rule embed="false" />
+		<card embed="false" />
+	</platform>
+	<bindings>
+		<cover>
+			<entry title="首页入口" do="index" state="" direct="false" />
+		</cover>
+		<menu>
+			<entry title="商品管理" do="goods" state="" direct="false" />
+			<entry title="订单管理" do="order" state="" direct="false" />
+		</menu>
+	</bindings>
+	<install><![CDATA[
+CREATE TABLE IF NOT EXISTS `ims_rebate_changci` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `gid` int(11) NOT NULL,
+  `goodsn` varchar(45) NOT NULL,
+  `createtime` varchar(45) NOT NULL,
+  `uniacid` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `ims_rebate_goods` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `gname` varchar(45) NOT NULL,
+  `thumb` varchar(115) NOT NULL,
+  `price` varchar(45) NOT NULL,
+  `num` int(11) NOT NULL,
+  `status` int(4) NOT NULL,
+  `gdesc` varchar(1024) NOT NULL COMMENT '商品描述',
+  `hours` int(11) NOT NULL COMMENT '限时抢购',
+  `uniacid` int(11) NOT NULL,
+  `createtime` varchar(45) NOT NULL,
+  `goodsn` varchar(45) NOT NULL COMMENT '商品每日上架标识',
+  `uptime` varchar(45) NOT NULL COMMENT '上架时间',
+  `fanli` varchar(45) NOT NULL COMMENT '返利倍数',
+  `fanli_num` varchar(45) NOT NULL COMMENT '返利倍数',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `ims_rebate_member` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `openid` varchar(45) NOT NULL,
+  `uniacid` int(11) NOT NULL,
+  `avatar` varchar(45) NOT NULL,
+  `nickname` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `ims_rebate_orders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ordersn` varchar(45) NOT NULL,
+  `goodsid` int(11) NOT NULL,
+  `transid` int(11) NOT NULL,
+  `uniacid` int(11) NOT NULL,
+  `openid` varchar(45) NOT NULL,
+  `pay_type` int(11) NOT NULL,
+  `createtime` varchar(45) NOT NULL,
+  `status` int(11) NOT NULL,
+  `ptime` varchar(45) NOT NULL,
+  `price` varchar(45) NOT NULL,
+  `goodsn` varchar(45) NOT NULL COMMENT '商品上架标识',
+  `get` int(11) NOT NULL COMMENT '0未中1已中奖',
+  `recvname` varchar(45) NOT NULL COMMENT '收货人名',
+  `mobile` varchar(45) NOT NULL,
+  `address` varchar(45) NOT NULL,
+  `zjm` varchar(45) NOT NULL COMMENT '中奖码',
+  `express` varchar(45) NOT NULL COMMENT '快递公司',
+  `expresssn` varchar(45) NOT NULL COMMENT '快递单号',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `ims_rebate_record` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `openid` varchar(45) NOT NULL,
+  `uniacid` int(11) NOT NULL,
+  `createtime` varchar(45) NOT NULL,
+  `goodsid` int(11) NOT NULL COMMENT '商品id',
+  `yqm` varchar(45) NOT NULL COMMENT '邀请码',
+  `cjm` varchar(11) NOT NULL COMMENT '抽奖码1',
+  `goodsn` varchar(45) NOT NULL COMMENT '商品上架标识',
+  `ordersn` varchar(45) NOT NULL,
+  `cjmfromopenid` varchar(45) NOT NULL COMMENT '抽奖码来自的openid',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `ims_recharge_adv` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `weid` int(11) DEFAULT '0',
+  `advname` varchar(50) DEFAULT '',
+  `link` varchar(255) DEFAULT '',
+  `thumb` varchar(255) DEFAULT '',
+  `displayorder` int(11) DEFAULT '0',
+  `enabled` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `indx_weid` (`weid`),
+  KEY `indx_enabled` (`enabled`),
+  KEY `indx_displayorder` (`displayorder`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `ims_recharge_order` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `weid` int(10) unsigned NOT NULL,
+  `mobile` varchar(20) NOT NULL,
+  `from_user` varchar(50) NOT NULL,
+  `ordersn` varchar(20) NOT NULL,
+  `price` varchar(10) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '-1取消状态，0普通状态，1为已付款，2为已发货，3为成功',
+  `paytype` tinyint(1) unsigned NOT NULL COMMENT '1为余额，2为微信',
+  `transid` varchar(30) NOT NULL DEFAULT '0' COMMENT '微信支付单号',
+  `remark` varchar(1000) NOT NULL DEFAULT '',
+  `createtime` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+]]></install>
+	<uninstall><![CDATA[
+		DROP TABLE `ims_rebate_changci`, `ims_rebate_goods`, `ims_rebate_member`, `ims_rebate_orders`, `ims_rebate_record`, `ims_recharge_adv`, `ims_recharge_order`;
+	]]></uninstall>
+	<upgrade><![CDATA[]]></upgrade>
+</manifest>

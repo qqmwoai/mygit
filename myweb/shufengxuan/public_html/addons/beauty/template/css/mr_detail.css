@@ -1,0 +1,45 @@
+.c_hd{background:#f07e9f;padding:5px 15px 5px 0;text-align:left;line-height:36px;position:fixed;top:0;width:100%;left:0;right:0;z-index:9}
+.d_btn {background-position: -60px -319px;display: block;height: 36px;padding:0 10px 0 40px;;line-height:36px;font-size:18px;float:left;}
+.lvbd{margin-top:46px}
+
+.mr_er{text-align:left;position:relative;padding:0 10px;background:#fff;padding-top:20px;border-bottom:1px solid #ccc}
+
+.mr_er .ren{top:15px;left:10px;position:absolute;width:90px;height:90px;background:#f07e9f;border-radius:45px;-moz-border-radius:45px;display:block;overflow:hidden}
+.mr_er .ren img{margin:2px 0 0 2px;width:86px;height:86px;min-height:84px;border-radius:45px;-moz-border-radius:45px;}
+
+
+.mr_er .fav_i,.mr_er .zan_i{margin-top:6px;background-position:-64px -126px;text-indent:-9999px;width:30px;height:30px;line-height:28px;display:inline-block;float:right;}.mr_er .fav_i:hover,.mr_er .fav_i:active{background-position:-67px -158px;}
+.mr_er .fav_i{position:absolute;top:15px;right:10px;}
+.fav_c{background:url(../../img/xing.png) no-repeat; margin: 1px -1px 0 0px; background-size:22px;display:block;float:right;width:31px;height:31px;}
+.mr_er .zan_i{background-position:-68px -61px;width:auto;padding:0 5px 0 22px;text-indent:0;border-right:1px solid #ccc;margin-right:10px}.mr_er .zan_i:hover,.mr_er .zan_i:active{background-position:-68px -94px;}
+.mr_er .zan_i{float:none;border-right:none;}
+.info{padding-left:110px}
+.info .green{font-size:18px;font-style:normal}
+.yinfo{padding-bottom:5px;color:#999}
+.pli{height:30px;border-top:1px solid #eee;border-bottom:1px solid #eee;color:#999;font-size:13px;line-height:30px}
+.mr_er .con{padding:10px;color:#999;font-size:16px;line-height:26px}
+
+
+#tabs1{margin-top:10px;border-top:1px solid #ddd}
+.xml img{min-height:80px;min-width:140px}
+.ui-tabs-nav{width:100%;z-index:99;height:36px;background-color:#f8f8f8;}
+.ui-tabs-nav li{width:25%;float: left;height:36px;text-align: center;display: block;line-height: 36px;border-right: 1px solid #ddd;border-bottom: 1px solid #ddd;background-image:none}
+.ui-tabs-nav .ui-state-active{border-bottom:3px solid #f07e9f}
+li.ui-state-active{background-color:#fff}
+.tabf .ui-state-active a{color: #f07e9f}
+
+.ui-refresh-down{line-height:50px}
+
+.ui-tabs-content .ui-tabs-panel {display: none;}
+.ui-tabs-content .ui-tabs-panel.ui-state-active, .ui-viewport-transitioning .ui-tabs-panel.out {display: block;z-index: 1;}
+.ui-tabs-content .ui-tabs-panel.ui-state-active {z-index: 2;}
+
+
+.xm li{background:#fafafa;margin-top:10px;-webkit-box-shadow:0 1px 2px rgba(0, 0, 0, 0.3);-moz-box-shadow:0 1px 2px rgba(0, 0, 0, 0.3);box-shadow:0 1px 2px rgba(0, 0, 0, 0.3);}
+.pre{height:30px;line-height:30px;text-align:left;padding-left:3px;position:relative;font-size:18px;border-radius:15px;}
+.i_opa,.i_opa h4{position:absolute;width:100%;bottom:30px;left:0;right:0;height:30px;overflow:hidden}
+.i_opa i{background:#333;width:100%;height:30px;display:block}.i_opa h4{color:#fff;font-size:14px;padding:0 5px;bottom:0}
+.bar{bottom:0;top:auto}
+.fav_i,.zan_i{background-position:-67px -126px;text-indent:-9999px;width:25px;height:28px;line-height:28px;display:inline-block;float:right;}.fav_i:hover,.fav_i:active{background-position:-67px -158px;}
+.zan_i{background-position:-68px -61px;width:auto;padding:0 5px 0 22px;text-indent:0}.zan_i:hover,.zan_i:active{background-position:-68px -94px;}
+.xm .btn{position:absolute;top:5px;right:5px;height:35px;height:35px;color:#fff;background:#f60;font-size:23px;line-height:35px;opacity: 0.80;filter:alpha(opacity =80);padding:0 8px}

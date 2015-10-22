@@ -1,0 +1,109 @@
+{template 'common/header'}
+
+{template 'common'}
+
+<ul class="nav nav-tabs">
+
+	<li {if $operation == 'display' && $status == ''}class="active"{/if}><a href="{php echo $this->createWebUrl('order', array('op' => 'display'))}">全部订单</a></li>
+	<li {if $operation == 'display' && $status == '1' && ( $sendtype=='1' || $sendtype=='0')} class="active"{/if}><a href="{php echo $this->createWebUrl('order', array('op' => 'display', 'status' => 1))}">待发货</a></li>
+	<li {if $operation == 'display' && $status == '1' && $sendtype == '2'}class="active"{/if}><a href="{php echo $this->createWebUrl('order', array('op' => 'display', 'status' => '1', 'sendtype' => 2))}">待自提</a></li>
+	<li {if $operation == 'display' && $status == '0'}class="active"{/if}><a href="{php echo $this->createWebUrl('order', array('op' => 'display', 'status' => 0))}">待付款</a></li>
+	<li {if $operation == 'display' && $status == '2'}class="active"{/if}><a href="{php echo $this->createWebUrl('order', array('op' => 'display', 'status' => 2))}">待收货</a></li>
+	<li {if $operation == 'display' && $status == '3'}class="active"{/if}><a href="{php echo $this->createWebUrl('order', array('op' => 'display', 'status' => 3))}">已完成</a></li>
+	<li {if $operation == 'display' && $status == '-1'}class="active"{/if}><a href="{php echo $this->createWebUrl('order', array('op' => 'display', 'status' => -1))}">已关闭</a></li>
+	<li class="active"><a href="{php echo $this->createWebUrl('order', array('op' => 'display', 'status' => -1))}">输入订单</a></li>
+</ul>
+
+<div class="main">
+	<form action="" class="form-horizontal form" method="post" enctype="multipart/form-data">
+	<div class="panel panel-default">
+		<div class="panel-heading">收货地址</div>
+		<div class="panel-body">
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label">真实姓名</label>
+				<div class="col-sm-9">
+					{php echo tpl_fans_form('realname',$profile['realname']);}
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label">地区</label>
+				<div class="col-sm-9">
+					{php echo tpl_fans_form('reside',array('province' => $profile['resideprovince'],'city' => $profile['residecity'],'district' => $profile['residedist']));}
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label">详细地址</label>
+				<div class="col-sm-9">
+					{php echo tpl_fans_form('address',$profile['address']);}
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label">手机</label>
+				<div class="col-sm-9">
+					{php echo tpl_fans_form('mobile',$profile['mobile']);}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">商品信息</div>
+		<div class="panel-body">
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label">选择商品</label>
+				<div class="col-sm-9 col-xs-12">
+					<select name="goodsid" class="form-control">
+						{loop $goods $group}
+						<option value="{$group['id']}">{$group['title']}</option>
+						{/loop}
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 col-lg-2 control-label">商品数量</label>
+				<div class="col-xs-12 col-sm-8">
+					<div class="input-group">
+						<input type="text" name="total" class="form-control" value="" >
+						<span class="input-group-addon">件</span>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label">配送方式</label>
+				<div class="col-sm-9 col-xs-12">
+					<select name="dispatch" class="form-control">
+						{loop $dispatchs $groups}
+						<option value="{$groups['id']}">{$groups['dispatchname']}(运费{$groups['firstprice']})</option>
+						{/loop}
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label">付款方式</label>
+				<div class="col-sm-9 col-xs-12">
+					<select name="paytype" class="form-control">
+						<option value="1">余额支付</option>
+						<option value="2">在线支付</option>
+						<option value="3">货到付款</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label">下单时间</label>
+				<div class="col-sm-4 col-xs-6">{php echo tpl_form_field_date('creattime', !empty($goods['end_time']) ? date('Y-m-d H:i',$goods['end_time']) : date('Y-m-d H:i'), 1)}</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-12 col-sm-3 col-md-2 control-label">备注 :</label>
+				<div class="col-sm-9 col-xs-12"><textarea style="height:150px;" class="form-control" name="remark" cols="70"></textarea></div>
+			</div>
+			<div class="form-group">
+				<div class="col-xs-12 col-sm-9 col-md-10 col-lg-10 col-sm-offset-3 col-md-offset-2 col-lg-offset-2">
+					<input type="hidden" name="id" value="{$goods['id']}" />
+					<input name="submit" type="submit" value="提交" class="btn btn-primary" />
+					<input type="hidden" name="token" value="{$_W['token']}" />
+				</div>
+			</div>
+		</div>
+	</div>
+	</form>
+</div>
+{template 'common/footer'}

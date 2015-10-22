@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<title>美容</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="keywords" content="xxx">
+		<meta name="description" content="xxx">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<link type="image/x-icon" rel="Icon" href="gg.ico">
+		<link type="image/x-icon" rel="Shortcut Icon" href="gg.ico">
+		<link type="image/x-icon" rel="Bookmark" href="gg.ico">
+		<link rel="stylesheet" href="../addons/beauty/template/css/com.css" type="text/css">
+		<link rel="stylesheet" href="../addons/beauty/template/css/m.css" type="text/css">
+		<link rel="stylesheet" href="../addons/beauty/template/css/m_size.css">
+			<style>
+		#nav i,.ui-toolbar-button,.ui-toolbar-title,.sch .btn,.hd_btn a,.haoshi .btn,.arr,.ui-icon,.ds_icon,.o_cp .btn,.cp .btn,
+		.fav_i,#fav_c,.zan_i,.adress_i,.ui-state-active .ui-icon-radio,.ok_ico,.d_btn,.ok2 i,.use_i i,.edit_i i,.del_i i,.em_sea i,
+		.tel,.indent i,.ui-state-active .ui-icon-checkbox{background:url(../addons/beauty/template/image/icon.png) 0 0 no-repeat;-webkit-background-size:90px 648px;background-size:90px 648px;}
+
+	</style>
+		<style>
+			.gmu-media-detect {
+				-webkit-transition: width 0.001ms;
+				width: 0;
+				position: absolute;
+				clip: rect(1px, 1px, 1px, 1px);
+			}
+			@media screen and (width: 757px) {
+				#gmu-media-detect0 {
+					width: 1px;
+				}
+			}
+		</style>
+	</head>
+
+	<body class="er" style="-webkit-tap-highlight-color: rgba(255, 255, 255, 0);">
+		<!-- 本页中css样式 -->
+		<link rel="stylesheet" href="../addons/beauty/template/css/pay3.css" type="text/css">
+		<div class="c_hd white">
+			<a class="d_btn" href="javascript:history.go(-1)">服务地点选择</a> <span></span>
+		</div>
+	<form name='form' method="post">
+			<section class="adr lvbd">
+				<div class="bd">
+					<ul class="ul_a ul_v">
+						{loop $address $item}
+						<li class="adrbd">
+							<span class="btn n">{$item['name']}</span>
+							<p class="adress_i"><a href="#">{$item['detail']}</a>
+								<input type="radio" id="radio" class="ui-icon-radio" name="radio" checked="checked" value="{$item['id']}">
+							</p>
+							<span></span>
+							<!--<div class="r0">
+								<label for="input_btn_0" class="ui-btn ui-btn-icon-only ui-state-active">
+									<span class="ui-btn-text"></span>
+									
+									<span class="ui-icon ui-icon-radio"><input type="radio"  checked="checked"  name="radio" value="3"></span>
+								</label>
+								
+							</div>-->
+						</li>
+						{/loop}
+					</ul>
+				</div>
+
+				<input type="hidden" name="mrs_id" value="14">
+				<input type="hidden" name="xm_id" value="2946">
+				<p class="tool">
+					<!--<a href="{php echo $this->createMobileUrl('pic_date');}"><button class="btn">下一步</button></a>-->
+					 <button type="submit" name="submit" value="yes" id= 'submit' class="btn" style="margin-bottom:20px;">下一步</button>
+				</p>
+                 <input type="hidden" name="token" value="{$_W['token']}" />
+			</section>
+	</form>
+			<input type="hidden" name="__hash__" value="0366cae259fee82d183f1dab6bd2d191_b57b91feb0a6d3e2c3adcfae910bef01">
+		
+
+		<p class="ft2">
+			{php echo $this->module['config']['copyright'];}
+		</p>
+
+		<div id="gotop" class="ui-gotop" isfixed="true" style="bottom: 60px; right: 10px; position: fixed;">
+			<div></div>
+		</div>
+		<footer id="nav" class="white clearfix">
+		<a href="{php echo $this->createMobileUrl('index');}" class="cur"><i></i>美容项目</a>
+		<a href="{php echo $this->createMobileUrl('address');}"><i></i>美容店铺</a>
+		<a href="{php echo $this->createMobileUrl('beautician');}"><i></i>美容师</a>
+		<a href="{php echo $this->createMobileUrl('person');}"><i></i>个人中心</a>
+	</footer>
+		<script type="text/javascript" src="../addons/beauty/template/js/zepto.min.js"></script>
+		<script type="text/javascript" src="../addons/beauty/template/js/bcj.min.js"></script>
+		<script>
+			 //创建组件
+			$('#gotop').gotop();
+		</script>
+		<div style="position:fixed;top:10px;"></div>
+		<script type="text/javascript" src="../addons/beauty/template/js/button.js"></script>
+		<script type="text/javascript" src="../addons/beauty/template/js/$input.js"></script>
+		<div class="gmu-media-detect" id="gmu-media-detect0"></div>
+	</body>
+	<iframe id="__WeixinJSBridgeIframe_SetResult" style="display: none;"></iframe>
+	<iframe id="__WeixinJSBridgeIframe" style="display: none;"></iframe>
+<script>
+//	function check(){
+//		var radios = document.getElementsByName("radio");
+//		var tag = false;
+//		var val;
+//		for(radio in radios) {
+//		 if(radios[radio].checked) {
+// 		   tag = true;
+//  		  val = radios[radio].value;
+//  	  break;
+// 			}
+//			}
+//			if(tag) {
+//			   alert(val);
+//				} 
+//			else {
+// 			 alert("请选择。。。。");
+// 			 return false;
+//			}
+//	}
+</script>
+</html>

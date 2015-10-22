@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)http://wx.yidianyimy.com/index.php?g=bcj&m=Dianpu -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<title>美容</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="keywords" content="美容">
+		<meta name="description" content="美容">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<link type="image/x-icon" rel="Icon" href="http://wx.yidianyimy.com/gg1.ico">
+		<link type="image/x-icon" rel="Shortcut Icon" href="http://wx.yidianyimy.com/gg1.ico">
+		<link type="image/x-icon" rel="Bookmark" href="http://wx.yidianyimy.com/gg1.ico">
+		<link rel="stylesheet" href="../addons/beauty/template/css/com.css" type="text/css">
+		<link rel="stylesheet" href="../addons/beauty/template/css/m.css" type="text/css">
+		<link rel="stylesheet" href="../addons/beauty/template/css/m_size.css">
+		<!-- 本页中css样式 -->
+		<link rel="stylesheet" href="../addons/beauty/template/css/dp.css" type="text/css">
+		<script src="../addons/beauty/template/js/jweixin-1.0.0.js"></script>
+		<script src="../addons/beauty/template/js/hm.js"></script>
+		<script type="text/javascript" src="../addons/beauty/template/js/zepto.min.js"></script>
+		<script type="text/javascript" src="../addons/beauty/template/js/bcj.min.js"></script>
+		<script type="text/javascript" src="../addons/beauty/template/js/button.js"></script>
+		<!--<style>
+		#nav i,.ui-toolbar-button,.ui-toolbar-title,.sch .btn,.hd_btn a,.haoshi .btn,.arr,.ui-icon,.ds_icon,.o_cp .btn,.cp .btn,
+		.fav_i,#fav_c,.zan_i,.adress_i,.ui-state-active .ui-icon-radio,.ok_ico,.d_btn,.ok2 i,.use_i i,.edit_i i,.del_i i,.em_sea i,
+		.tel,.indent i,.ui-state-active .ui-icon-checkbox{background:url(../addons/beauty/template/image/icon.png) 0 0 no-repeat;-webkit-background-size:90px 648px;background-size:90px 648px;}
+
+	</style>-->
+	<style>
+		#nav i,.ui-toolbar-button,.ui-toolbar-title,.sch .btn,.hd_btn a,.haoshi .btn,.arr,.ui-icon,.ds_icon,.o_cp .btn,.cp .btn,
+		.fav_i,#fav_c,.zan_i,.adress_i,.ui-state-active .ui-icon-radio,.ok_ico,.d_btn,.ok2 i,.use_i i,.edit_i i,.del_i i,.em_sea i,
+		.tel,.indent i,.ui-state-active .ui-icon-checkbox{background:url(../addons/beauty/template/image/icon.png) 0 0 no-repeat;-webkit-background-size:90px 648px;background-size:90px 648px;}
+		.bt{
+			padding: 0px 10px; border-radius: 5px; height: 28px; color: rgb(255, 255, 255); line-height: 28px; display: inline-block; background-color: rgb(245, 84, 84); -moz-border-radius: 5px; -webkit-appearance: none;
+		}
+	</style>
+		<!-- 本页中js样式 -->
+		<script type="text/javascript" src="../addons/beauty/template/js/xiangmu.min.js"></script>
+		
+	</head>
+
+	<body style="-webkit-tap-highlight-color: rgba(255, 255, 255, 0);">
+		<!--
+<img src="http://hm.baidu.com/hm.gif?si=286481df7ee966597848f556625fff9b&amp;et=0&amp;nv=1&amp;st=1&amp;lt=1439551993&amp;v=wap-0-0.2&amp;rnd=3340163998" width="0" height="0" />
+-->
+
+
+		<section class="lvbd" style="margin-top:0px">
+			<div id="conten1" class="ui-refresh">
+				<ul class="data-list ul_v dpli">
+					{loop $address $item}
+					<li class="dpp">
+						<a href="{php echo $this->createMobileUrl('address_detail', array('addressid'=>$item['id']));}" class="xml">
+							<div class="ab_l">
+								<img src="{php echo tomedia($item['thumb']);}"></div>
+							<p>
+								<span class="bt">{$item['name']}</span>
+							</p>
+							<p class="">{$item['detail']}</p>
+							<!--<i class="arr"></i>-->
+						</a>
+					</li>
+					{/loop}					
+				</ul>
+				<div class="ui-refresh-down"></div>
+			</div>
+			<input class="longitude" type="hidden" value="">
+			<input class="latitude" type="hidden" value="">
+
+		</section>
+
+		<p class="ft2">
+
+			{php echo $this->module['config']['copyright'];}
+		</p>
+		<div id="gotop" class="ui-gotop" isfixed="true" style="bottom: 60px; right: 10px; position: fixed;">
+			<div></div>
+		</div>
+		<footer id="nav" class="white clearfix">
+		<a href="{php echo $this->createMobileUrl('index');}"><i></i>美容项目</a>
+		<a href="{php echo $this->createMobileUrl('address');}" class="cur"><i></i>美容店铺</a>
+		<a href="{php echo $this->createMobileUrl('beautician');}"><i></i>美容师</a>
+		<a href="{php echo $this->createMobileUrl('person');}"><i></i>个人中心</a>
+		</footer>
+		<div class="gmu-media-detect" id="gmu-media-detect0"></div>
+	</body>
+
+</html>

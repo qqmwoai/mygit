@@ -1,0 +1,252 @@
+{php $bootstrap_type = 3;}
+
+{template 'header'}
+
+<style type='text/css'>
+
+	.sel { background:#e9342a; color:#fff;}
+
+	.nosel { background:#fff;color:#000}
+
+</style>
+
+<link type="text/css" rel="stylesheet" href="../addons/ewei_shopping/images2/style.css?{TIMESTAMP}">
+
+<div class="head">
+
+	<a href="javascript:history.back();" class="bn pull-left"><i class="fa fa-angle-left"></i></a>
+
+	<span class="title">我的订单</span>
+
+	<a href="{php echo $this->createMobileUrl('mycart')}" class="bn pull-right"><i class="fa fa-shopping-cart"></i></a>
+
+</div>
+
+ <div class="myoder img-rounded" style='text-align:center;color:#aaa;padding:5px;'>
+
+	 <div style='float:left;margin:auto;width:100%;'>
+
+		<div {if $status==0}class='sel'{else}class="nosel"{/if} style='border-top-left-radius: 5px;border-bottom-left-radius:5px;border:1px solid #e9342a;text-align: center;float:left;width:33.3%;height:25px;' onclick="location.href='{php echo $this->createMobileUrl('myorder',array('status'=>0))}'">
+
+			待支付
+
+		</div>
+
+		<div {if $status==1 || $status==2}class='sel'{else}class="nosel"{/if} style='border:1px solid #e9342a;margin-left:-1px;float:left;width:33.3%;text-align: center;height:25px;' onclick="location.href='{php echo $this->createMobileUrl('myorder',array('status'=>2))}'">
+
+			待收货
+
+		</div>
+
+		<div {if $status==3}class='sel'{else}class="nosel"{/if} style='border-top-right-radius: 5px;margin-left:-1px;border-bottom-right-radius:5px;text-align: center;border:1px solid #e9342a;float:left;width:33.3%;height:25px;' onclick="location.href='{php echo $this->createMobileUrl('myorder',array('status'=>3))}'">
+
+			已完成
+
+		</div>
+
+	</div>
+
+	 <!-- <a style='float:right; display:inline-block; height:23px; line-height:23px;' href="{php echo $this->createMobileUrl('address',array('from'=>'confirm'))}">管理收货地址</a> -->
+
+</div>
+
+
+
+{if count($list)<=0}
+
+<div class="myoder img-rounded" style='text-align:center;color:#aaa;padding:30px;'>
+
+	您暂时没有任何订单!
+
+</div>
+
+{/if}
+
+<div style='margin-bottom:40px;'>
+
+{loop $list $item}
+
+<div class="myoder img-rounded">
+
+	<div class="myoder-hd">
+
+		<span class="pull-left">订单编号：{$item['ordersn']}</span>
+
+		<span class="pull-right">{php echo date('Y-m-d H:i', $item['createtime'])}
+
+		{if $item['paytype'] == 3}
+
+			{if $item['status'] == -1}
+
+			<span class="text-muted">订单取消</span>
+
+			{elseif $item['status'] < 3}
+
+			<span class="text-danger">货到付款 / 未付款</span>
+
+			{else}
+
+			<span class="text-success">已完成</span>
+
+			{/if}
+
+		{else}
+
+			{if $item['status'] == -1}
+
+			<span class="text-muted">订单取消</span>
+
+			{elseif $item['status'] == 0}
+
+			<span class="text-danger">未付款</span>
+
+			{elseif $item['status'] == 1}
+
+			<span class="text-warning">已付款</span>
+
+			{elseif $item['status'] == 2}
+
+			<span class="text-warning">已发货</span>
+
+			{else}
+
+			<span class="text-success">已完成</span>
+
+			{/if}
+
+		{/if}
+
+		</span>
+
+	</div>
+
+	{if count($item['goods'])==1}
+
+	{loop $item['goods'] $goods}
+
+	<div class="myoder-detail">
+
+		<a href="{php echo $this->createMobileUrl('detail', array('id' => $goods['id']))}">
+
+			<img src="{php echo tomedia($goods['thumb']);}" width="160" />
+
+		</a>
+
+		<div class="pull-left">
+
+			<div class="name"><a href="{php echo $this->createMobileUrl('detail', array('id' => $goods['id']))}">{$goods['title']}</a></div>
+
+			<div class="price">
+
+				<span class="pull-left">{$goods['marketprice']} 元{if $goods['unit']} / {$goods['unit']}{/if}</span>
+
+				<span class="num pull-right">{$item['total'][$goods['id']]['total']}{if $goods['unit']} {$goods['unit']}{/if}</span>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	{/loop}
+
+	{else}
+
+	<div class="myoder-detail">
+
+		{loop $item['goods'] $goods}
+
+		<a href="{php echo $this->createMobileUrl('detail', array('id' => $goods['id']))}">
+
+			<img src="{php echo tomedia($goods['thumb']);}" width="160" />
+
+		</a>
+
+		{/loop}
+
+	</div>
+
+	{/if}
+
+	<div class="myoder-total">
+
+		<span>
+
+			共计：<span class="false">
+
+				{if $item['dispatchprice']<=0}
+
+				{$item['price']} 元
+
+				{else}
+
+				{$item['price']} 元 (运费 {$item['dispatchprice']} 元)
+
+				{/if}</span>
+
+		</span>
+
+		<div style="height:30px;">
+		<a href="{php echo $this->createMobileUrl('order', array('orderid' => $item['id'], 'op' => 'delete', 'curtstatus' => $status))}" class="btn btn-danger pull-right btn-sm" style="margin-left: 10px;">删除订单</a>
+		{if $item['status'] < 3}
+		<a href="{php echo $this->createMobileUrl('order', array('orderid' => $item['id'], 'status' => '-1', 'curtstatus' => $status))}" class="btn btn-warning pull-right btn-sm" style="margin-left: 10px;">取消订单</a>
+		{/if}
+		<a href="{php echo $this->createMobileUrl('myorder', array('orderid' => $item['id'], 'op' => 'detail'))}" class="btn btn-success pull-right btn-sm" >订单详情</a></div>
+	</div>
+
+</div>
+
+{/loop}</div>
+
+{template 'footer'}
+
+ <style>
+
+.footerbar{position:fixed; left:0; bottom:0px; width:100%; height:50px; background:#f1f1f1; border-top:1px solid #c9c9c9; z-index:5;}
+
+.footerbar a{display:block; float:left; padding:5px 0; width:24.5%; height:50px; text-align:center; color: #4f4f4f; text-decoration:none;}
+
+.footerbar a:first-child{border-left:0;}
+
+.footerbar a i{font-size:20px;display:block;background:url(http://mskin.1yyg.com/weixin/Images/f_set.png?v=140815);background-size:28px auto;margin:0 auto;margin-bottom:1px;}
+
+#footer { position:fixed;width:100%;left:0;bottom:0px;height:30px;line-height:30px;color:#fff;background:#333;border-top:0;}
+
+.hover{color:#f60;}
+.footerbar .f_home i{width:27px;height:25px;background-position:0 -26px;}
+.footerbar .f_whole i{width:23px;height:25px;background-position:0 -78px;position:relative;top:1px;}
+.footerbar .f_car i{width:28px;height:23px;background-position:0 -128px;position:relative;top:2px;margin-bottom:3px;position:relative;}
+.footerbar .f_car b{display:block;background:#f60;padding:1px;width:16px;height:16px;line-height:16px;border-radius:16px;color:#fff;position:absolute;top:-5px;right:-8px;font-family:Arial;text-align:center;font-size:10px;overflow:hidden;}
+.footerbar .f_personals i{width:20px;height:22px;background-position:0 -152px;position:relative;top:3px;margin-bottom:4px;}
+</style>
+
+<div class="footerbar">
+
+	<a href="{php echo $this->createMobileUrl('list')}" class="f_home"><i></i>商城首页</a>
+
+	<a href="{php echo $this->createMobileUrl('mycart')}" class="f_whole"><i></i>所有商品</a>
+
+	<a href="{php echo $this->createMobileUrl('mycart')}" class="f_car"><i>{if !empty($carttotal)}<b>{$carttotal}</b>{/if}</i>购物车</a>
+
+	<a href="{php echo $this->createMobileUrl('profile')}" class="f_personals" style="color:#f60;"><i></i>个人中心</a>
+
+</div> 
+
+<script>
+
+document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+
+			WeixinJSBridge.call('hideToolbar');
+
+			{if $_GPC['act']!='entry' && $_GPC['do']!="list" && $_GPC['do']!='list2' && $_GPC['do']!='detail' && $_GPC['do']!='contactus'}
+
+				WeixinJSBridge.call('hideOptionMenu');
+
+			 {else}
+
+				WeixinJSBridge.call('showOptionMenu');
+
+			{/if}
+
+});
+</script>

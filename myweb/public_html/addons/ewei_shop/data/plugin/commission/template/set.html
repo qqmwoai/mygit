@@ -1,0 +1,211 @@
+{template 'web/_header'}
+{template 'tabs'}
+<form id="setform"  action="" method="post" class="form-horizontal form">
+    <div class='panel panel-default'>
+           <div class='panel-heading'>
+            分销等级设置
+        </div>
+        <div class='panel-body'>
+
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">分销等级</label>
+                <div class="col-sm-9 col-xs-12">
+                    <select  class="form-control" name="setdata[level]">
+                        <option value="0" {if empty($set['level'])}selected{/if}>不开启分销机制</option>
+                        <option value="1" {if $set['level']==1}selected{/if}>一级分销</option>
+                        <option value="2" {if $set['level']==2}selected{/if} >二级分销</option>
+                        <option value="3" {if $set['level']==3}selected{/if} >三级分销</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                <div class="col-sm-9 col-xs-12">
+                    <div class="input-group">
+                        <div class="input-group-addon">一级分销</div>
+                        <input type="text" name="setdata[commission1]" class="form-control" value="{$set['commission1']}"  />
+                        <div class="input-group-addon">%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                <div class="col-sm-9 col-xs-12">
+                    <div class="input-group">
+                        <div class="input-group-addon">二级分销</div>
+                        <input type="text" name="setdata[commission2]" class="form-control" value="{$set['commission2']}"  />
+                        <div class="input-group-addon">%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                <div class="col-sm-9 col-xs-12">
+                    <div class="input-group">
+                        <div class="input-group-addon">三级分销</div>
+                        <input type="text" name="setdata[commission3]" class="form-control" value="{$set['commission3']}"  />
+                        <div class="input-group-addon">%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='panel-heading'>
+            分销设置
+        </div>
+        <div class='panel-body'>
+           <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">成为下线条件</label>
+                <div class="col-sm-9 col-xs-12">
+                    <label class="radio-inline"><input type="radio"  name="setdata[become_child]" value="0" {if $set['become_child'] ==0} checked="checked"{/if} /> 首次点击分享连接</label>
+                    <label class="radio-inline"><input type="radio"  name="setdata[become_child]" value="1" {if $set['become_child'] ==1} checked="checked"{/if} /> 首次下单</label>
+                    <label class="radio-inline"><input type="radio"  name="setdata[become_child]" value="2" {if $set['become_child'] ==2} checked="checked"{/if} /> 首次付款</label>
+                    <span class='help-block'>首次点击分享连接： 可以自由设置分销商条件</span>
+                    <span class='help-block'>首次下单/首次付款： 无条件不可用</span>
+                </div>
+               </div>
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">成为分销商条件</label>
+                <div class="col-sm-9 col-xs-12">
+                    <label class="radio-inline"><input type="radio"  name="setdata[become]" value="0" {if $set['become'] ==0} checked="checked"{/if} /> 无条件</label>
+                </div>
+            </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                    <div class="col-sm-6">
+                         <div class='input-group'>
+                            <div class='input-group-addon'><label class="radio-inline" style='margin-top:-3px;'><input type="radio"  name="setdata[become]" value="2" {if $set['become'] == 2} checked="checked"{/if} /> 消费达到</label></div>
+                            <input type='text' class='form-control' name='setdata[become_ordercount]' value="{$set['become_ordercount']}" />
+                            <div class='input-group-addon'>次</div>
+                        </div>
+                    </div>
+                </div>
+      
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                    <div class="col-sm-6">
+                          <div class='input-group'>
+                            <div class='input-group-addon'><label class="radio-inline" style='margin-top:-3px;'><input type="radio"  name="setdata[become]" value="3" {if $set['become'] == 3} checked="checked"{/if} /> 消费达到</label></div>
+                            <input type='text' class='form-control' name='setdata[become_moneycount]' value="{$set['become_moneycount']}" />
+                            <div class='input-group-addon'>元</div>
+                        </div>
+                    </div>
+                </div>
+      <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                <div class="col-sm-9 col-xs-12">
+                    <label class="radio-inline"><input type="radio"  name="setdata[become_order]" value="0" {if $set['become_order'] ==0} checked="checked"{/if} /> 付款后</label>
+                    <label class="radio-inline"><input type="radio"  name="setdata[become_order]" value="1" {if $set['become_order'] ==1} checked="checked"{/if} /> 完成后</label>
+                    <span class="help-block">分销商提交订单统计的条件</span>
+                </div>
+           </div>
+           <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">分销商必须完善资料</label>
+                <div class="col-sm-9 col-xs-12">
+                    <label class="radio-inline"><input type="radio"  name="setdata[become_reg]" value="0" {if $set['become_reg'] ==0} checked="checked"{/if} /> 需要</label>
+                    <label class="radio-inline"><input type="radio"  name="setdata[become_reg]" value="1" {if $set['become_reg'] ==1} checked="checked"{/if} /> 不需要</label>
+                    <span class="help-block">分销商在分销或提现时是否必须完善资料</span>
+                </div>
+           </div>
+           <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">成为分销商是否需要审核</label>
+                <div class="col-sm-9 col-xs-12">
+                    <label class="radio-inline"><input type="radio"  name="setdata[become_check]" value="0" {if $set['become_check'] ==0} checked="checked"{/if} /> 需要</label>
+                    <label class="radio-inline"><input type="radio"  name="setdata[become_check]" value="1" {if $set['become_check'] ==1} checked="checked"{/if} /> 不需要</label>
+                    <span class="help-block">以上条件达到后，是否需要审核才能成为真正的分销商</span>
+                </div>
+           </div>
+            
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">提现额度</label>
+                <div class="col-sm-9 col-xs-12">
+                    <input type="text" name="setdata[withdraw]" class="form-control" value="{$set['withdraw']}"  />
+                    <span class="help-block">当前代理的佣金达到此额度时才能提现</span>
+                </div>
+            </div>
+               <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">结算天数</label>
+                <div class="col-sm-9 col-xs-12">
+                    <input type="text" name="setdata[settledays]" class="form-control" value="{$set['settledays']}"  />
+                    <span class="help-block">当订单完成后的n天后，佣金才能申请提现</span>
+                </div>
+            </div>
+           <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">分销等级说明连接</label>
+                <div class="col-sm-9 col-xs-12">
+                    <input type="text" name="setdata[levelurl]" class="form-control" value="{$set['levelurl']}"  />
+                    <span class="help-block">分销等级说明连接</span>
+                </div>
+            </div>
+             <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">分销商自选商品</label>
+                <div class="col-sm-9 col-xs-12">
+                    <label class="radio-inline"><input type="radio"  name="setdata[select_goods]" value="0" {if $set['select_goods'] ==0} checked="checked"{/if} /> 关闭</label>
+                    <label class="radio-inline"><input type="radio"  name="setdata[select_goods]" value="1" {if $set['select_goods'] ==1} checked="checked"{/if} /> 开启</label>
+                    <span class="help-block">是否允许分销商自己的小店选择自己推广的产品,如果开启自选后，要单独禁用某个分销商的自选权限，请到分销商管理中设置</span>
+                </div> 
+           </div>
+            
+        </div>
+        <div class='panel-heading'>
+            样式设置
+        </div>
+        <div class='panel-body'>
+             <div class="form-group">
+        <label class="col-xs-12 col-sm-3 col-md-2 control-label">模板选择</label>
+        <div class="col-sm-9 col-xs-12">
+            <select class='form-control' name='setdata[style]'>
+                {loop $styles  $style}
+                <option value='{$style}' {if $style==$set['style']}selected{/if}>{$style}</option>
+                {/loop}
+            </select>
+        </div>
+    </div>
+     <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">默认级别名称</label>
+                <div class="col-sm-9 col-xs-12">
+                    <input type="text" name="setdata[levelname]" class="form-control" value="{php echo empty($set['levelname'])?'普通等级':$set['levelname']}"  />
+                    <span class="help-block">分销商默认等级名称，不填写默认“普通等级”</span>
+                </div>
+            </div>
+              <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">按钮文字</label>
+                <div class="col-sm-9 col-xs-12">
+                    <input type="text" name="setdata[buttontext]" class="form-control" value="{php echo empty($set['buttontext'])?'我要分销':$set['buttontext']}"  />
+                    <span class="help-block">商品详情页面“我要分销”按钮文字,建议使用4个汉字</span>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="col-xs-12 col-sm-3 col-md-2 control-label">注册面头部图片</label>
+                <div class="col-sm-9 col-xs-12">
+                    {php echo tpl_form_field_image('setdata[regbg]',$set['regbg'],'../addons/ewei_shop/plugin/commission/template/mobile/default/static/images/bg.png')}
+                </div>
+            </div>
+            
+      
+               <div class="form-group">
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+            <div class="col-sm-9">
+                <input type="submit" name="submit" value="提交" class="btn btn-primary col-lg-1" onclick='return formcheck()' />
+                <input type="hidden" name="token" value="{$_W['token']}" />
+            </div>
+        </div>
+        </div>
+    </div>
+</form>
+<script language='javascript'>
+    function formcheck(){
+        var become_child =$(":radio[name='setdata[become_child]']:checked").val();
+        if( become_child=='1'  || become_child=='2' ){
+            if( $(":radio[name='setdata[become]']:checked").val() =='0'){
+              alert('成为下线条件选择了首次下单/首次付款，成为分销商条件不能选择无条件!')   ;
+              return false;
+            }
+        }
+        return true;
+    }
+    </script>
+{template 'common/footer'}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-cn" manifest="cache.appcache">
+<head>
+	<meta charset="utf-8">
+	<title>{$adv['name']}</title>
+	<meta name="description" content="">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="telephone=no" name="format-detection">
+	<meta name="viewport">
+	<link rel="stylesheet" href="../addons/choose_bride/template/css/theme_51.css" type="text/css">
+	<link rel="stylesheet" href="../addons/choose_bride/template/css/style.css" type="text/css">
+	<link rel="stylesheet" href="../addons/choose_bride/template/css/theme_color_lm.css" type="text/css">
+	<link href="../addons/choose_bride/template/css/slider.css" rel="stylesheet">
+	<link href="../addons/choose_bride/template/css/slider.default.css" rel="stylesheet">
+	<script src="../addons/choose_bride/template/js/jquery.js"></script>
+	<script src="../addons/choose_bride/template/js/main.js"></script>
+	<script src="../addons/choose_bride/template/js/app.v2.js"></script>
+	<script>
+		adaptUILayout.adapt(320)
+	</script> 
+</head>
+<body>
+	<article>
+		<div id="slider">
+			{loop $thumbs $thumb}
+				<figure class="s1">
+					<img src="{php echo tomedia($thumb['thumb']);}" alt="" style="width: 100%">
+				</figure>
+			{/loop}		
+		</div>
+		<section class="n1">
+			<div class="jiage">
+				<span><img src="/views/default/img/lema/rmb.png" class="i" width="13">{$adv['price']}</span>{$adv['name']}
+			</div>
+			<div class="jianjie" style="padding-top:0">
+				<p><span style="white-space: nowrap;">{$adv['detail']}</span></p></p>
+				<div class="line-dashed"></div>
+				<h2 class="h2" style="font-size:16px;font-weight:100">微信专享</h2>
+				<table style="font-size:14px;">
+					<tr class="yuyue">
+						<td><img src="../addons/choose_bride/template/image/c-1.png" width="14" class="i"></td>
+						<td></td>
+						<td><a href="/nblomo/maa/index/470.html">预约</a></td>
+					</tr>
+					<!-- 预订价或全款 -->
+					<tr class="xiadan">
+						<td><img src="/views/default/img/c-2.png" width="14" class="i"></td>
+						<td>订单即送一辈子水晶杯</td>
+						<td><a href="/nblomo/order.html?id=470&priceType=reserve_price">预付</a></td>
+					</tr>
+					<!-- 更多预订价 -->
+				</table>
+				<!-- <div class="line-dashed"></div> -->
+				<div class="caozuo" style="margin-top: 10px;">
+					<a href="javascript:void(0)" onclick="favorite('470', 0, 'nblomo')"><img src="../addons/choose_bride/template/image/fav-btn.png" width="11" class="i">收藏</a>
+					<a href="" class="share"><img src="../addons/choose_bride/template/image/share-btn.png" width="14" class="i">分享</a>
+				</div>
+			</div>
+			<h2 class="h2"><img src="../addons/choose_bride/template/image/h-i-1.png" width="10">套系详情</h2>
+			<div class="xiangxi">
+				<blockquote>
+					<p><p>{$adv['taocan']}</p></p>
+				</blockquote>
+			</div>
+			<h2 class="h2"><img src="../addons/choose_bride/template/image/h-i-1.png" width="10">{$adv['name']}</h2>
+			<div style="padding:30px 0 0 0;text-align:center">
+				<a href="{php echo $this->createMobileUrl('adv',array('id'=>$adv['id']));}">
+					<img src="{$_W['attachurl']}{$adv['thumb']}" width="284" height="100">
+				</a>
+			</div>
+	</article>
+	<div id="mcover"><img src="../addons/choose_bride/template/image/xn.jpg"></div>
+	<script src="../addons/choose_bride/template/js/zepto.min.js"></script>
+	<script src="../addons/choose_bride/template/js/touch.js"></script>
+	<script src="../addons/choose_bride/template/js/matchMedia.js"></script>
+	<script src="../addons/choose_bride/template/js/event.ortchange.js"></script>
+	<script src="../addons/choose_bride/template/js/parseTpl.js"></script>
+	<script src="../addons/choose_bride/template/js/gmu.js"></script>
+	<script src="../addons/choose_bride/template/js/event.js"></script>
+	<script src="../addons/choose_bride/template/js/widget.js"></script>
+	<script src="../addons/choose_bride/template/js/slider.js"></script>
+	<script src="../addons/choose_bride/template/js/dots.js"></script>
+	<script src="../addons/choose_bride/template/js/$touch.js"></script>
+	<script src="../addons/choose_bride/template/js/$autoplay.js"></script>
+	<script>
+		Zepto('#slider').slider({loop:true})
+	</script>
+</body>
+</html>
