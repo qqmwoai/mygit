@@ -27,7 +27,7 @@ class Feng_fightgroupsModuleSite extends WeModuleSite {
 		}
 	
 	}
-	public function myconstructxxxx(){
+	public function tttt(){
 		global $_GPC, $_W;
 		$content = " and uniacid='{$_W['uniacid']}' and status in(0,1,2,6)";
 		$orders = pdo_fetchall("select orderno,status,id,ptime from" . tablename('tg_order') . "where checkpay = 0  $content");
